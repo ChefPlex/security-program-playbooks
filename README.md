@@ -30,11 +30,9 @@ Security programs are not just technical programs with a security label on them.
 
 ### Reference Material
 
-| Document | What It Will Be |
-|----------|----------------|
-| Security Program Glossary | Plain-English definitions of terms a security TPM needs to know - PKI, TLS, HSM, zero trust, CVE, CVSS, MTTR, and the rest. Written for TPMs, not security engineers. |
-| Compliance Framework Reference | One-page summaries of SOX, PCI-DSS, HIPAA, FedRAMP, and SOC 2 - what each framework requires, which industries it applies to, and what evidence it typically expects. |
-| Security Vendor Management Guide | How to evaluate, onboard, and manage security vendors - MSAs, SOWs, security reviews, and what to track throughout the relationship. |
+| Document | What It Is |
+|----------|-----------|
+| [Compliance Framework Reference](compliance-framework-reference.md) | Plain-English summaries of SOX, PCI-DSS, HIPAA, FedRAMP, SOC 2, GDPR, and NIST CSF - what each framework requires, who it applies to, and what it means for a TPM running a program in that environment. |
 
 ---
 
