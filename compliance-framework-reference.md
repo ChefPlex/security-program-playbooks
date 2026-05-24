@@ -4,6 +4,8 @@ A quick reference for the compliance frameworks that come up most often in enter
 
 This is not legal advice and it is not a substitute for your GRC team. When compliance requirements affect your program, engage GRC early. This reference helps you know what questions to ask and understand the answers you get.
 
+*Last reviewed: May 2026. Verify current requirements with your GRC team before acting on any specific compliance claim.*
+
 ---
 
 ## How to Use This Reference
@@ -29,17 +31,9 @@ Each framework summary answers four questions:
 
 **What it means for TPMs:**
 
-SOX compliance touches any program that affects:
-- Financial systems or data (ERP, financial reporting, payment systems, billing)
-- Access to financial data (identity management, privileged access)
-- The change management process for financial systems
-- Audit logging for financial system activity
+SOX compliance touches any program that affects financial systems or data (ERP, financial reporting, payment systems, billing), access to financial data (identity management, privileged access), the change management process for financial systems, or audit logging for financial system activity.
 
-If your program touches any of these areas, engage GRC at intake. SOX controls need to be designed in from the start. They include:
-- Segregation of duties: no single person should be able to initiate and approve a financial transaction
-- Access reviews: periodic review of who has access to financial systems
-- Change control: financial system changes require documented approval before deployment
-- Audit logs: financial system activity must be logged and retained
+If your program touches any of these areas, engage GRC at intake. SOX controls need to be designed in from the start. They include segregation of duties, access reviews, change control, and audit log retention.
 
 The cost of a SOX finding at audit time is high. The cost of designing for SOX from the start is much lower.
 
@@ -47,22 +41,17 @@ The cost of a SOX finding at audit time is high. The cost of designing for SOX f
 
 ## PCI-DSS - Payment Card Industry Data Security Standard
 
-**What it is:** A private industry standard developed by the major card brands (Visa, Mastercard, Amex, Discover) and administered by the PCI Security Standards Council. Currently at version 4.0.
+**What it is:** A private industry standard developed by the major card brands (Visa, Mastercard, Amex, Discover) and administered by the PCI Security Standards Council.
 
-**Who it applies to:** Any organization that processes, stores, or transmits cardholder data - the card number (PAN), expiration date, cardholder name, and service code. Scope is determined by the cardholder data environment (CDE), which includes all systems that touch or could affect the security of cardholder data.
+**Current version:** PCI DSS v4.0.1, the only active version supported by PCI SSC as of January 1, 2025. PCI DSS v4.0 was retired on December 31, 2024. The 51 future-dated requirements introduced in v4.0 became mandatory on March 31, 2025.
+
+*Source: PCI Security Standards Council. Last verified: May 2026.*
+
+**Who it applies to:** Any organization that processes, stores, or transmits cardholder data - the card number (PAN), expiration date, cardholder name, and service code. Scope is determined by the cardholder data environment (CDE).
 
 **What it requires at a high level:**
 
-PCI-DSS has 12 requirements organized into six control objectives:
-
-| Objective | Requirements |
-|-----------|-------------|
-| Build and maintain a secure network | Firewalls, no vendor defaults |
-| Protect cardholder data | Encryption at rest and in transit |
-| Maintain a vulnerability management program | Antivirus, secure systems |
-| Implement strong access controls | Need-to-know, unique IDs, physical access |
-| Regularly monitor and test networks | Logging, monitoring, penetration testing |
-| Maintain an information security policy | Policy, risk assessment, awareness |
+PCI-DSS has 12 requirements organized into six control objectives: build and maintain a secure network, protect cardholder data, maintain a vulnerability management program, implement strong access controls, regularly monitor and test networks, and maintain an information security policy.
 
 **Key technical requirements for TPMs to know:**
 - TLS 1.2 minimum for all cardholder data transmission. TLS 1.3 preferred.
@@ -70,7 +59,7 @@ PCI-DSS has 12 requirements organized into six control objectives:
 - Annual penetration testing for internet-facing systems in the CDE
 - Quarterly vulnerability scans
 - Log retention: 12 months, 3 months immediately available
-- Annual compliance validation: SAQ (Self-Assessment Questionnaire) for smaller merchants, QSA (Qualified Security Assessor) audit for larger ones
+- Annual compliance validation: SAQ for smaller merchants, QSA audit for larger ones
 
 **What it means for TPMs:**
 
@@ -88,10 +77,7 @@ Annual validation cycles mean timing matters. Programs that need to deliver chan
 
 **What it requires at a high level:**
 
-The HIPAA Security Rule requires covered entities and business associates to implement:
-- Administrative safeguards: policies, procedures, workforce training, risk analysis
-- Physical safeguards: facility access controls, workstation security
-- Technical safeguards: access controls, audit controls, integrity controls, transmission security
+The HIPAA Security Rule requires administrative safeguards (policies, procedures, workforce training, risk analysis), physical safeguards (facility access controls, workstation security), and technical safeguards (access controls, audit controls, integrity controls, transmission security).
 
 **Key technical requirements:**
 - Encryption of ePHI in transit is required (addressable, but effectively required in practice)
@@ -99,15 +85,12 @@ The HIPAA Security Rule requires covered entities and business associates to imp
 - Unique user identification for all users with system access
 - Automatic logoff for workstations
 - Audit logs of system activity involving ePHI
-- Integrity controls to verify ePHI has not been improperly altered
 
 **What it means for TPMs:**
 
-HIPAA does not specify exact technical standards the way PCI does - it uses "required" and "addressable" implementation specifications. Addressable does not mean optional; it means you must implement it or document a risk-based decision for why you are not. In practice, most addressable specifications get implemented.
+HIPAA does not specify exact technical standards the way PCI does - it uses "required" and "addressable" implementation specifications. Addressable does not mean optional. In practice, most addressable specifications get implemented.
 
-Risk analysis is a core HIPAA requirement and a common audit finding. If your program affects ePHI systems, a risk analysis is required. Engage your Privacy and GRC teams early.
-
-Business Associate Agreements (BAAs) are required with any vendor that will handle ePHI. If your program involves a vendor touching patient data, Legal and procurement need to be involved before the vendor has access to anything.
+Risk analysis is a core HIPAA requirement and a common audit finding. Business Associate Agreements (BAAs) are required with any vendor that will handle ePHI. If your program involves a vendor touching patient data, Legal and procurement need to be involved before the vendor has access to anything.
 
 ---
 
@@ -115,64 +98,33 @@ Business Associate Agreements (BAAs) are required with any vendor that will hand
 
 **What it is:** A US government program that provides a standardized approach to security assessment, authorization, and continuous monitoring for cloud services used by federal agencies. Based on NIST SP 800-53 controls.
 
-**Who it applies to:** Cloud service providers (CSPs) seeking to provide cloud services to US federal agencies. If a company wants to sell cloud services to the US government, FedRAMP authorization is typically required.
+**Who it applies to:** Cloud service providers seeking to provide cloud services to US federal agencies.
 
 **What it requires at a high level:**
 
-FedRAMP has three impact levels based on the sensitivity of the data:
-- **Low:** Non-sensitive public data
-- **Moderate:** Controlled unclassified information (most government cloud workloads fall here)
-- **High:** Highly sensitive data (law enforcement, financial, health)
+Three impact levels: Low, Moderate (most government cloud workloads), and High (law enforcement, financial, health data). Each level requires a specific set of NIST 800-53 controls - Moderate requires approximately 325 controls, High approximately 421.
 
-Each level requires implementation of a specific set of NIST 800-53 controls. Moderate requires ~325 controls. High requires ~421 controls.
-
-Authorization paths:
-- **Agency ATO:** A specific federal agency authorizes the service for their use
-- **JAB P-ATO:** The Joint Authorization Board (DoD, DHS, GSA) authorizes the service for government-wide use
+Authorization paths: Agency ATO (a specific agency authorizes for their use) or JAB P-ATO (the Joint Authorization Board authorizes for government-wide use).
 
 **What it means for TPMs:**
 
-FedRAMP authorization is a program in itself. The timeline from engagement to authorization is typically 12-24 months. It involves:
-- Gap assessment against required controls
-- System Security Plan (SSP) documentation
-- Assessment by an accredited Third Party Assessment Organization (3PAO)
-- Authorization process with the authorizing agency or JAB
-- Continuous monitoring obligations post-authorization
-
-If your company is pursuing FedRAMP, or maintaining an existing authorization, the compliance work is significant and ongoing. Continuous monitoring is not optional - it includes monthly vulnerability scanning, annual penetration testing, and ongoing evidence collection.
+FedRAMP authorization is a program in itself. Timeline from engagement to authorization is typically 12-24 months. It involves gap assessment, System Security Plan documentation, assessment by an accredited Third Party Assessment Organization, and ongoing continuous monitoring obligations post-authorization. Monthly vulnerability scanning, annual penetration testing, and ongoing evidence collection are not optional.
 
 ---
 
 ## SOC 2 - Service Organization Control 2
 
-**What it is:** An auditing framework developed by the American Institute of CPAs (AICPA) for service organizations - cloud providers, SaaS companies, managed service providers. Covers five Trust Service Criteria: Security, Availability, Processing Integrity, Confidentiality, and Privacy. Security is always required; the others are optional.
+**What it is:** An auditing framework developed by the American Institute of CPAs (AICPA) for service organizations. Covers five Trust Service Criteria: Security (always required), Availability, Processing Integrity, Confidentiality, and Privacy.
 
-**Who it applies to:** Service organizations that store, process, or transmit customer data and need to demonstrate controls to enterprise customers. SOC 2 is not legally required in most cases, but enterprise customers increasingly require it as a vendor qualification.
-
-**The difference between Type I and Type II:**
-- **Type I:** Point-in-time assessment. Confirms that controls are designed appropriately as of a specific date.
-- **Type II:** Assessment over a period of time (typically 6-12 months). Confirms that controls are operating effectively throughout the period.
-
-Type II is what enterprise customers care about. Type I is a stepping stone.
-
-**What it requires at a high level:**
-
-The Security criterion (always required) covers:
-- Access controls and logical access restrictions
-- System operations monitoring
-- Change management
-- Risk mitigation
-- Vendor management
-- Incident response
+**Type I vs Type II:**
+- Type I: Point-in-time assessment. Controls are designed appropriately as of a specific date.
+- Type II: Assessment over a period (typically 6-12 months). Controls are operating effectively throughout. Type II is what enterprise customers care about.
 
 **What it means for TPMs:**
 
-SOC 2 Type II's most important operational implication: controls must be operating and documented throughout the entire audit period, not just at the audit date. This means:
-- Programs that build or change controls need to be operational before the audit window begins
-- Evidence collection is continuous - logs, access reviews, change tickets, incident records
-- A control that existed but was not documented does not satisfy the auditor
+SOC 2 Type II's most important operational implication: controls must be operating and documented throughout the entire audit period, not just at the audit date. Programs that build or change controls need to be operational before the audit window begins. Evidence collection is continuous - logs, access reviews, change tickets, incident records.
 
-If your program introduces new systems or processes that fall within the SOC 2 scope, engage GRC to understand how those systems will be incorporated into the controls framework and the evidence collection process.
+If your program introduces new systems that fall within SOC 2 scope, engage GRC to understand how those systems will be incorporated into the controls framework and the evidence collection process.
 
 ---
 
@@ -180,70 +132,48 @@ If your program introduces new systems or processes that fall within the SOC 2 s
 
 **What it is:** EU regulation governing the collection, processing, and storage of personal data of EU residents. Effective since May 2018.
 
-**Who it applies to:** Any organization that processes personal data of EU residents, regardless of where the organization is located. If a US company has EU customers or employees, GDPR applies.
+**Who it applies to:** Any organization that processes personal data of EU residents, regardless of where the organization is located.
 
 **What it requires at a high level:**
-- Lawful basis for processing personal data (consent, contract, legitimate interest, etc.)
-- Data minimization - collect only what is necessary
-- Purpose limitation - use data only for the purpose it was collected
-- Accuracy - keep personal data accurate and current
-- Storage limitation - keep data only as long as necessary
-- Security - appropriate technical and organizational measures
-- Data subject rights - right to access, erasure, portability, correction
-- Data Protection Impact Assessment (DPIA) for high-risk processing
-- Breach notification - 72 hours to the supervisory authority for qualifying breaches
+
+Lawful basis for processing, data minimization, purpose limitation, accuracy, storage limitation, appropriate security, data subject rights (access, erasure, portability, correction), Data Protection Impact Assessment for high-risk processing, and breach notification within 72 hours to the supervisory authority for qualifying breaches.
 
 **What it means for TPMs:**
 
-GDPR affects programs that:
-- Collect new categories of personal data
-- Change how existing personal data is processed
-- Involve new vendors processing personal data
-- Affect data retention or deletion processes
-- Build new AI or automated decision-making systems
+GDPR affects programs that collect new categories of personal data, change how existing personal data is processed, involve new vendors processing personal data, affect data retention or deletion processes, or build new AI or automated decision-making systems.
 
-The breach notification requirement is particularly relevant for incident response: 72 hours is not a lot of time. Knowing the notification threshold before an incident happens is essential.
-
-Data Protection Impact Assessments (DPIAs) are required for high-risk processing - new technologies, large-scale processing of sensitive data, systematic monitoring. If your program involves any of these, a DPIA may be required. Engage your Privacy team early.
+The 72-hour breach notification requirement is particularly relevant for incident response. Knowing the notification threshold before an incident happens is essential. DPIAs are required for high-risk processing - new technologies, large-scale processing of sensitive data, systematic monitoring. Engage your Privacy team early.
 
 ---
 
 ## NIST CSF - Cybersecurity Framework
 
-**What it is:** A voluntary framework developed by the National Institute of Standards and Technology (NIST) for improving cybersecurity risk management. Originally developed for critical infrastructure but widely adopted across industries. Version 2.0 released in 2024.
+**What it is:** A voluntary framework developed by the National Institute of Standards and Technology for improving cybersecurity risk management. Version 2.0 released in 2024.
 
-**Who it applies to:** Anyone who wants to use it. Widely adopted in US industries and referenced by regulators. Not legally required for most organizations, but increasingly expected.
+**Who it applies to:** Anyone who wants to use it. Widely adopted across US industries and referenced by regulators. Not legally required for most organizations, but increasingly expected.
 
 **What it covers:**
 
-The CSF is organized around six functions (version 2.0):
-- **Govern:** Establish and monitor cybersecurity risk strategy
-- **Identify:** Understand assets, risks, and vulnerabilities
-- **Protect:** Implement safeguards
-- **Detect:** Monitor for events
-- **Respond:** Take action on detected incidents
-- **Recover:** Restore capabilities after incidents
+Six functions (version 2.0): Govern (establish and monitor cybersecurity risk strategy), Identify (understand assets, risks, vulnerabilities), Protect (implement safeguards), Detect (monitor for events), Respond (take action on detected incidents), and Recover (restore capabilities after incidents).
 
 **What it means for TPMs:**
 
-The NIST CSF is useful as a maturity model and a common language for security conversations. When an executive asks "how mature is our security posture," the CSF gives you a framework for the answer.
-
-More practically: NIST SP 800-53 (the control catalog that underlies FedRAMP) and NIST SP 800-171 (for controlled unclassified information) reference the same NIST taxonomy. Fluency with the CSF makes compliance conversations easier across frameworks.
+The NIST CSF is useful as a maturity model and common language for security conversations. NIST SP 800-53 (which underlies FedRAMP) and NIST SP 800-171 (for controlled unclassified information) reference the same NIST taxonomy. Fluency with the CSF makes compliance conversations easier across frameworks.
 
 ---
 
 ## Framework Comparison at a Glance
 
-| Framework | Who Must Comply | External Audit Required? | Timeline to Compliance | Key TPM Trigger |
-|-----------|----------------|------------------------|----------------------|----------------|
-| SOX | US public companies | Yes (annual) | Ongoing | Any program touching financial systems |
-| PCI-DSS | Card data handlers | Yes (annual for large orgs) | 6-12 months | Any program touching payment systems |
-| HIPAA | Healthcare entities and BAs | No (but OCR audits exist) | Ongoing | Any program touching ePHI |
-| FedRAMP | Cloud providers to US gov | Yes (3PAO) | 12-24 months | Selling cloud services to federal agencies |
-| SOC 2 | Service organizations | Yes (CPA firm) | 6-18 months | Enterprise customer requirements |
-| GDPR | EU data processors globally | No (but DPA investigations) | Ongoing | Any program touching EU personal data |
-| NIST CSF | Voluntary | No | N/A | Maturity assessments and risk conversations |
+| Framework | Who Must Comply | External Audit Required? | Key TPM Trigger |
+|-----------|----------------|------------------------|----------------|
+| SOX | US public companies | Yes (annual) | Any program touching financial systems |
+| PCI-DSS v4.0.1 | Card data handlers | Yes (annual for large orgs) | Any program touching payment systems |
+| HIPAA | Healthcare entities and BAs | No (but OCR audits exist) | Any program touching ePHI |
+| FedRAMP | Cloud providers to US gov | Yes (3PAO) | Selling cloud services to federal agencies |
+| SOC 2 | Service organizations | Yes (CPA firm) | Enterprise customer requirements |
+| GDPR | EU data processors globally | No (but DPA investigations) | Any program touching EU personal data |
+| NIST CSF | Voluntary | No | Maturity assessments and risk conversations |
 
 ---
 
-*Version 1.0. Frameworks evolve - verify current requirements with your GRC team. Last reviewed May 2026.*
+*Version 1.1. Last reviewed May 2026. Frameworks evolve - verify current requirements with your GRC team before relying on any specific compliance claim.*
