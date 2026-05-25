@@ -1,23 +1,54 @@
 # security-program-playbooks
 
-Frameworks, guides, and reference material for Technical Program Managers running security programs. Built from experience driving encryption, PKI, vulnerability remediation, and compliance programs at enterprise scale.
+Guides, templates, and reference material for Technical Program Managers running security programs.
 
-Security programs are not just technical programs with a security label on them. The compliance requirements are real, the blast radius when something goes wrong is larger, and the organizational surface area is usually bigger than anyone expects. These playbooks are designed to help TPMs navigate that complexity without having to figure it all out from scratch.
+This repo focuses on the TPM layer of security work: intake, compliance triage, evidence planning, dependency mapping, stakeholder alignment, reporting, and cross-team execution.
 
----
+It is not a security engineering handbook. It is not a GRC policy library. It is not a complete incident response manual.
+
+The goal is to help TPMs structure the messy middle of security programs: who owns the work, what evidence is needed, what risk is real, what decision is blocked, and what needs to happen next.
+
+Built from experience driving encryption, PKI, vulnerability remediation, and compliance programs at enterprise scale.
 
 ## What Is Here
 
 ### Program Execution
 
-| Playbook | What It Is |
-|----------|-----------|
-| [Security Program Intake and Kickoff Guide](security-program-intake-kickoff.md) | How to stand up a security program correctly - from intake through first steering committee. Covers compliance triage, dependency mapping, role definition, status reporting, and vulnerability remediation programs specifically. |
-| [Security TPM Role Guide](security-tpm-role-guide.md) | What the security TPM job actually requires, where it differs from general TPM work, and how to be effective in it. Useful for TPMs new to security programs and for engineering teams trying to understand what to expect from their TPM. |
+| Guide | What It Is |
+|---|---|
+| [Security Program Intake and Kickoff Guide](security-program-intake-kickoff.md) | A practical intake structure for standing up security programs. Covers problem definition, compliance triage, stakeholders, dependencies, roles, evidence needs, and operating rhythm. |
+| [Security TPM Role Guide](security-tpm-role-guide.md) | A guide to what security TPM work actually requires, where it differs from general TPM work, and how TPMs can work effectively with engineering, security, GRC, legal, and leadership teams. |
 
----
+### Reference Material
+
+| Document | What It Is |
+|---|---|
+| [Compliance Framework Reference](compliance-framework-reference.md) | Plain-English summaries of common compliance frameworks and what they usually mean for a TPM running security, infrastructure, or evidence-driven programs. |
+
+### Examples
+
+| Example | What It Shows |
+|---|---|
+| [Sample Security Intake](examples/sample-security-intake.md) | A concrete example of how to frame a security program intake with scope, stakeholders, evidence needs, and execution risks. |
+
+## Current Scope
+
+This repo is currently strongest for:
+
+- Starting a new security program
+- Clarifying the TPM role in security work
+- Translating compliance pressure into executable program structure
+- Identifying evidence needs before an audit or review becomes urgent
+- Mapping stakeholders, dependencies, risks, owners, and escalation paths
+
+This repo is not yet a full runbook library.
+
+The next useful additions should be concrete operating examples and runbooks, not more high-level framing.
 
 ## What Is Coming
+
+- Vulnerability remediation runbook
+- Compliance evidence collection playbook
 
 ### Program Execution
 
