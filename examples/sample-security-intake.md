@@ -19,11 +19,13 @@ No named regulation or control objective. No systems in scope. No data classific
 | Field | Entry |
 |-------|-------|
 | Program | Customer Data Encryption Coverage |
-| Driver | Compliance commitment and internal risk reduction |
+| Driver | Compliance commitment requiring audit-ready encryption evidence for customer PII and billing metadata, plus internal risk reduction |
 | Systems in Scope | Customer profile service, billing export pipeline, legacy reporting database |
 | Data in Scope | Customer PII and billing metadata |
-| Required Outcome | Confirm encryption at rest and in transit for in-scope systems, document gaps, and produce evidence package for audit review |
+| Required Outcome | Confirm encryption at rest and in transit for in-scope systems, document gaps, and produce an evidence package for audit review |
+| Control / Evidence Need | Show that customer PII and billing metadata are encrypted in approved systems, that exceptions are tracked with owners and expiration dates, and that evidence can be reviewed without engineering reconstructing the story by hand |
 | Primary Engineering Owner | Platform Security |
+| Evidence Owner | GRC / Compliance |
 | TPM Owner | Eric |
 | Required Decision | Whether the legacy reporting database is remediated, isolated, or formally exceptioned |
 | Target Date | 2026-08-15 |
