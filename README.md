@@ -17,6 +17,8 @@ This is for the part of security programs where the technical risk, compliance d
 | [Security Program Intake and Kickoff Guide](security-program-intake-kickoff.md) | How to stand up a security program correctly - from intake through first steering committee. Covers compliance triage, dependency mapping, role definition, status reporting, and vulnerability remediation programs specifically. |
 | [Security TPM Role Guide](security-tpm-role-guide.md) | What the security TPM job actually requires, where it differs from general TPM work, and how to be effective in it. Useful for TPMs new to security programs and for engineering teams trying to understand what to expect from their TPM. |
 | [Security Incident Response Template](security-incident-response-template.md) | A six-phase incident response framework: identification, notification, investigation, containment, remediation and communication, and follow-up. Includes severity levels, data classification taxonomy, evidence handling, and notification decision tree. Sanitized from real incident response work. Adapt the role names and severity tiers to your organization. |
+| [Vulnerability Remediation Runbook](vulnerability-remediation-runbook.md) | How to run a vulnerability remediation program end to end: severity framework and MTTR targets, ownership at the service level, tracking coverage instead of raw completion percentage, handling new findings mid-program, and reporting to security teams and auditors. |
+| [Compliance Program Playbook](compliance-program-playbook.md) | How to run a compliance program - SOX, PCI, HIPAA, FedRAMP, SOC 2 - from initial assessment through audit close. Control mapping, evidence collection, working with GRC, pre-audit readiness, and handling audit findings. |
 
 ### Reference Material
 
@@ -35,7 +37,6 @@ This is for the part of security programs where the technical risk, compliance d
 
 ## What Is Coming
 
-- Vulnerability remediation program runbook
 - Encryption program framework
 
 ---
@@ -48,7 +49,9 @@ This is for the part of security programs where the technical risk, compliance d
 
 **Running an incident:** The Incident Response Template gives you the sequence and the key questions for each phase. The sample escalation shows what good communication looks like under pressure. Read both before you need them, not during.
 
-**Running a vulnerability remediation effort:** The Intake Guide has a dedicated section on vulnerability remediation programs. The full Vulnerability Remediation Runbook is coming.
+**Running a vulnerability remediation effort:** Start with the Vulnerability Remediation Runbook - severity framework, ownership, and tracking are covered end to end. The Intake Guide's Step 6 is a shorter summary if you just need the fundamentals.
+
+**Running a compliance program:** Start with the Compliance Program Playbook for how to run the program itself - assessment, control mapping, evidence, audit. Use the Compliance Framework Reference alongside it for what the specific framework actually requires.
 
 ---
 
