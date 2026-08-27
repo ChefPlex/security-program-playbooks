@@ -18,6 +18,7 @@ This is for the part of security programs where the technical risk, compliance d
 | [Security TPM Role Guide](security-tpm-role-guide.md) | What the security TPM job actually requires, where it differs from general TPM work, and how to be effective in it. Useful for TPMs new to security programs and for engineering teams trying to understand what to expect from their TPM. |
 | [Security Incident Response Template](security-incident-response-template.md) | A six-phase incident response framework: identification, notification, investigation, containment, remediation and communication, and follow-up. Includes severity levels, data classification taxonomy, evidence handling, and notification decision tree. Sanitized from real incident response work. Adapt the role names and severity tiers to your organization. |
 | [Vulnerability Remediation Runbook](vulnerability-remediation-runbook.md) | How to run a vulnerability remediation program end to end: severity framework and MTTR targets, ownership at the service level, tracking coverage instead of raw completion percentage, handling new findings mid-program, and reporting to security teams and auditors. |
+| [Encryption Program Playbook](encryption-program-playbook.md) | How to run encryption modernization across a large distributed estate, in ten steps. Sizing the problem before remediating anything, why finding owners stalls programs more than finding services, coverage work versus currency work, the concentration trap that makes a schedule serial when the plan looks parallel, the standing escalation deal, certificate chain desync, and how to close honestly at diminishing returns rather than at 100 percent. Companion piece: [Lessons from Leading Large-Scale Encryption Programs](https://github.com/ChefPlex/learning-notes/blob/main/lessons-from-large-scale-encryption-programs.md) in learning-notes. |
 | [Compliance Program Playbook](compliance-program-playbook.md) | How to run a compliance program - SOX, PCI, HIPAA, FedRAMP, SOC 2 - from initial assessment through audit close. Control mapping, evidence collection, working with GRC, pre-audit readiness, and handling audit findings. |
 
 ### AI and Retrieval Systems
@@ -44,7 +45,11 @@ This is for the part of security programs where the technical risk, compliance d
 
 ## What Is Coming
 
-- Encryption program framework
+Nothing queued. The encryption program framework that sat here for a while is now the
+[Encryption Program Playbook](encryption-program-playbook.md) above.
+
+Things get added when they have been used on real work often enough to be worth writing down, not
+because a list said they were coming.
 
 ---
 
