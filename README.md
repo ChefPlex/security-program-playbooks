@@ -20,6 +20,12 @@ This is for the part of security programs where the technical risk, compliance d
 | [Vulnerability Remediation Runbook](vulnerability-remediation-runbook.md) | How to run a vulnerability remediation program end to end: severity framework and MTTR targets, ownership at the service level, tracking coverage instead of raw completion percentage, handling new findings mid-program, and reporting to security teams and auditors. |
 | [Compliance Program Playbook](compliance-program-playbook.md) | How to run a compliance program - SOX, PCI, HIPAA, FedRAMP, SOC 2 - from initial assessment through audit close. Control mapping, evidence collection, working with GRC, pre-audit readiness, and handling audit findings. |
 
+### AI and Retrieval Systems
+
+| Playbook | What It Is |
+|----------|-----------|
+| [Enterprise RAG Security](enterprise-rag-security/) | The security workstream for a system that answers questions using company data on behalf of a specific person. Trust boundary, permission-aware retrieval, the control set, the four failure modes that actually happen, and a prompt injection threat model with a test corpus you can run in CI. The program these sit inside is in [tpm-templates](https://github.com/ChefPlex/tpm-templates/tree/main/enterprise-rag-program). |
+
 ### Reference Material
 
 | Document | What It Is |
@@ -52,6 +58,8 @@ This is for the part of security programs where the technical risk, compliance d
 **Running a vulnerability remediation effort:** Start with the Vulnerability Remediation Runbook - severity framework, ownership, and tracking are covered end to end. The Intake Guide's Step 6 is a shorter summary if you just need the fundamentals.
 
 **Running a compliance program:** Start with the Compliance Program Playbook for how to run the program itself - assessment, control mapping, evidence, audit. Use the Compliance Framework Reference alongside it for what the specific framework actually requires.
+
+**Securing a RAG or AI retrieval system:** Start with the RAG Security Playbook for the trust boundary and control set, then the Prompt Injection Threat Model. Read the injection document before the architecture is settled, because the one control that does the real work is filtering at retrieval, and that is expensive to retrofit.
 
 ---
 
