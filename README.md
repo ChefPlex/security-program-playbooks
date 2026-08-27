@@ -31,6 +31,7 @@ This is for the part of security programs where the technical risk, compliance d
 | Document | What It Is |
 |----------|-----------|
 | [Compliance Framework Reference](compliance-framework-reference.md) | Plain-English summaries of SOX, PCI-DSS v4.0.1, HIPAA, FedRAMP, SOC 2, GDPR, and NIST CSF - what each framework requires, who it applies to, and what it means for a TPM running a program in that environment. Includes current version tracking and review dates. |
+| [AI Tooling in Regulated Environments](ai-tooling-regulated-data.md) | Gating AI and DevOps tool adoption behind BAAs and a data classification line, and what changes from the standard adoption sequence when PHI is in scope. Covers why compliance automation moves from last to first, the connector review that workflow automation needs, and the tier ceiling on any activity whose input might contain regulated data. Overlay on the [AI Tool Decision Matrix](https://github.com/ChefPlex/ai-automations/blob/main/frameworks/ai-tool-decision-matrix.md) in ai-automations. |
 
 ### Examples
 
