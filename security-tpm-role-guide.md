@@ -1,8 +1,8 @@
 # The Security TPM Role: What It Actually Is
 
-Security TPM is a specific discipline. It shares most of its DNA with technical program management broadly, but the domain adds complexity that generic TPM experience does not fully prepare you for.
+Security TPM is a specific discipline. It shares most of its DNA with technical program management broadly, but the domain adds complexity that generic TPM experience doesn't fully prepare you for.
 
-This document describes the role as it is actually practiced at scale - what the job requires, where it differs from general TPM work, and how to be effective in it.
+This document describes the role as it's actually practiced at scale - what the job requires, where it differs from general TPM work, and how to be effective in it.
 
 ---
 
@@ -10,7 +10,7 @@ This document describes the role as it is actually practiced at scale - what the
 
 The TPM does not own the security domain. The security architects, engineers, and GRC team own the domain knowledge. What the TPM owns is the program: its structure, delivery, risk management, dependencies, and communications.
 
-That sounds like a clean division. In practice it requires the TPM to be technical enough to understand what the engineering team is building and why, fluent enough in compliance to know when a regulatory constraint changes the plan, and organized enough to track all of it across teams that do not naturally talk to each other.
+That sounds like a clean division. In practice it requires the TPM to be technical enough to understand what the engineering team is building and why, fluent enough in compliance to know when a regulatory constraint changes the plan, and organized enough to track all of it across teams that don't naturally talk to each other.
 
 ### Core ownership areas
 
@@ -33,11 +33,11 @@ A TLS modernization program may touch 100 engineering teams. An encryption-at-re
 
 ## What a Security TPM Does Not Own
 
-**The security architecture.** That belongs to the security architects. The TPM understands it well enough to explain it, track it, and ask the right questions - but is not the decision-maker on technical design.
+**The security architecture.** That belongs to the security architects. The TPM understands it well enough to explain it, track it, and ask the right questions - but isn't the decision-maker on technical design.
 
 **The compliance determination.** GRC owns whether a program meets regulatory requirements. The TPM facilitates the process and tracks the outcome.
 
-**Engineering delivery.** Engineering managers and leads own their teams' work. The TPM tracks progress, surfaces blockers, and escalates when needed - but does not direct engineers.
+**Engineering delivery.** Engineering managers and leads own their teams' work. The TPM tracks progress, surfaces blockers, and escalates when needed - but doesn't direct engineers.
 
 **The security roadmap.** Product or program owners own the roadmap. The TPM executes against it.
 
@@ -49,19 +49,19 @@ The TPM is the connective tissue between all of these. That is the job.
 
 ### Compliance is a first-class deliverable
 
-In a product engineering program, compliance is often a checkbox at the end. In a security program, compliance is frequently the entire reason the program exists. SOX, PCI, HIPAA, FedRAMP, SOC 2 - these are not audit formalities. They are program requirements with specific control objectives, evidence collection obligations, and external deadlines.
+In a product engineering program, compliance is often a checkbox at the end. In a security program, compliance is frequently the entire reason the program exists. SOX, PCI, HIPAA, FedRAMP, SOC 2 - these aren't audit formalities. They're program requirements with specific control objectives, evidence collection obligations, and external deadlines.
 
 The security TPM needs to understand what each applicable framework requires, initiate the right reviews at the right time, and track evidence collection alongside engineering delivery. Missing an audit requirement at the end of a program that took a year to build is an expensive lesson.
 
 ### Risk has a different character
 
-Program risks in security work are not just delivery risks. They are security risks - vulnerabilities that remain open, attack surfaces that are exposed, controls that are missing. The RAID log in a security program needs to capture both kinds.
+Program risks in security work are not just delivery risks. They're security risks - vulnerabilities that remain open, attack surfaces that are exposed, controls that are missing. The RAID log in a security program needs to capture both kinds.
 
 A delivery risk is "the authentication service team is behind on their MFA implementation, which may push our compliance deadline." A security risk is "until that MFA implementation is complete, administrative accounts in that service have no second factor." Both need to be tracked. Both need owners. Both need to be reported - to different audiences.
 
 ### The "done" criteria is often externally defined
 
-In most programs, the team defines what done looks like. In security programs, done is often defined by a regulatory framework, an audit standard, or a security team requirement. The TPM does not negotiate the Definition of Done in the same way - instead, the job is to make sure the team understands the external requirement clearly and builds toward it specifically.
+In most programs, the team defines what done looks like. In security programs, done is often defined by a regulatory framework, an audit standard, or a security team requirement. The TPM doesn't negotiate the Definition of Done in the same way - instead, the job is to make sure the team understands the external requirement clearly and builds toward it specifically.
 
 ### Vendor relationships are more complex
 
@@ -69,7 +69,7 @@ Security programs frequently involve vendors - HSM providers, certificate author
 
 ### The blast radius is larger
 
-When a security program slips or delivers the wrong thing, the consequences are not just schedule or budget. They are unmitigated risk, compliance exposure, audit findings, and occasionally customer impact. That raises the stakes on everything - the quality of the planning, the honesty of the status reporting, and the speed of the escalations.
+When a security program slips or delivers the wrong thing, the consequences aren't just schedule or budget. They're unmitigated risk, compliance exposure, audit findings, and occasionally customer impact. That raises the stakes on everything - the quality of the planning, the honesty of the status reporting, and the speed of the escalations.
 
 ---
 
@@ -85,16 +85,16 @@ SOX, PCI-DSS, HIPAA, FedRAMP, SOC 2 - know what each framework requires at a hig
 Security executives are busy and risk-sensitive. They need the bottom line first - are we achieving the objective, what is the risk, what do they need to do. The ability to distill a complex security program into a clear, honest, three-paragraph executive update is more valuable in this role than almost any other skill.
 
 **Influence without authority**
-Security programs succeed by convincing engineering teams across the organization to do work that is not in their roadmap, on timelines that are not their preference, for compliance reasons they may not fully understand. The TPM has no direct authority over any of those teams. Relationships, clarity, and reputation for follow-through are the tools.
+Security programs succeed by convincing engineering teams across the organization to do work that's not in their roadmap, on timelines that aren't their preference, for compliance reasons they may not fully understand. The TPM has no direct authority over any of those teams. Relationships, clarity, and reputation for follow-through are the tools.
 
 **Holding the line on completion**
-Security programs have a specific failure mode: teams declare victory at 90% and move on. 90% encryption coverage is not the same as 100%. 90% of accounts with MFA is not the same as all accounts. The security TPM's job includes holding the standard on what done actually means - including the long tail, the legacy systems, and the edge cases that everyone would rather ignore.
+Security programs have a specific failure mode: teams declare victory at 90% and move on. 90% encryption coverage is not the same as 100%. 90% of accounts with MFA isn't the same as all accounts. The security TPM's job includes holding the standard on what done actually means - including the long tail, the legacy systems, and the edge cases that everyone would rather ignore.
 
 ---
 
 ## Working With Security Engineering Teams
 
-Security engineers are often skeptical of program management overhead - and sometimes for good reason. The way to build credibility with a security engineering team is the same as with any engineering team: understand their work, do not waste their time, follow through on what you say you will do, and surface blockers faster than they expected.
+Security engineers are often skeptical of program management overhead - and sometimes for good reason. The way to build credibility with a security engineering team is the same as with any engineering team: understand their work, don't waste their time, follow through on what you say you'll do, and surface blockers faster than they expected.
 
 A few things that work specifically with security engineers:
 
@@ -104,7 +104,7 @@ A few things that work specifically with security engineers:
 
 **Track the long tail.** Security engineers know that 95% done on a security program is often worse than 0% done - because it creates false confidence. Show that you understand this by tracking coverage metrics, not just task completion.
 
-**Escalate the right things.** When a team is blocked by a dependency outside their control, escalate it. When leadership makes a decision that changes the program, communicate it. When a risk materializes, flag it before the team has to tell you. That is what a good TPM does in any context - it matters more in security because the stakes are higher.
+**Escalate the right things.** When a team is blocked by a dependency outside their control, escalate it. When leadership makes a decision that changes the program, communicate it. When a risk materializes, flag it before the team has to tell you. That's what a good TPM does in any context - it matters more in security because the stakes are higher.
 
 ---
 

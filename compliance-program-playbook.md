@@ -1,6 +1,6 @@
 # Compliance Program Playbook
 
-Compliance programs - SOX, PCI-DSS, HIPAA, FedRAMP, SOC 2, and similar - have a structure that looks unfamiliar to TPMs coming from feature delivery work. The deliverable is not a shipped feature. It is a body of evidence that satisfies an external auditor that a set of controls operate as designed. This playbook covers how to run that kind of program from initial assessment through audit close.
+Compliance programs - SOX, PCI-DSS, HIPAA, FedRAMP, SOC 2, and similar - have a structure that looks unfamiliar to TPMs coming from feature delivery work. The deliverable is not a shipped feature. It's a body of evidence that satisfies an external auditor that a set of controls operate as designed. This playbook covers how to run that kind of program from initial assessment through audit close.
 
 For plain-English summaries of what each framework actually requires, see the [Compliance Framework Reference](compliance-framework-reference.md). This document covers how to run the program itself, not what any single framework says.
 
@@ -8,7 +8,7 @@ For plain-English summaries of what each framework actually requires, see the [C
 
 ## Step 1: Initial Assessment
 
-Before a compliance program has a charter, someone has to determine what it is actually on the hook for. That is usually a joint effort between the TPM and GRC (Governance, Risk, and Compliance), not something either owns alone.
+Before a compliance program has a charter, someone has to determine what it's actually on the hook for. That's usually a joint effort between the TPM and GRC (Governance, Risk, and Compliance), not something either owns alone.
 
 ### Questions to answer at assessment
 
@@ -44,9 +44,9 @@ Frameworks are expressed as control requirements, not engineering tasks. The cor
 ### Control mapping process
 
 1. **List every required control** from the framework, using GRC's interpretation as the source of truth.
-2. **Map each control to an existing capability, a gap, or a partial gap.** Be specific - "access control" as a category is not useful; "quarterly access reviews for production database access" is.
+2. **Map each control to an existing capability, a gap, or a partial gap.** Be specific - "access control" as a category isn't useful; "quarterly access reviews for production database access" is.
 3. **Assign an engineering or process owner per gap.** Same principle as vulnerability remediation - ownership at the level of a specific person, not a team name.
-4. **Identify controls that are process, not technical.** Some controls are satisfied by a documented procedure and evidence that it is followed, not by an engineering build. Do not assign these to engineering by default.
+4. **Identify controls that are process, not technical.** Some controls are satisfied by a documented procedure and evidence that it's followed, not by an engineering build. Do not assign these to engineering by default.
 
 ### Control tracking table
 
@@ -74,11 +74,11 @@ Varies by framework and control, but generally falls into a few categories:
 
 ### Evidence discipline
 
-Decide the evidence standard for each control before the audit window opens, not during it. Auditors reject evidence that is inconsistent, undated, or missing a clear chain from the control requirement to the artifact. Build evidence collection into the operational rhythm of the teams doing the work - quarterly access reviews should produce their own evidence automatically, not require a scramble two weeks before the audit.
+Decide the evidence standard for each control before the audit window opens, not during it. Auditors reject evidence that's inconsistent, undated, or missing a clear chain from the control requirement to the artifact. Build evidence collection into the operational rhythm of the teams doing the work - quarterly access reviews should produce their own evidence automatically, not require a scramble two weeks before the audit.
 
 ### Common evidence failure modes
 
-- Evidence exists but is not dated, so it cannot prove the control operated during the audit period
+- Evidence exists but isn't dated, so it can't prove the control operated during the audit period
 - Evidence shows the control was configured once but not that it was checked or maintained
 - Evidence is scattered across individual inboxes and chat threads instead of a central, auditable location
 
@@ -95,7 +95,7 @@ GRC and the TPM function are often confused for each other, which causes frictio
 
 **What GRC needs from the TPM:** a reliable view of where each control stands, early warning when a control owner is behind, and a single point of coordination instead of chasing a dozen engineering teams individually.
 
-**What the TPM needs from GRC:** authoritative interpretation of ambiguous control language, and a clear answer on what evidence will actually satisfy the auditor - the TPM should not be guessing at compliance interpretation.
+**What the TPM needs from GRC:** authoritative interpretation of ambiguous control language, and a clear answer on what evidence will actually satisfy the auditor - the TPM shouldn't be guessing at compliance interpretation.
 
 ---
 
@@ -103,7 +103,7 @@ GRC and the TPM function are often confused for each other, which causes frictio
 
 ### Readiness review, before the auditor shows up
 
-Run an internal readiness review at least one full cycle before the real audit, especially for a first-time framework. Treat it exactly like the real audit: pull evidence, walk through control by control, and find gaps while there is still time to close them.
+Run an internal readiness review at least one full cycle before the real audit, especially for a first-time framework. Treat it exactly like the real audit: pull evidence, walk through control by control, and find gaps while there's still time to close them.
 
 ### Readiness checklist
 
@@ -123,7 +123,7 @@ Run an internal readiness review at least one full cycle before the real audit, 
 
 **Track every request and every response.** A simple log - what was asked, who answered, what was provided, when - prevents the same request from being answered twice with different information.
 
-**Do not guess.** If a control owner does not know the answer to an auditor's question, get back to them with a confirmed answer rather than speculating in the room.
+**Don't guess.** If a control owner doesn't know the answer to an auditor's question, get back to them with a confirmed answer rather than speculating in the room.
 
 ---
 
@@ -141,11 +141,11 @@ Findings from the audit itself are handled differently depending on severity and
 
 ### Close-out
 
-Certification or audit sign-off is not the end of the program if the framework requires ongoing compliance (as most do). At close-out:
+Certification or audit sign-off isn't the end of the program if the framework requires ongoing compliance (as most do). At close-out:
 
 - Document what evidence collection needs to become steady-state operations rather than a program activity
 - Transfer control ownership from the program to whoever will maintain it long-term
-- Set the calendar for the next audit cycle now, not when it is six weeks away
+- Set the calendar for the next audit cycle now, not when it's six weeks away
 
 A compliance program that ends at certification and has no owner for the next cycle will be starting from scratch again next year.
 

@@ -18,7 +18,7 @@ A BAA (Business Associate Agreement) or equivalent data processing agreement mus
 the tool configured under it, before any regulated data flows. This is not a phase. It is a gate
 that sits in front of every phase.
 
-⚠️ **A free tier is not automatically a compliant tier.** Many vendors offer a BAA on enterprise
+⚠️ **A free tier isn't automatically a compliant tier.** Many vendors offer a BAA on enterprise
 plans and not on starter or consumer plans, and the product is otherwise identical. The same tool,
 same interface, same login, and a completely different contractual position. **Check the plan, not
 the vendor.**
@@ -32,7 +32,7 @@ BAAs. Many workflow automation connectors, consumer tools and free tiers do not.
 
 ### Compliance automation moves from phase 5 to phase 1
 
-In the general sequence, evidence automation is a late "evaluate." In a regulated environment it is
+In the general sequence, evidence automation is a late "evaluate." In a regulated environment it's
 close to first, for a commercial reason rather than a compliance one: **audit readiness gates
 enterprise sales.** A healthcare buyer asks for the SOC 2 report during procurement, not after. If
 the answer is "in progress," the deal slows down at the exact moment it was ready to close.
@@ -61,11 +61,11 @@ find out if it were crossed.
 
 ## The human gate on ambiguity
 
-**When it is unclear whether a payload contains regulated data, a human reviews it before it reaches
+**When it's unclear whether a payload contains regulated data, a human reviews it before it reaches
 an AI or any third party.**
 
 This connects directly to the execution tier model. In a regulated environment, **any activity whose
-input might contain PHI cannot sit at tier 5**, regardless of how mechanical the work is, because
+input might contain PHI can't sit at tier 5**, regardless of how mechanical the work is, because
 tier 5 removes the per-item human gate and the per-item judgment is exactly what is required.
 
 The practical shape:
@@ -84,16 +84,16 @@ few minutes. The cost of the reverse is a notification obligation.
 
 ## Checklist before adopting any AI tool in a regulated environment
 
-1. **Is a BAA available on the plan we are actually buying?** Not the enterprise tier we might buy
+1. **Is a BAA available on the plan we're actually buying?** Not the enterprise tier we might buy
    later. The one on the invoice.
-2. **Is it signed and countersigned?** Available is not the same as executed.
+2. **Is it signed and countersigned?** Available isn't the same as executed.
 3. **Is the tool configured for it?** Some vendors require specific settings, a specific
    deployment region, or zero-retention mode before their agreement applies. **Default settings are
    commonly not the compliant settings.**
 4. **What is the highest data class this tool may touch?** Write it down and put it where the
    people using the tool will see it.
 5. **What connectors does it reach through?** Each one inherits the question.
-6. **Who finds out if regulated data goes somewhere it should not?** If the answer is nobody, the
+6. **Who finds out if regulated data goes somewhere it shouldn't?** If the answer is nobody, the
    control does not exist yet.
 7. **Is training or retention on our data disabled where required?** Verify against the vendor's
    current documentation, and record the date you checked.

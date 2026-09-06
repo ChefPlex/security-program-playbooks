@@ -22,7 +22,7 @@ Security programs often have external forcing functions - a compliance deadline,
 Be specific. "Increased risk" is not useful. "A successful credential stuffing attack against our administrative accounts could result in unauthorized access to customer data across all tenants" is useful. Quantifying the risk - even roughly - helps with prioritization and resource justification.
 
 **Who owns the problem?**
-There is a difference between the executive sponsor, the product owner, and the engineering owner. All three need to be identified before a program starts. A security program with no clear business owner will drift.
+There's a difference between the executive sponsor, the product owner, and the engineering owner. All three need to be identified before a program starts. A security program with no clear business owner will drift.
 
 **What does done look like?**
 Before work starts, define what success means. Coverage percentages, audit pass/fail, vulnerability closure rates, certification achievement - whatever the measure is, agree on it upfront.
@@ -46,7 +46,7 @@ Before work starts, define what success means. Coverage percentages, audit pass/
 
 This is the step most programs get wrong. Compliance and security reviews take time - sometimes weeks, sometimes months. Starting them late is one of the most common reasons security programs miss their deadlines.
 
-At program intake, triage which reviews apply. You do not need to complete them yet. You need to know they are coming so you can sequence them into the plan.
+At program intake, triage which reviews apply. You do not need to complete them yet. You need to know they're coming so you can sequence them into the plan.
 
 ### Common review types for security programs
 
@@ -83,9 +83,9 @@ Security programs often span multiple engineering teams, multiple compliance dom
 
 ### The TPM's specific role in security programs
 
-The TPM does not own the security domain knowledge - that belongs to the security architects, engineers, and GRC team. What the TPM owns is the program itself: the structure, the delivery, the dependencies, the escalations, and the communications.
+The TPM doesn't own the security domain knowledge - that belongs to the security architects, engineers, and GRC team. What the TPM owns is the program itself: the structure, the delivery, the dependencies, the escalations, and the communications.
 
-That means being technical enough to understand what the engineering team is building and why, fluent enough in compliance to know when a regulatory constraint changes the plan, and organized enough to track all of it across teams that do not naturally talk to each other.
+That means being technical enough to understand what the engineering team is building and why, fluent enough in compliance to know when a regulatory constraint changes the plan, and organized enough to track all of it across teams that don't naturally talk to each other.
 
 ---
 
@@ -158,15 +158,15 @@ A specific type of security program worth calling out separately. Vulnerability 
 
 ### How to run them
 
-**Triage first.** Not everything is equally urgent. Critical vulnerabilities with active exploits are not the same as medium-severity findings with no known exploit path. Define your severity framework upfront and apply it consistently.
+**Triage first.** Not everything is equally urgent. Critical vulnerabilities with active exploits aren't the same as medium-severity findings with no known exploit path. Define your severity framework upfront and apply it consistently.
 
 **Assign owners at the service level.** Remediation programs fail when ownership is unclear. Every affected service should have a named engineering owner responsible for the fix, not just a team.
 
 **Set MTTR targets by severity.** Mean Time to Remediate should be defined per severity level and tracked as the program's primary metric. This is what the security team and auditors will ask about.
 
-**Track coverage, not just completion.** A vulnerability remediation program that closes 80% of findings is not 80% done - it depends on which 80%. Make sure your reporting shows coverage across services and severity levels, not just raw counts.
+**Track coverage, not just completion.** A vulnerability remediation program that closes 80% of findings isn't 80% done - it depends on which 80%. Make sure your reporting shows coverage across services and severity levels, not just raw counts.
 
-**Do not let perfect be the enemy of done.** A temporary workaround that reduces risk exposure while a permanent fix is engineered is a legitimate program output. Track it as such.
+**Don't let perfect be the enemy of done.** A temporary workaround that reduces risk exposure while a permanent fix is engineered is a legitimate program output. Track it as such.
 
 ---
 

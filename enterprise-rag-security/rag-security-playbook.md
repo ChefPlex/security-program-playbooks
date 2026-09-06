@@ -2,15 +2,15 @@
 
 The security workstream for a Retrieval-Augmented Generation program. Written for the security TPM or security engineer who owns sign-off on a system that answers questions using company data.
 
-Make this a workstream from week one. Run as a review gate at week 18, it produces a system that works and cannot ship, and a schedule nobody can recover.
+Make this a workstream from week one. Run as a review gate at week 18, it produces a system that works and can't ship, and a schedule nobody can recover.
 
 ## The Rule Everything Else Serves
 
 > The system can never retrieve information the requesting user could not have accessed directly.
 
-Everything below is in service of that sentence. If a control does not help hold it, it is hygiene rather than architecture.
+Everything below is in service of that sentence. If a control doesn't help hold it, it's hygiene rather than architecture.
 
-The corollary matters just as much: **authorization filtering happens before content reaches the model.** Filtering the response afterward is not a control. Once unauthorized content is in the context window, it has influenced the answer whether or not it appears in the output, and the model can be talked into revealing what it was given.
+The corollary matters just as much: **authorization filtering happens before content reaches the model.** Filtering the response afterward isn't a control. Once unauthorized content is in the context window, it has influenced the answer whether or not it appears in the output, and the model can be talked into revealing what it was given.
 
 ## Trust Boundary
 
@@ -67,17 +67,17 @@ Most RAG security incidents are one of these. They share a property worth naming
 
 **Service account over-permission.** The ingestion account can read everything, so everything is indexed, and per-user filtering is the only thing standing between a user and the whole corpus. When filtering has a bug, the failure is total rather than partial.
 
-**Permission drift.** A user changes teams. Source system access updates immediately. The index does not, and keeps answering from documents they can no longer open. Test propagation and monitor the window.
+**Permission drift.** A user changes teams. Source system access updates immediately. The index doesn't, and keeps answering from documents they can no longer open. Test propagation and monitor the window.
 
-**Deletion that does not propagate.** A document is deleted at source for a reason, often a legal one, and remains retrievable because deletion was never wired to the index.
+**Deletion that doesn't propagate.** A document is deleted at source for a reason, often a legal one, and remains retrievable because deletion was never wired to the index.
 
 **Embedding leakage.** Embeddings are derived from content. An unprotected vector store is a partial copy of the corpus, and it tends to be treated as infrastructure rather than as data.
 
-Every one of these returns a confident, well-formed, correct-looking answer to someone who should not have received it. Nobody files a ticket, which is why they are found in audits rather than in support queues, and why the escalation trigger is a single occurrence rather than a threshold.
+Every one of these returns a confident, well-formed, correct-looking answer to someone who shouldn't have received it. Nobody files a ticket, which is why they're found in audits rather than in support queues, and why the escalation trigger is a single occurrence rather than a threshold.
 
 ## Security Testing Scope
 
-Prompt injection has its own document because it is its own threat model: [Prompt Injection Threat Model](prompt-injection-threat-model.md).
+Prompt injection has its own document because it's its own threat model: [Prompt Injection Threat Model](prompt-injection-threat-model.md).
 
 Beyond injection, test:
 

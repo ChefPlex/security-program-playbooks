@@ -18,7 +18,7 @@ We may have had a breach. Looking into it now. Will update when we know more.
 
 ### Why This Fails
 
-No severity level. No systems named. No data scope. No containment status. No owner. No next step. No timeline. The people who receive this cannot help, cannot make decisions, and cannot start preparing communications. Everyone waits for the next update, which may not come for hours.
+No severity level. No systems named. No data scope. No containment status. No owner. No next step. No timeline. The people who receive this can't help, can't make decisions, and can't start preparing communications. Everyone waits for the next update, which may not come for hours.
 
 This is the escalation that gets sent when the responder is trying to solve the problem before communicating it. That instinct is understandable. It is also wrong.
 
@@ -52,7 +52,7 @@ Intrusion detection flagged anomalous outbound traffic from [System Name] at 03:
 3. Blocking identified access paths
 
 **What I need from the team:**
-- IRT lead: confirm you are online and taking the investigation lead
+- IRT lead: confirm you're online and taking the investigation lead
 - Legal: stand by - PII may be in scope, GDPR clock may apply
 - Communications: no external messaging without Legal and Communications sign-off - hold
 
@@ -64,13 +64,13 @@ Intrusion detection flagged anomalous outbound traffic from [System Name] at 03:
 
 ### Why This Works
 
-Severity is explicit and the reasoning is stated. The responder is not claiming certainty - they are calling Sev1 based on what they know and flagging that it will be revised if the facts support it. That is honest and appropriate.
+Severity is explicit and the reasoning is stated. The responder isn't claiming certainty - they're calling Sev1 based on what they know and flagging that it will be revised if the facts support it. That is honest and appropriate.
 
 Data scope is named even before it is confirmed. "May be in scope" is more useful than silence.
 
-Containment status is current. The people reading this know the system is not yet isolated - that tells them the clock is running.
+Containment status is current. The people reading this know the system isn't yet isolated - that tells them the clock is running.
 
-The asks are specific and named by function, not by individual. Legal does not need to know what to do - they know their role. The ask is to confirm they are engaged.
+The asks are specific and named by function, not by individual. Legal doesn't need to know what to do - they know their role. The ask is to confirm they are engaged.
 
 The GDPR flag is there immediately. If EU residents are in scope, the 72-hour notification clock starts at confirmed breach. Getting Legal aware at 3:52 AM instead of 9:00 AM is the difference between meeting the deadline and missing it.
 
@@ -92,7 +92,7 @@ Specific, factual, timestamped. Not "we may have had an issue" - "intrusion dete
 Even if unconfirmed, name the classification. This determines who needs to be in the room and how fast.
 
 **4. What is the current containment status?**
-Is the system isolated? Are logs preserved? Are access paths blocked? The responders who receive this need to know what has and has not been done.
+Is the system isolated? Are logs preserved? Are access paths blocked? The responders who receive this need to know what has and hasn't been done.
 
 **5. What do you need from them, specifically?**
 Name the function, name the ask, name the timeline. "Legal: stand by" is an ask. "Team: please advise" is not.
