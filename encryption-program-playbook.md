@@ -93,7 +93,7 @@ different failure modes and different definitions of done. A single "encryption 
 bundles all three produces a status report nobody can act on, because the blockers in one have
 nothing to do with the blockers in another.
 
-### 🔑 Coverage work and currency work are different jobs
+### Coverage work and currency work are different jobs
 
 This is the distinction that most reorganizes the plan, and it's easy to miss because both are
 called "encryption."
@@ -128,7 +128,7 @@ is a different control from a key you hold, and reporting them as one number is 
 an audit it should have failed), what the version floor is and what happens to things below it, and
 what legitimately can't be encrypted and how that's recorded rather than hidden.
 
-### 🔑 Pick the implementation a service team never has to touch
+### Pick the implementation a service team never has to touch
 
 **The sidecar was how a large share of services got done, for the straightforward reason that it
 was easier.** In-transit encryption terminated in a sidecar doesn't require changing the service
@@ -173,7 +173,7 @@ Encryption dependencies look technical on a diagram - this service must go befor
 certificate authority must exist before anything can use it. **In practice the binding constraint
 is people: who is going to do the work, and how much of it can they take on.**
 
-### 🔑 The concentration trap, and it is the thing to design around
+### The concentration trap, and it is the thing to design around
 
 Here is how it goes wrong, and it follows directly from the ownership problem in Step 2:
 
@@ -246,7 +246,7 @@ Given the concentration trap in Step 4, the highest-leverage thing to negotiate 
 formally reassigned ownership, or an explicit decision to accept their throughput as the program's
 rate limit. Everything else is rearranging a queue with one server.
 
-### 🔑 The ownership model that works: central builds the path, teams adopt it
+### The ownership model that works: central builds the path, teams adopt it
 
 The usual framing offers two options, and **both of them are wrong at this scale:**
 
@@ -303,7 +303,7 @@ is unfinished.
 you can defend. Hidden buffer is a discovery that costs you credibility the first time someone finds
 it.
 
-### 🔑 The standing escalation deal: get blocked, punt it to me
+### The standing escalation deal: get blocked, punt it to me
 
 **This is the single most useful mechanism in the execution phase, and it has to be negotiated up
 front with every team.**
@@ -347,7 +347,7 @@ What it actually consists of:
   **The job is making sure they actually happen**, which is a scheduling and people problem far more
   than a technical one
 
-### 🔑 The certificate chain goes out of sync, and this is the failure to design for
+### The certificate chain goes out of sync, and this is the failure to design for
 
 **A certificate hierarchy has independent expiration dates and independent rotation periods at every
 level, and they are almost never designed together.**
@@ -413,7 +413,7 @@ The loop from Step 2 - back to the architects, back to the engineering teams, fi
 exists precisely for this. What matters is recognizing early that a given path isn't tenable, so
 the re-solve happens in week two rather than month four.
 
-### 🔑 People get tired of the program
+### People get tired of the program
 
 **This is the failure mode nobody schedules for, and on a multi-quarter program it's the one most
 likely to quietly kill your velocity.**
