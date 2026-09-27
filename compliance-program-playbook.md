@@ -18,11 +18,14 @@ A new framework requirement usually has a trigger - a new customer contract, a m
 **What is already in place?**
 Most organizations are not starting from zero. Existing controls from other frameworks often satisfy part of a new one. A gap assessment against the specific framework's control list - not a general security review - is the right starting point.
 
+**Are AI systems or AI vendors in scope?**
+An AI feature that touches regulated data, or an AI vendor that processes it, brings the same control questions as any other system plus new ones (see the EU AI Act, NIST AI RMF, and ISO/IEC 42001 in the [Compliance Framework Reference](compliance-framework-reference.md)). Ask at assessment, not after launch.
+
 **Who is the framework owner on the GRC side?**
 Every framework needs a named GRC owner who understands its specific control language and audit expectations. The TPM runs the program. GRC owns the framework interpretation. Conflating these roles is a common failure mode.
 
 **What is the audit type and cadence?**
-Some frameworks are point-in-time assessments (a FedRAMP ATO). Others are continuous with periodic audits (SOC 2 Type II, ongoing PCI compliance). This changes how the program is structured - a point-in-time push looks different from a program that has to sustain evidence collection indefinitely.
+Some assessments are point-in-time (a SOC 2 Type I report, which tests control design as of one date). Others cover a period or never stop (SOC 2 Type II, annual PCI validation, FedRAMP, which requires continuous monitoring after authorization). This changes how the program is structured - a point-in-time push looks different from a program that has to sustain evidence collection indefinitely. Most programs that start as a point-in-time push turn into the second kind.
 
 ### Assessment checklist
 
@@ -47,6 +50,7 @@ Frameworks are expressed as control requirements, not engineering tasks. The cor
 2. **Map each control to an existing capability, a gap, or a partial gap.** Be specific - "access control" as a category isn't useful; "quarterly access reviews for production database access" is.
 3. **Assign an engineering or process owner per gap.** Same principle as vulnerability remediation - ownership at the level of a specific person, not a team name.
 4. **Identify controls that are process, not technical.** Some controls are satisfied by a documented procedure and evidence that it's followed, not by an engineering build. Do not assign these to engineering by default.
+5. **Map across frameworks, not just within one.** An access review, an encryption configuration, or a change approval usually satisfies a control in SOX, SOC 2, PCI, ISO/IEC 27001, and FedRAMP at once. Keep one common control set, map each framework's requirements to it, and collect the evidence once. The second framework should cost a fraction of the first.
 
 ### Control tracking table
 
@@ -67,7 +71,7 @@ Evidence is what turns "we do this" into something an auditor will accept. Most 
 
 Varies by framework and control, but generally falls into a few categories:
 
-- **Configuration evidence** - screenshots, exports, or automated scans showing a system is configured as required
+- **Configuration evidence** - automated scans or exports showing a system is configured as required. Screenshots are the fallback, not the standard: they show one moment and are easy to question
 - **Log evidence** - records showing a control operated over time (access logs, review logs, approval logs)
 - **Attestation** - a named individual formally confirming a process was followed
 - **Policy documentation** - the written policy that a control is meant to enforce
@@ -75,6 +79,8 @@ Varies by framework and control, but generally falls into a few categories:
 ### Evidence discipline
 
 Decide the evidence standard for each control before the audit window opens, not during it. Auditors reject evidence that's inconsistent, undated, or missing a clear chain from the control requirement to the artifact. Build evidence collection into the operational rhythm of the teams doing the work - quarterly access reviews should produce their own evidence automatically, not require a scramble two weeks before the audit.
+
+**Move toward continuous, automated collection.** Where a control can be checked by a system (cloud configuration, encryption settings, MFA enrollment, patch levels), pull the evidence on a schedule into a central store with timestamps. That turns evidence from an audit-season project into a by-product of operations, and it shows drift between audits instead of at them.
 
 ### Common evidence failure modes
 
@@ -151,4 +157,4 @@ A compliance program that ends at certification and has no owner for the next cy
 
 ---
 
-*Version 1.0. Propose changes via pull request.*
+*Version 1.1. Last reviewed September 2026. Propose changes via pull request.*

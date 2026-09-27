@@ -18,6 +18,9 @@ Not the solution - the problem. "We need to implement MFA" is a solution. "40% o
 **What is the regulatory or compliance driver, if any?**
 Security programs often have external forcing functions - a compliance deadline, an audit finding, a regulatory change, a contractual obligation. Identify these at intake. They will drive timeline constraints that are non-negotiable, and they need to be built into the plan from day one, not retrofitted later.
 
+**Which reportable-incident regimes are in scope?**
+If the program touches systems covered by an incident reporting clock (SEC Form 8-K Item 1.05, NIS2, DORA, the EU Cyber Resilience Act, HIPAA breach notification, NYDFS Part 500), name them at intake. They change what logging, detection, and escalation the program has to deliver. The [Incident Response Template](security-incident-response-template.md) lists the clocks.
+
 **What is the risk if we do not do this?**
 Be specific. "Increased risk" is not useful. "A successful credential stuffing attack against our administrative accounts could result in unauthorized access to customer data across all tenants" is useful. Quantifying the risk - even roughly - helps with prioritization and resource justification.
 
@@ -33,6 +36,7 @@ Before work starts, define what success means. Coverage percentages, audit pass/
 |------|-------|-------|
 | Problem statement documented | Requesting team | |
 | Regulatory / compliance driver identified | TPM + GRC | |
+| Reportable-incident regimes in scope identified | GRC + Legal | |
 | Risk of inaction quantified | Requesting team | |
 | Executive sponsor named | Leadership | |
 | Product / program owner named | Leadership | |
@@ -55,6 +59,7 @@ At program intake, triage which reviews apply. You do not need to complete them 
 | Compliance Assessment | At intake | Determines which regulatory frameworks apply (SOX, PCI, HIPAA, FedRAMP, SOC 2, etc.) and what controls are required |
 | Security / Architecture Review | During Definition & Planning | Threat model the proposed solution; identify security requirements before build begins |
 | Privacy / Legal Review | During Definition & Planning | Required for any program touching customer data, AI/ML systems, or new data collection |
+| AI Risk Review | During Definition & Planning | Required when the program builds, buys, or embeds an AI system or model. Classifies the use against the [EU AI Act](https://ai-act-service-desk.ec.europa.eu/en/ai-act/timeline/timeline-implementation-eu-ai-act) risk tiers where it applies, and assesses it against the [NIST AI RMF](https://www.nist.gov/itl/ai-risk-management-framework) or [ISO/IEC 42001](https://www.iso.org/standard/42001) if the organization has adopted one |
 | Penetration Testing | Pre-production | Required for internet-facing services or significant changes to existing ones |
 | Vendor / Third-Party Review | Before vendor work begins | Security and procurement review for any buy decision |
 | Change Advisory Board (CAB) | Before production changes | Required for infrastructure changes in regulated environments |
@@ -158,11 +163,11 @@ A specific type of security program worth calling out separately. Vulnerability 
 
 ### How to run them
 
-**Triage first.** Not everything is equally urgent. Critical vulnerabilities with active exploits aren't the same as medium-severity findings with no known exploit path. Define your severity framework upfront and apply it consistently.
+**Triage first.** Not everything is equally urgent. A vulnerability on CISA's Known Exploited Vulnerabilities (KEV) list on an internet-facing asset is not the same as a finding on an internal system with no known exploit path. Prioritize on exposure, exploitation, exploit automation, and technical impact, define the tiers upfront, and apply them consistently. The [Vulnerability Remediation Runbook](vulnerability-remediation-runbook.md) has a working framework.
 
 **Assign owners at the service level.** Remediation programs fail when ownership is unclear. Every affected service should have a named engineering owner responsible for the fix, not just a team.
 
-**Set MTTR targets by severity.** Mean Time to Remediate should be defined per severity level and tracked as the program's primary metric. This is what the security team and auditors will ask about.
+**Set SLAs by tier and track attainment.** Define a remediation SLA per tier and report the share of findings closed within it as the primary metric. This is what the security team and auditors will ask about. Mean Time to Remediate (MTTR) is a useful secondary trend, but an average hides the individual findings that blew through their SLA.
 
 **Track coverage, not just completion.** A vulnerability remediation program that closes 80% of findings isn't 80% done - it depends on which 80%. Make sure your reporting shows coverage across services and severity levels, not just raw counts.
 
@@ -170,4 +175,4 @@ A specific type of security program worth calling out separately. Vulnerability 
 
 ---
 
-*Version 1.0. Propose changes via pull request.*
+*Version 1.1. Last reviewed September 2026. Propose changes via pull request.*

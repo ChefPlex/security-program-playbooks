@@ -4,7 +4,7 @@ A quick reference for the compliance frameworks that come up most often in enter
 
 This isn't legal advice and it's not a substitute for your GRC team. When compliance requirements affect your program, engage GRC early. This reference helps you know what questions to ask and understand the answers you get.
 
-*Last reviewed: May 2026. Verify current requirements with your GRC team before acting on any specific compliance claim.*
+*Last reviewed: September 2026. Dates and figures added or changed in that review were checked against the linked sources. Verify current requirements with your GRC team before acting on any specific compliance claim.*
 
 ---
 
@@ -26,7 +26,8 @@ Each framework summary answers four questions:
 
 **What it requires at a high level:**
 - Section 302: Senior executives must personally certify the accuracy of financial reports
-- Section 404: Management must assess and report on the effectiveness of internal controls over financial reporting. External auditors must attest to that assessment.
+- Section 404(a): Management must assess and report on the effectiveness of internal controls over financial reporting.
+- Section 404(b): The external auditor must attest to that assessment. This applies to accelerated and large accelerated filers; non-accelerated filers are exempt. Confirm the company's filer status with Finance before scoping audit work.
 - IT general controls (ITGCs) are a significant component: access controls, change management, and availability controls for financial systems
 
 **What it means for TPMs:**
@@ -45,7 +46,7 @@ The cost of a SOX finding at audit time is high. The cost of designing for SOX f
 
 **Current version:** PCI DSS v4.0.1, the only active version supported by PCI SSC as of January 1, 2025. PCI DSS v4.0 was retired on December 31, 2024. The 51 future-dated requirements introduced in v4.0 became mandatory on March 31, 2025.
 
-*Source: PCI Security Standards Council. Last verified: May 2026.*
+*Source: PCI Security Standards Council. Last verified: September 2026.*
 
 **Who it applies to:** Any organization that processes, stores, or transmits cardholder data - the card number (PAN), expiration date, cardholder name, and service code. Scope is determined by the cardholder data environment (CDE).
 
@@ -54,8 +55,7 @@ The cost of a SOX finding at audit time is high. The cost of designing for SOX f
 PCI-DSS has 12 requirements organized into six control objectives: build and maintain a secure network, protect cardholder data, maintain a vulnerability management program, implement strong access controls, regularly monitor and test networks, and maintain an information security policy.
 
 **Key technical requirements for TPMs to know:**
-- TLS 1.2 minimum for all cardholder data transmission. TLS 1.3 preferred.
-- Specific approved cipher suites - not all TLS configurations are PCI-compliant
+- "Strong cryptography" for cardholder data sent over open, public networks (Requirement 4). The standard does not name a TLS version. QSAs commonly read strong cryptography as TLS 1.2 or higher with strong cipher suites, so plan to that and confirm with your assessor.
 - Annual penetration testing for internet-facing systems in the CDE
 - Quarterly vulnerability scans
 - Log retention: 12 months, 3 months immediately available
@@ -80,8 +80,9 @@ Annual validation cycles mean timing matters. Programs that need to deliver chan
 The HIPAA Security Rule requires administrative safeguards (policies, procedures, workforce training, risk analysis), physical safeguards (facility access controls, workstation security), and technical safeguards (access controls, audit controls, integrity controls, transmission security).
 
 **Key technical requirements:**
-- Encryption of ePHI in transit is required (addressable, but effectively required in practice)
+- Encryption of ePHI in transit is addressable under [45 CFR 164.312(e)](https://www.law.cornell.edu/cfr/text/45/164.312). Most organizations implement it, and an unencrypted transmission path is hard to defend in a risk analysis.
 - Encryption of ePHI at rest is addressable - must be implemented or documented why not
+- The [January 2025 Security Rule NPRM](https://www.federalregister.gov/documents/2025/01/06/2024-30983/hipaa-security-rule-to-strengthen-the-cybersecurity-of-electronic-protected-health-information) proposes removing the required/addressable distinction, which would make encryption required with limited exceptions. It is a proposed rule, not final, as of September 2026.
 - Unique user identification for all users with system access
 - Automatic logoff for workstations
 - Audit logs of system activity involving ePHI
@@ -102,13 +103,16 @@ Risk analysis is a core HIPAA requirement and a common audit finding. Business A
 
 **What it requires at a high level:**
 
-Three impact levels: Low, Moderate (most government cloud workloads), and High (law enforcement, financial, health data). Each level requires a specific set of NIST 800-53 controls - Moderate requires approximately 325 controls, High approximately 421.
+Three impact levels: Low, Moderate (most government cloud workloads), and High (law enforcement, financial, health data). The Rev 5 baselines, aligned to NIST SP 800-53 Rev 5, require 156 controls at Low, 323 at Moderate, and 410 at High ([FedRAMP Rev. 5 Transition Overview](https://www.fedramp.gov/resources/documents/Rev-5-Transition-Overview-Presentation.pdf)).
 
-Authorization paths: Agency ATO (a specific agency authorizes for their use) or JAB P-ATO (the Joint Authorization Board authorizes for government-wide use).
+**The program is changing, so check the current rules before planning:**
+- The Joint Authorization Board and its JAB P-ATO are gone. Under OMB memo M-24-15, existing JAB P-ATOs were re-designated and a [FedRAMP Board](https://www.fedramp.gov/2026/authority/m-24-15/process/) sets requirements and guidelines; it does not approve individual packages. There is one "FedRAMP Authorized" outcome instead of two tiers.
+- **FedRAMP 20x** is the newer certification path, and it moves to new rules first.
+- The [Consolidated Rules for 2026 (CR26)](https://www.fedramp.gov/2026/providers/updating/deadlines/) took effect July 4, 2026 and apply to 20x immediately. They become mandatory for Rev 5 on January 1, 2027. FedRAMP stops accepting new Rev 5 applications after June 11, 2027. CR26 is valid through December 31, 2028.
 
 **What it means for TPMs:**
 
-FedRAMP authorization is a program in itself. Timeline from engagement to authorization is typically 12-24 months. It involves gap assessment, System Security Plan documentation, assessment by an accredited Third Party Assessment Organization, and ongoing continuous monitoring obligations post-authorization. Monthly vulnerability scanning, annual penetration testing, and ongoing evidence collection aren't optional.
+FedRAMP authorization is a program in itself. It involves gap assessment, security documentation, assessment by an accredited Third Party Assessment Organization, and ongoing continuous monitoring obligations post-authorization. Monthly vulnerability scanning, annual penetration testing, and ongoing evidence collection aren't optional. With the path and the rule set both in transition, confirm with GRC which path and which rule version your offering is on before you build the schedule.
 
 ---
 
@@ -136,13 +140,13 @@ If your program introduces new systems that fall within SOC 2 scope, engage GRC 
 
 **What it requires at a high level:**
 
-Lawful basis for processing, data minimization, purpose limitation, accuracy, storage limitation, appropriate security, data subject rights (access, erasure, portability, correction), Data Protection Impact Assessment for high-risk processing, and breach notification within 72 hours to the supervisory authority for qualifying breaches.
+Lawful basis for processing, data minimization, purpose limitation, accuracy, storage limitation, appropriate security, data subject rights (access, erasure, portability, correction), Data Protection Impact Assessment for high-risk processing, and breach notification to the supervisory authority within 72 hours of becoming aware of a qualifying breach (Article 33).
 
 **What it means for TPMs:**
 
 GDPR affects programs that collect new categories of personal data, change how existing personal data is processed, involve new vendors processing personal data, affect data retention or deletion processes, or build new AI or automated decision-making systems.
 
-The 72-hour breach notification requirement is particularly relevant for incident response. Knowing the notification threshold before an incident happens is essential. DPIAs are required for high-risk processing - new technologies, large-scale processing of sensitive data, systematic monitoring. Engage your Privacy team early.
+The 72-hour breach notification requirement is particularly relevant for incident response, because the clock starts when the controller becomes aware, not when the investigation confirms everything. Knowing the notification threshold before an incident happens is essential. DPIAs are required for high-risk processing - new technologies, large-scale processing of sensitive data, systematic monitoring. Engage your Privacy team early.
 
 ---
 
@@ -162,18 +166,40 @@ The NIST CSF is useful as a maturity model and common language for security conv
 
 ---
 
+## Shorter Entries
+
+These come up often enough that a TPM should recognize them and know when to call GRC or Legal.
+
+**ISO/IEC 27001:2022** - The international standard for an information security management system (ISMS), certified by accredited certification bodies. The 2022 edition is the current one; certificates to the 2013 edition had to transition under [IAF MD 26](https://iaf.nu/iaf_system/uploads/documents/IAF_MD26_Issue_2_15012023.pdf). TPM trigger: customers who ask for ISO certification rather than SOC 2. Map its controls to the ones you already evidence for other frameworks rather than building a second set.
+
+**SEC Form 8-K Item 1.05** - US public companies must disclose a cybersecurity incident they determine to be material, generally within four business days of that determination ([SEC press release 2023-139](https://www.sec.gov/newsroom/press-releases/2023-139)). TPM trigger: the incident process needs a defined, documented materiality determination step, because that step starts the clock.
+
+**NIS2 Directive (EU 2022/2555)** - EU cybersecurity law for essential and important entities across many sectors, with a national transposition deadline of October 17, 2024. Significant incidents need an early warning within 24 hours of becoming aware, an incident notification within 72 hours, and a final report within one month ([Commission NIS2 FAQ](https://digital-strategy.ec.europa.eu/en/faqs/directive-measures-high-common-level-cybersecurity-across-union-nis2-directive-faqs)). TPM trigger: any EU operation in a covered sector. National laws differ in detail, so check the member state.
+
+**DORA (EU Digital Operational Resilience Act)** - Applies to EU financial entities from January 17, 2025 ([ESMA](https://www.esma.europa.eu/esmas-activities/digital-finance-and-innovation/digital-operational-resilience-act-dora)). Covers ICT risk management, third-party ICT risk, and incident reporting, among other areas. Major ICT incidents need an initial notification within 4 hours of classification and no later than 24 hours after detection, an intermediate report within 72 hours, and a final report within one month ([EBA](https://www.eba.europa.eu/activities/single-rulebook/regulatory-activities/operational-resilience/joint-technical-standards-major-incident-reporting)). TPM trigger: any program at an EU financial entity, or selling ICT services to one. Ask GRC what flows down to you.
+
+**EU Cyber Resilience Act (CRA)** - Security requirements for products with digital elements sold in the EU. Reporting obligations apply from September 11, 2026: manufacturers report actively exploited vulnerabilities and severe incidents with an early warning within 24 hours, a notification within 72 hours, and a final report (14 days after a fix is available for a vulnerability; one month for a severe incident). The main obligations apply from December 11, 2027 ([Commission CRA](https://digital-strategy.ec.europa.eu/en/policies/cyber-resilience-act), [CRA reporting](https://digital-strategy.ec.europa.eu/en/policies/cra-reporting)). TPM trigger: any software or connected product sold in the EU. The vulnerability intake and disclosure process is now a regulated process.
+
+**EU AI Act** - Risk-tiered rules for AI systems, in force since August 1, 2024. Prohibitions and AI literacy apply from February 2, 2025, and general-purpose AI model obligations from August 2, 2025. The 2026 Digital Omnibus on AI, in force July 27, 2026, moved the high-risk dates: December 2, 2027 for stand-alone (Annex III) high-risk systems and August 2, 2028 for AI embedded in regulated products (Annex I). Article 50 transparency obligations apply from August 2, 2026 ([AI Act Service Desk timeline](https://ai-act-service-desk.ec.europa.eu/en/ai-act/timeline/timeline-implementation-eu-ai-act), [AI Omnibus](https://digital-strategy.ec.europa.eu/en/news/ai-omnibus-enters-force)). TPM trigger: any program that builds, buys, or embeds AI for EU users. Classify the use case at intake, because the tier decides the work.
+
+---
+
 ## Framework Comparison at a Glance
 
 | Framework | Who Must Comply | External Audit Required? | Key TPM Trigger |
-|-----------|----------------|------------------------|----------------|
-| SOX | US public companies | Yes (annual) | Any program touching financial systems |
+|:---|:---|:---|:---|
+| SOX | US public companies | Yes (annual; 404(b) attestation for accelerated filers) | Any program touching financial systems |
 | PCI-DSS v4.0.1 | Card data handlers | Yes (annual for large orgs) | Any program touching payment systems |
 | HIPAA | Healthcare entities and BAs | No (but OCR audits exist) | Any program touching ePHI |
 | FedRAMP | Cloud providers to US gov | Yes (3PAO) | Selling cloud services to federal agencies |
 | SOC 2 | Service organizations | Yes (CPA firm) | Enterprise customer requirements |
 | GDPR | EU data processors globally | No (but DPA investigations) | Any program touching EU personal data |
 | NIST CSF | Voluntary | No | Maturity assessments and risk conversations |
+| ISO/IEC 27001:2022 | Voluntary, often contractual | Yes (certification body) | Customers asking for ISO certification |
+| NIS2 / DORA | EU essential and important entities / EU financial entities | Supervisory oversight | EU operations in covered sectors; incident reporting clocks |
+| EU CRA | Makers of digital products sold in the EU | Varies by product; confirm with GRC | Any software or connected product sold in the EU |
+| EU AI Act | Providers and deployers of AI in the EU | Depends on risk tier | Any program that builds, buys, or embeds AI |
 
 ---
 
-*Version 1.1. Last reviewed May 2026. Frameworks evolve - verify current requirements with your GRC team before relying on any specific compliance claim.*
+*Version 1.2. Last reviewed September 2026. Frameworks evolve - verify current requirements with your GRC team before relying on any specific compliance claim.*

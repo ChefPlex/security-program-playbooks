@@ -56,6 +56,8 @@ Intrusion detection flagged anomalous outbound traffic from [System Name] at 03:
 - Legal: stand by - PII may be in scope, GDPR clock may apply
 - Communications: no external messaging without Legal and Communications sign-off - hold
 
+**Bridge:** [phone bridge number] - out of band. After this alert, keep the details on the bridge, not on corporate email or chat, until we confirm those systems are not affected.
+
 **Next update:** 05:00 AM or sooner if scope changes significantly
 
 [Name], On-call Engineer
@@ -72,7 +74,9 @@ Containment status is current. The people reading this know the system isn't yet
 
 The asks are specific and named by function, not by individual. Legal doesn't need to know what to do - they know their role. The ask is to confirm they are engaged.
 
-The GDPR flag is there immediately. If EU residents are in scope, the 72-hour notification clock starts at confirmed breach. Getting Legal aware at 3:52 AM instead of 9:00 AM is the difference between meeting the deadline and missing it.
+The GDPR flag is there immediately. If EU residents are in scope, the 72-hour notification clock starts when the organization becomes aware of the breach, not when the scope is confirmed. Getting Legal aware at 3:52 AM instead of 9:00 AM is the difference between meeting the deadline and missing it.
+
+The response channel is out of band. An intruder with access to the environment may be able to read corporate email or chat, so the bridge is somewhere the attacker is unlikely to be, and the message says so.
 
 The hold on external messaging is explicit. During an active incident, the most common mistake after insufficient containment is premature external communication. The hold protects against that without requiring everyone to remember the policy under pressure.
 

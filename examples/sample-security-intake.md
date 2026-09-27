@@ -28,16 +28,16 @@ This is not a program intake. It is a note that someone is anxious about complia
 | Control / Evidence Need | Show that customer PII and billing metadata are encrypted in approved systems, that exceptions are tracked with owners and expiration dates, and that evidence can be reviewed without engineering reconstructing the story by hand |
 | Primary Engineering Owner | Platform Security |
 | Evidence Owner | GRC / Compliance |
-| TPM Owner | Eric |
+| TPM Owner | [TPM name] |
 | Required Decision | Whether the legacy reporting database is remediated, isolated, or formally exceptioned |
-| Target Date | 2026-08-15 |
-| Escalation Trigger | No remediation path for legacy reporting database by 2026-06-30 |
+| Target Date | T-30: evidence package complete, 30 days before the audit fieldwork date (T) |
+| Escalation Trigger | No remediation path for legacy reporting database by T-75 |
 
 ### Why This Works
 
 The intake separates the compliance driver from the actual delivery work.
 
-It names systems, data, owners, dates, evidence needs, and the decision that can block the program. The engineering team knows what it is being asked to prove. GRC knows what evidence to expect. The TPM has enough to write a charter, build a workback plan, and start tracking risk.
+It names systems, data, owners, dates, evidence needs, and the decision that can block the program. The dates are relative to the audit (T minus days) so they stay meaningful when the audit date moves; in a real intake, write the calendar date next to each one. The engineering team knows what it is being asked to prove. GRC knows what evidence to expect. The TPM has enough to write a charter, build a workback plan, and start tracking risk.
 
 The legacy database decision is named explicitly because it is the risk that will surface eventually. Better to name it at intake than discover it six weeks before the audit.
 

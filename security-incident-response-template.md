@@ -19,6 +19,19 @@ Written for TPMs and incident leads who need to organize a response fast, commun
 
 The pages that follow detail each phase. The visual overview is in Appendix A.
 
+### How this maps to NIST
+
+[NIST SP 800-61 Rev. 3](https://csrc.nist.gov/pubs/sp/800/61/r3/final) (April 2025) superseded Rev. 2 and recasts incident response as a Community Profile of the NIST Cybersecurity Framework (CSF) 2.0. This template covers the response itself. Preparation lives in Govern, Identify, and Protect, and belongs in your program, not in the middle of an incident.
+
+| Phase in this template | CSF 2.0 function |
+|:---|:---|
+| 1. Identification and initial level setting | Detect |
+| 2. Response team notification | Respond |
+| 3. Response team takes lead | Respond |
+| 4. Data exposure investigated and identified (including containment) | Respond |
+| 5. Fix the issue and communicate | Respond, then Recover |
+| 6. Follow-up | Recover, and lessons learned feed back into preparation |
+
 ---
 
 ## Severity Levels
@@ -43,7 +56,7 @@ Know what data is at risk before you decide how to respond and who to notify.
 **Public**
 Information that is already a matter of public record or knowledge. Exposure has no legal or regulatory consequence.
 
-**Private Individual Information (PII)**
+**Personally Identifiable Information (PII)**
 Name combined with any of: Social Security Number, government ID number, financial account number, health or medical information. Exposure triggers legal notification obligations in most jurisdictions. Legal review required immediately.
 
 **Company Individual Information**
@@ -74,6 +87,11 @@ Identify which category of incident this is:
 - Unwanted disruption or denial of service
 - Changes to system hardware, firmware, or software without authorization
 - Insertion of malware or other malicious code
+- Ransomware or data extortion (encryption, theft with a threat to publish, or both)
+- Third-party SaaS compromise, including stolen OAuth tokens or integration credentials used to reach your data through a vendor
+- Identity or cloud control plane compromise (identity provider, SSO, cloud admin accounts, CI/CD)
+- Business email compromise or impersonation, including deepfake voice or video used to request payments or access
+- AI system incident: prompt injection, sensitive data leaking through an assistant, or an AI agent taking actions it should not
 - Other - document and proceed
 
 ### Who Noticed It
@@ -123,7 +141,28 @@ Adapt this list to your organization. At minimum:
 | Executive sponsor | Informed for Sev1 and Sev2+ events |
 | Risk Management | Reviews insurance and contract implications |
 
-For Sev1 and Sev2+ incidents, schedule a call or in-person meeting within 24 hours of notification.
+For Sev1, open a bridge immediately - within one hour of notification, at any hour. For Sev2+, convene within 24 hours.
+
+**Use an out-of-band channel.** If email, chat, or the identity provider may be compromised, the attacker may be reading the response. Agree the backup channel (a separate chat workspace, a phone bridge, personal devices) before an incident, and move to it whenever a core collaboration or identity system is in scope.
+
+**Ask Legal about privilege early.** Legal decides whether outside forensic firms are engaged through counsel, and how findings are documented, so that privilege is preserved where it can be. Settle this before the forensic work starts, not after the report exists.
+
+### Regulatory reporting clocks
+
+Legal owns the determination. The TPM's job is to make sure the clocks are known on day one, because several start at awareness or at a determination, not at confirmation. Checked against the linked sources in September 2026:
+
+| Regime | Who it covers | Clock | Source |
+|:---|:---|:---|:---|
+| SEC Form 8-K Item 1.05 | US public companies | Generally 4 business days after determining an incident is material | [SEC 2023-139](https://www.sec.gov/newsroom/press-releases/2023-139) |
+| GDPR Art. 33 | Controllers of EU personal data | Supervisory authority within 72 hours of becoming aware, where feasible | [GDPR Art. 33](https://gdpr-info.eu/art-33-gdpr/) |
+| NIS2 | EU essential and important entities | Early warning 24 hours from becoming aware; notification 72 hours; final report one month later | [Commission NIS2 FAQ](https://digital-strategy.ec.europa.eu/en/faqs/directive-measures-high-common-level-cybersecurity-across-union-nis2-directive-faqs) |
+| DORA | EU financial entities | Initial notification 4 hours after classifying as major and no later than 24 hours after detection; intermediate 72 hours; final one month | [EBA](https://www.eba.europa.eu/activities/single-rulebook/regulatory-activities/operational-resilience/joint-technical-standards-major-incident-reporting) |
+| EU Cyber Resilience Act | Manufacturers of digital products sold in the EU, from September 11, 2026 | Actively exploited vulnerability or severe incident: early warning 24 hours; notification 72 hours; final report 14 days after a fix (vulnerability) or one month (incident) | [Commission CRA reporting](https://digital-strategy.ec.europa.eu/en/policies/cra-reporting) |
+| HIPAA Breach Notification | Covered entities and business associates | Individuals without unreasonable delay, no later than 60 days after discovery. HHS at the same time for 500 or more; annually for fewer than 500 | [45 CFR 164.404](https://www.law.cornell.edu/cfr/text/45/164.404), [164.408](https://www.law.cornell.edu/cfr/text/45/164.408) |
+| NYDFS 23 NYCRR 500.17 | NYDFS-regulated entities | 72 hours after determining a cybersecurity incident occurred; extortion payment notice within 24 hours, with a written explanation within 30 days | [23 NYCRR 500.17](https://www.law.cornell.edu/regulations/new-york/23-NYCRR-500.17) |
+| CIRCIA | US critical infrastructure | Not yet in effect: the final rule is still pending. The statute sets 72 hours for covered incidents and 24 hours for ransom payments once it is | [CISA CIRCIA](https://www.cisa.gov/topics/cyber-threats-and-advisories/information-sharing/cyber-incident-reporting-critical-infrastructure-act-2022-circia) |
+
+US state breach laws, contracts, and card brand rules add their own clocks. This table is a starting list, not the full set.
 
 ### Notification Tasks
 
@@ -190,7 +229,7 @@ Categorize into the highest applicable level:
 
 **Category 1 - Threat to sensitive data**
 - Confidential
-- Private individual (PII)
+- Personally identifiable information (PII)
 - Company individual information
 - Public
 
@@ -317,13 +356,13 @@ If no applicable procedure exists, document what was done and establish a proced
 | External non-company audience | Legal review |
 | General public or customer community | Legal and Communications review |
 
-**If Private Individual Information (PII) was compromised:**
+**If personally identifiable information (PII) was compromised:**
 
 5.2.1 Determine which individuals were affected
 
 5.2.2 Assemble contact information for affected individuals
 
-5.2.3 Determine notification requirements under applicable state, federal, and international law (GDPR 72-hour notification clock starts at confirmed breach, not at resolution)
+5.2.3 Determine notification requirements under applicable state, federal, and international law (the GDPR 72-hour clock starts when the organization becomes aware of the breach, not at confirmation of full scope and not at resolution; see the reporting clocks table in Phase 2)
 
 5.2.4 Determine whether notice to credit reporting agencies, law enforcement, or card associations is required
 
@@ -415,13 +454,13 @@ Initial Severity Level Set by Person Reporting
 Severity Level Reviewed and Confirmed
          ↓
 Incident Response Team Notified
-(Sev1 and Sev2+: call or meeting within 24 hours)
+(Sev1: bridge within 1 hour. Sev2+: within 24 hours)
          ↓
 IRT Takes Lead on Investigation
          ↓
 Data Type and Exposure Identified ──────────────────────────────┐
   Public                                                         │
-  Private Individual (PII)                                       │
+  Personally Identifiable (PII)                                  │
   Company Individual                                            IRT Reports to Response Team
   Confidential                                                   │
          ↓                                                       │
@@ -476,7 +515,7 @@ Every incident should have a ticket from Phase 3 onward. Minimum fields:
 
 **On notification timing:** The instinct to wait until you have full information before notifying is wrong in both directions. Notify the response team early with what you know. Notify external parties - customers, regulators - on the timeline required by law, not when you feel ready.
 
-**On GDPR:** If any affected individuals are EU residents, the 72-hour notification clock to the relevant supervisory authority starts at the point of confirmed breach, not at resolution. Legal needs to be in the room from Phase 2 if PII is in scope.
+**On GDPR:** If any affected individuals are EU residents, the 72-hour notification clock to the relevant supervisory authority starts when the organization becomes aware of the breach, not when every detail is confirmed and not at resolution. Legal needs to be in the room from Phase 2 if PII is in scope.
 
 **On false positives:** Act on a suspected incident as if it is real until you can confirm otherwise. A false positive that was treated seriously is a training exercise. A real incident treated as a false positive is a crisis.
 
@@ -486,6 +525,6 @@ Every incident should have a ticket from Phase 3 onward. Minimum fields:
 
 ---
 
-*Template version 1.0. Built from incident response work across enterprise security programs. Maintained by [Eric White](https://github.com/ChefPlex) | [ChefPlex](https://github.com/ChefPlex)*
+*Template version 1.1. Built from incident response work across enterprise security programs. Maintained by [Eric White](https://github.com/ChefPlex) | [ChefPlex](https://github.com/ChefPlex)*
 
-*Last reviewed: May 2026. Verify notification requirements against current law - GDPR, CCPA, state breach notification statutes, and card association requirements change. This is a framework, not legal advice.*
+*Last reviewed: September 2026. Verify notification requirements against current law - GDPR, NIS2, DORA, the EU CRA, SEC rules, HIPAA, NYDFS, CCPA, state breach notification statutes, and card association requirements change, and CIRCIA is not yet final. This is a framework, not legal advice.*

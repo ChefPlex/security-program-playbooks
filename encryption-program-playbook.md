@@ -77,16 +77,16 @@ their job.
 teams and twenty orphans is not a 220-service program. The twenty will take longer than the two
 hundred.
 
-## Step 3: "Encrypted" covers four different problems, and they need four plans
+## Step 3: "Encrypted" covers three different problems, and they need three plans
 
-**A service being "encrypted" is at least three separate questions**, and conflating them produces a
+**A service being "encrypted" is three separate questions**, and conflating them produces a
 coverage number that can't be defended to an auditor and a plan that can't be executed.
 
 | Axis | The question | Typical implementation |
 |---|---|---|
 | **In transit** | Is traffic between services protected | Often a **sidecar**, so the service itself does not implement TLS |
 | **At rest** | Is stored data protected | Storage-layer or application-layer, depending on the datastore |
-| **Standard and version** | Is it using a version that is still acceptable | TLS 1.1 vs 1.2 vs 1.3 |
+| **Standard and version** | Is it using a version that is still acceptable | TLS 1.1 vs 1.2 vs 1.3. Anchor the floor to a public standard: [RFC 8996](https://www.rfc-editor.org/rfc/rfc8996) deprecates TLS 1.0 and 1.1, and [NIST SP 800-52 Rev. 2](https://csrc.nist.gov/pubs/sp/800/52/r2/final) requires TLS 1.2 and support for TLS 1.3 |
 
 **Run these as separate programs.** They have different owners, different implementation paths,
 different failure modes and different definitions of done. A single "encryption program" that
@@ -116,6 +116,17 @@ Consequences worth planning around:
   surprising people. ⚠️ **If you're scoping the first one, scope it as the first of several** -
   the tooling, the inventory and the team relationships you build are the durable asset, not the
   version number you landed on.
+- **The next wave is already scheduled: post-quantum cryptography.** NIST published the first
+  post-quantum standards in [August 2024](https://www.nist.gov/news-events/news/2024/08/nist-releases-first-3-finalized-post-quantum-encryption-standards):
+  FIPS 203 (ML-KEM, key establishment), FIPS 204 (ML-DSA, signatures) and FIPS 205 (SLH-DSA,
+  signatures). NIST's draft transition plan, [IR 8547](https://csrc.nist.gov/pubs/ir/8547/ipd)
+  (initial public draft, November 2024), proposes disallowing quantum-vulnerable RSA and elliptic curve
+  algorithms after 2035, with the weaker 112-bit versions deprecated after 2030. It is a
+  draft, so treat the dates as direction, not a deadline. **The work is the same shape as a TLS
+  upgrade, only wider:** an inventory of where each algorithm is used, libraries and hardware
+  security modules that support the new ones, and a design that can swap algorithms without
+  touching every service again (crypto-agility). The inventory from the last currency program is
+  the head start.
 - **The drivers are different.** Coverage is driven by risk and baseline. Currency is driven by
   external deprecation timelines and regulation, which means **the deadline is set outside your
   organization and isn't negotiable** - unlike almost everything in Step 5.
@@ -386,6 +397,20 @@ and you will discover that on the day you need one. **Design the emergency path 
 accept that it will have different controls from the routine one** - compensating controls, after
 the fact review, more witnesses rather than fewer. What you cannot do is pretend the routine
 ceremony is also the emergency procedure.
+
+### Public certificate lifetimes are shrinking, so leaf renewal has to be automated
+
+CA/Browser Forum [ballot SC-081](https://cabforum.org/2025/04/11/ballot-sc081v3-introduce-schedule-of-reducing-validity-and-data-reuse-periods/)
+cuts the maximum lifetime of public TLS certificates in steps: **200 days from March 15, 2026, 100
+days from March 15, 2027, and 47 days from March 15, 2029.** At 47 days, a renewal process that
+depends on a person opening a ticket fails several times a year. **Public leaf renewal has to be
+automated, typically with ACME** (the protocol public CAs use for automated issuance), and the
+program should count services on automated renewal the same way it counts coverage.
+
+One related change: the [Chrome Root Program](https://googlechrome.github.io/chromerootprogram/crp/policy)
+requires public TLS hierarchies to be dedicated to server authentication and is phasing out the
+client authentication purpose starting June 15, 2026. **Issue mTLS client certificates from a
+private CA**, not a public one.
 
 
 ## Step 8: Rollout, and what actually breaks

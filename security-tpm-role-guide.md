@@ -39,7 +39,7 @@ A TLS modernization program may touch 100 engineering teams. An encryption-at-re
 
 **Engineering delivery.** Engineering managers and leads own their teams' work. The TPM tracks progress, surfaces blockers, and escalates when needed - but doesn't direct engineers.
 
-**The security roadmap.** Product or program owners own the roadmap. The TPM executes against it.
+**The security roadmap.** Product or program owners own the roadmap. The TPM does not just execute against it, though. The TPM sees the dependencies, capacity limits, and external deadlines across programs before anyone else does, and brings them to the roadmap discussion: sequencing, what two programs are fighting over the same teams, which deadline is set outside the company. Shaping the roadmap is part of the job; deciding it is not.
 
 The TPM is the connective tissue between all of these. That is the job.
 
@@ -76,10 +76,19 @@ When a security program slips or delivers the wrong thing, the consequences aren
 ## Key Skills for Security TPM Effectiveness
 
 **Technical fluency in security domains**
-You do not need to be a security engineer. You need to understand what encryption in transit means and why it matters, what PKI is and how certificate lifecycle works, what zero trust means in practice, what the difference between a Sev 1 and a Sev 3 vulnerability is. Enough to have a real conversation with the engineering team and enough to translate it accurately for an executive audience.
+You do not need to be a security engineer. You need to understand what encryption in transit means and why it matters, what PKI is and how certificate lifecycle works, what zero trust means in practice, why a Critical vulnerability on CISA's Known Exploited Vulnerabilities list outranks a Critical one nobody is exploiting, and why a Sev1 incident is a different thing from a Critical vulnerability. Enough to have a real conversation with the engineering team and enough to translate it accurately for an executive audience.
 
 **Compliance literacy**
 SOX, PCI-DSS, HIPAA, FedRAMP, SOC 2 - know what each framework requires at a high level, which industries they apply to, and what evidence they typically require. You do not need to be a GRC specialist. You need to know when to call one.
+
+**Regulatory disclosure literacy**
+Know which incident reporting clocks apply to your company (SEC Form 8-K Item 1.05, NIS2, DORA, the EU Cyber Resilience Act, HIPAA, NYDFS) and what starts each one. Legal makes the call; the TPM makes sure the clock is known on day one. See the [Incident Response Template](security-incident-response-template.md).
+
+**AI governance**
+AI systems and AI vendors are now in scope for security programs. Know the EU AI Act risk tiers, the NIST AI Risk Management Framework, and ISO/IEC 42001 well enough to route a new AI use case to the right review, and know the security failure modes specific to AI: prompt injection, data leaking through an assistant, and agents acting beyond their intended permissions.
+
+**Post-quantum and crypto-agility**
+NIST published its first post-quantum cryptography standards in 2024, and the migration off today's public-key algorithms will be a multi-year currency program. Know what an algorithm inventory is, why crypto-agility matters, and how to scope the work. See the [Encryption Program Playbook](encryption-program-playbook.md).
 
 **Executive communication**
 Security executives are busy and risk-sensitive. They need the bottom line first - are we achieving the objective, what is the risk, what do they need to do. The ability to distill a complex security program into a clear, honest, three-paragraph executive update is more valuable in this role than almost any other skill.
@@ -87,8 +96,10 @@ Security executives are busy and risk-sensitive. They need the bottom line first
 **Influence without authority**
 Security programs succeed by convincing engineering teams across the organization to do work that's not in their roadmap, on timelines that aren't their preference, for compliance reasons they may not fully understand. The TPM has no direct authority over any of those teams. Relationships, clarity, and reputation for follow-through are the tools.
 
-**Holding the line on completion**
-Security programs have a specific failure mode: teams declare victory at 90% and move on. 90% encryption coverage is not the same as 100%. 90% of accounts with MFA isn't the same as all accounts. The security TPM's job includes holding the standard on what done actually means - including the long tail, the legacy systems, and the edge cases that everyone would rather ignore.
+**Holding the line on completion, and stopping short in the open**
+Security programs have a specific failure mode: teams declare victory at 90% and quietly move on. 90% of accounts with MFA is not the same as all accounts, especially if the missing 10% are the administrators. The security TPM's job is to hold the standard on risk: the long tail, the legacy systems, and the edge cases everyone would rather ignore do not drop out just because the numbers look good.
+
+That is not the same as grinding to 100% at any cost. Some programs reach a point of diminishing returns where the remaining items have no realistic path (the [Encryption Program Playbook](encryption-program-playbook.md) covers this in Step 10). When that happens, re-scope openly: name what is being left, the risk it carries, the compensating control if any, and who accepted it. A named decision with an owner is a legitimate close. A silent stop is the failure mode.
 
 ---
 
@@ -102,10 +113,10 @@ A few things that work specifically with security engineers:
 
 **Be honest about trade-offs.** Security programs involve real trade-offs between risk reduction and engineering cost, between compliance requirements and product velocity. Acknowledge those trade-offs rather than pretending they do not exist. The team will respect it.
 
-**Track the long tail.** Security engineers know that 95% done on a security program is often worse than 0% done - because it creates false confidence. Show that you understand this by tracking coverage metrics, not just task completion.
+**Track the long tail.** Security engineers know that a program reported as 95% done can be worse than no program at all when nobody knows what the missing 5% is, because it creates false confidence. Show that you understand this by tracking coverage metrics, not just task completion, and by making every excluded item visible with an owner.
 
 **Escalate the right things.** When a team is blocked by a dependency outside their control, escalate it. When leadership makes a decision that changes the program, communicate it. When a risk materializes, flag it before the team has to tell you. That's what a good TPM does in any context - it matters more in security because the stakes are higher.
 
 ---
 
-*Version 1.0. Propose changes via pull request.*
+*Version 1.1. Last reviewed September 2026. Propose changes via pull request.*
