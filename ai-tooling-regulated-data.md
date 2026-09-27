@@ -23,8 +23,8 @@ plans and not on starter or consumer plans, and the product is otherwise identic
 same interface, same login, and a completely different contractual position. **Check the plan, not
 the vendor.**
 
-Most enterprise-tier AI, security scanning, compliance automation and source control vendors offer
-BAAs. Many workflow automation connectors, consumer tools and free tiers do not.
+Many enterprise-tier AI, security scanning, compliance automation and source control vendors offer
+BAAs. Workflow automation connectors, consumer tools and free tiers often do not.
 
 ---
 
@@ -39,7 +39,7 @@ the answer is "in progress," the deal slows down at the exact moment it was read
 
 Treat evidence collection as revenue infrastructure and it stops being a cost centre argument.
 
-### Workflow automation needs a connector review
+### Workflow automation, MCP servers and agent tools need a connector review
 
 Workflow tools route data between systems, which makes them the least obvious and most likely place
 for regulated data to end up somewhere it should not be. **Review each connector's data handling
@@ -47,6 +47,15 @@ and agreement posture before automating any flow that could carry regulated data
 
 The failure here is rarely the main tool. It is the third integration in a five-step automation that
 nobody audited because the automation was "just moving a status field."
+
+**MCP (Model Context Protocol) servers and AI-agent tools are connectors too**, with one difference:
+a model decides when to call them and what to send. Each one gets the same review, plus a named
+owner and a pinned version, because a tool can change after it was approved.
+
+⚠️ **Some connectors arrive without anyone installing them.** AI platforms can sync plugins and
+connectors at the account or organization level, so a tool appears on every user's machine with no
+local action. An inventory built from "what did we install" misses these. **Build the inventory
+from the platform's own listing of what is connected, and re-check it on a schedule.**
 
 ### Maintain a data classification line
 
@@ -57,6 +66,14 @@ without a signed agreement are capped at non-PHI use.
 intent. It becomes a control when something actually prevents the crossing, and when someone would
 find out if it were crossed.
 
+**Verify that every enforcement point sees every path.** A DLP rule on the browser upload path does
+not see an agent's tool call, an MCP server, or a browser extension reading the page. For each
+control, list the paths data can take to the tool and confirm the control sits on all of them.
+
+**An agent that writes things down creates a new store.** If it summarizes PHI into its memory, a
+log, or a saved transcript, that is a new PHI store with its own access, retention and deletion
+obligations, and it needs to be on the classification line like any other system.
+
 ---
 
 ## The human gate on ambiguity
@@ -64,7 +81,11 @@ find out if it were crossed.
 **When it's unclear whether a payload contains regulated data, a human reviews it before it reaches
 an AI or any third party.**
 
-This connects directly to the execution tier model. In a regulated environment, **any activity whose
+This connects directly to the
+[execution tier model](https://github.com/ChefPlex/ai-automations/blob/main/frameworks/ai-execution-tiers.md),
+which assigns every activity one of five tiers: 1 human-only, 2 human drives and AI speeds up,
+3 human ideates and AI creates, 4 AI drives and a human approves each item, 5 AI-only with no
+per-item human gate. In a regulated environment, **any activity whose
 input might contain PHI can't sit at tier 5**, regardless of how mechanical the work is, because
 tier 5 removes the per-item human gate and the per-item judgment is exactly what is required.
 
@@ -92,11 +113,14 @@ few minutes. The cost of the reverse is a notification obligation.
    commonly not the compliant settings.**
 4. **What is the highest data class this tool may touch?** Write it down and put it where the
    people using the tool will see it.
-5. **What connectors does it reach through?** Each one inherits the question.
+5. **What connectors, MCP servers and agent tools does it reach through?** Each one inherits the
+   question, including any that arrived through account-level sync rather than a local install.
 6. **Who finds out if regulated data goes somewhere it shouldn't?** If the answer is nobody, the
    control does not exist yet.
 7. **Is training or retention on our data disabled where required?** Verify against the vendor's
    current documentation, and record the date you checked.
+8. **Does it keep memory, logs or transcripts?** If regulated data can land there, that is a new
+   regulated store. Classify it and give it an owner.
 
 ---
 

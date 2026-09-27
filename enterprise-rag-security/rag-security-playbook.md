@@ -32,12 +32,19 @@ The corollary matters just as much: **authorization filtering happens before con
      v
    LLM                           only ever sees authorized content
      |
+     +--> Tool Calls             run as the user, authorized per call
+     |
      v
    Response Filtering            DLP, PII, safety
      |
      v
-   Audit Log                     query, documents, identity, outcome
+   Egress                        only allowlisted URLs, images, destinations
+     |
+     v
+   Audit Log                     query, documents, tool calls, identity, outcome
 ```
+
+Retrieved text and tool output are data, never instructions. The model will still read instructions in them, so every step after the model assumes it may have been steered.
 
 The permission-aware retrieval step is the one that gets designed last and should be designed first. Retrofitting it means reindexing, and sometimes means changing the vector store.
 
@@ -60,10 +67,15 @@ The permission-aware retrieval step is the one that gets designed last and shoul
 | Retention controls | Retrieval indexes are a copy of the corpus and inherit its retention obligations. |
 | Deletion workflows | A document deleted at source must leave the index inside a defined window. |
 | Model-provider data controls | What the provider retains, whether it trains on submissions, where it processes. Legal signs this. |
+| Egress allowlist | The client fetches or renders only URLs and images on an allowlist. Tool calls that send data out go to named destinations only. |
+| Chunk provenance | Every chunk carries its source, author, and ingestion date. A check confirms each cited chunk supports the claim it is cited for. |
+| Agent and tool inventory | Every tool, connector, and MCP server the system can call, its permissions, its pinned version, and a named human owner. |
 
-## The Four Failure Modes That Actually Happen
+## Access-Control Failure Modes, and the Injection That Bypasses Them
 
-Most RAG security incidents are one of these. They share a property worth naming: none of them looks like a failure to the user.
+These are the common failure modes. The first five are access-control failures. The sixth happens with access control working. They share a property worth naming: none of them looks like a failure to the user.
+
+**Oversharing at source.** The source systems already grant more than anyone intended: a folder shared with the whole company, a site nobody locked down. The index inherits those permissions faithfully, and retrieval makes the overshare findable in one question. Filtering is working as designed. Review source permissions on the highest-sensitivity collections before ingestion.
 
 **Service account over-permission.** The ingestion account can read everything, so everything is indexed, and per-user filtering is the only thing standing between a user and the whole corpus. When filtering has a bug, the failure is total rather than partial.
 
@@ -73,7 +85,9 @@ Most RAG security incidents are one of these. They share a property worth naming
 
 **Embedding leakage.** Embeddings are derived from content. An unprotected vector store is a partial copy of the corpus, and it tends to be treated as infrastructure rather than as data.
 
-Every one of these returns a confident, well-formed, correct-looking answer to someone who shouldn't have received it. Nobody files a ticket, which is why they're found in audits rather than in support queues, and why the escalation trigger is a single occurrence rather than a threshold.
+**Injection-driven exfiltration.** A retrieved document carries instructions, the model follows them, and data the user was entitled to leaves through a rendered link, an image, or a tool call. This is the best-documented class in public: [EchoLeak](https://arxiv.org/abs/2509.10540) ([CVE-2025-32711](https://www.cve.org/CVERecord?id=CVE-2025-32711)) exfiltrated Microsoft 365 Copilot data this way with access control intact. Retrieval filtering limits what can leak. Only egress control and capability separation stop it leaking. See the [Prompt Injection Threat Model](prompt-injection-threat-model.md).
+
+Every one of these delivers data, confidently and in a well-formed answer, to someone who should not have it. In the sixth, that someone is not even in the conversation. Nobody files a ticket, which is why they're found in audits rather than in support queues, and why the escalation trigger is a single occurrence rather than a threshold.
 
 ## Security Testing Scope
 
@@ -84,10 +98,12 @@ Beyond injection, test:
 - Cross-user data leakage
 - Sensitive information disclosure through inference across multiple authorized documents
 - Malicious or poisoned documents inside the corpus
-- Tool misuse, where the system can act rather than only answer
+- Tool misuse, where the system can act rather than only answer, including poisoned tool descriptions and memory that persists across sessions
 - Model-provider leakage
 - Permission propagation, both grants and revocations
 - Deletion propagation
+- Over-filtering: when permission filtering removes the documents that answer a question, the system says it cannot answer. It never builds an answer from the partial set that is left.
+- Citations: each cited chunk supports the claim, and false statements planted in the corpus are caught by provenance, since they carry no instruction for a scanner to find
 
 The inference case is the subtle one. A user may be entitled to twenty documents individually while the synthesis of all twenty is something they were never meant to be able to assemble. Worth a conversation with whoever owns data governance, and worth deciding deliberately rather than discovering.
 
@@ -101,8 +117,12 @@ Security cannot approve general availability until:
 - [ ] Deletion propagates within the agreed window, tested
 - [ ] Vector store encrypted and access-controlled as data, not as infrastructure
 - [ ] Audit log captures query, retrieved document IDs, and identity
-- [ ] Direct and indirect injection testing complete, zero successes
+- [ ] Over-filtered queries refuse rather than answer from what is left, tested
+- [ ] Egress allowlist enforced for rendered URLs, images, and outbound tool calls
+- [ ] Agent and tool inventory complete, every entry with a named owner
+- [ ] Direct and indirect injection suite passes, each case run repeatedly, against a corpus refreshed with adaptive attacks. A pass is a regression floor, not proof of resistance.
 - [ ] Red team complete, findings closed or formally accepted with a named approver
+- [ ] Residual injection risk accepted in writing by a named approver
 - [ ] Model-provider data terms reviewed and accepted by legal
 - [ ] Kill switch exists and has been tested
 
