@@ -87,7 +87,7 @@ These playbooks assume that baseline and try to build on it - not replace the se
 
 ## Contributing
 
-If you've a framework, runbook, or reference document that has worked in practice for security programs - open a PR or file an issue. The bar is that it has to come from real experience, be generic enough to apply outside one company, and be documented well enough to use without asking questions.
+If you have a framework, runbook, or reference document that has worked in practice for security programs - open a PR or file an issue. The bar is that it has to come from real experience, be generic enough to apply outside one company, and be documented well enough to use without asking questions.
 
 ---
 

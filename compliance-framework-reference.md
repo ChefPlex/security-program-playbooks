@@ -20,7 +20,7 @@ Each framework summary answers four questions:
 
 ## SOX - Sarbanes-Oxley Act
 
-**What it's:** US federal law enacted in 2002 following the Enron and WorldCom accounting scandals. Requires public companies to maintain accurate financial records and demonstrate adequate internal controls over financial reporting.
+**What it is:** US federal law enacted in 2002 following the Enron and WorldCom accounting scandals. Requires public companies to maintain accurate financial records and demonstrate adequate internal controls over financial reporting.
 
 **Who it applies to:** US public companies (listed on US exchanges), their subsidiaries, and their significant service providers. Also applies to non-US companies listed on US exchanges.
 
@@ -41,7 +41,7 @@ The cost of a SOX finding at audit time is high. The cost of designing for SOX f
 
 ## PCI-DSS - Payment Card Industry Data Security Standard
 
-**What it's:** A private industry standard developed by the major card brands (Visa, Mastercard, Amex, Discover) and administered by the PCI Security Standards Council.
+**What it is:** A private industry standard developed by the major card brands (Visa, Mastercard, Amex, Discover) and administered by the PCI Security Standards Council.
 
 **Current version:** PCI DSS v4.0.1, the only active version supported by PCI SSC as of January 1, 2025. PCI DSS v4.0 was retired on December 31, 2024. The 51 future-dated requirements introduced in v4.0 became mandatory on March 31, 2025.
 
@@ -71,7 +71,7 @@ Annual validation cycles mean timing matters. Programs that need to deliver chan
 
 ## HIPAA - Health Insurance Portability and Accountability Act
 
-**What it's:** US federal law governing the privacy and security of health information. The Security Rule specifically covers electronic protected health information (ePHI).
+**What it is:** US federal law governing the privacy and security of health information. The Security Rule specifically covers electronic protected health information (ePHI).
 
 **Who it applies to:** Covered entities (healthcare providers, health plans, healthcare clearinghouses) and their business associates (any vendor or service provider that handles ePHI on their behalf).
 
@@ -96,7 +96,7 @@ Risk analysis is a core HIPAA requirement and a common audit finding. Business A
 
 ## FedRAMP - Federal Risk and Authorization Management Program
 
-**What it's:** A US government program that provides a standardized approach to security assessment, authorization, and continuous monitoring for cloud services used by federal agencies. Based on NIST SP 800-53 controls.
+**What it is:** A US government program that provides a standardized approach to security assessment, authorization, and continuous monitoring for cloud services used by federal agencies. Based on NIST SP 800-53 controls.
 
 **Who it applies to:** Cloud service providers seeking to provide cloud services to US federal agencies.
 
@@ -114,7 +114,7 @@ FedRAMP authorization is a program in itself. Timeline from engagement to author
 
 ## SOC 2 - Service Organization Control 2
 
-**What it's:** An auditing framework developed by the American Institute of CPAs (AICPA) for service organizations. Covers five Trust Service Criteria: Security (always required), Availability, Processing Integrity, Confidentiality, and Privacy.
+**What it is:** An auditing framework developed by the American Institute of CPAs (AICPA) for service organizations. Covers five Trust Service Criteria: Security (always required), Availability, Processing Integrity, Confidentiality, and Privacy.
 
 **Type I vs Type II:**
 - Type I: Point-in-time assessment. Controls are designed appropriately as of a specific date.
@@ -130,7 +130,7 @@ If your program introduces new systems that fall within SOC 2 scope, engage GRC 
 
 ## GDPR - General Data Protection Regulation
 
-**What it's:** EU regulation governing the collection, processing, and storage of personal data of EU residents. Effective since May 2018.
+**What it is:** EU regulation governing the collection, processing, and storage of personal data of EU residents. Effective since May 2018.
 
 **Who it applies to:** Any organization that processes personal data of EU residents, regardless of where the organization is located.
 
@@ -148,7 +148,7 @@ The 72-hour breach notification requirement is particularly relevant for inciden
 
 ## NIST CSF - Cybersecurity Framework
 
-**What it's:** A voluntary framework developed by the National Institute of Standards and Technology for improving cybersecurity risk management. Version 2.0 released in 2024.
+**What it is:** A voluntary framework developed by the National Institute of Standards and Technology for improving cybersecurity risk management. Version 2.0 released in 2024.
 
 **Who it applies to:** Anyone who wants to use it. Widely adopted across US industries and referenced by regulators. Not legally required for most organizations, but increasingly expected.
 

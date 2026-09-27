@@ -103,7 +103,7 @@ services that do not have it. This is what moves a coverage percentage. It is fi
 there is a denominator and you can finish it.
 
 **Currency work: upgrade what is already encrypted to a standard that's still accepted.** Older
-protocol versions get retired, and you've to move off them to stay inside current regulation and
+protocol versions get retired, and you have to move off them to stay inside current regulation and
 a defensible security posture. **A service can be fully encrypted and still be a finding**, because
 it is encrypted with something that is on its way out.
 
@@ -154,7 +154,7 @@ the missing team cannot be engineered around.
 
 ## Step 4: Estimate the work, then find the dependency that actually sets the schedule
 
-Once scope is settled you've to answer two things: **how long will this take, and what depends on
+Once scope is settled you have to answer two things: **how long will this take, and what depends on
 what.** The second one is where the real answer lives.
 
 ### The estimate has enormous variance, and that is a finding rather than a failure
@@ -191,7 +191,7 @@ important thing to discover early, because:
 - **Re-prioritizing doesn't help.** Reordering a queue that has one server changes what finishes
   first, never when everything finishes.
 - **It compounds with risk.** The concentrated work is the legacy, central, high-blast-radius work,
-  so the one team carrying it's also the one that can't afford to move fast.
+  so the one team carrying it is also the one that can't afford to move fast.
 
 ⚠️ **Model the bottleneck team explicitly in the plan, by name, with its capacity.** A dependency
 map that shows service-to-service ordering and hides the fact that forty of them queue behind the
@@ -222,7 +222,7 @@ What you're negotiating: **who actually does what, and how long it actually take
 the same numbers you were given from above, and reconciling them is the work.
 
 **Teams will tell you the truth about duration if you aren't using it against them.** The estimate
-that comes back from the people who have to do it's the only one worth carrying upward.
+that comes back from the people who have to do it is the only one worth carrying upward.
 
 ### The four things that have to come out matched
 
@@ -431,7 +431,7 @@ Which comes back to communication, and to one thing in particular that costs not
 It keeps a team invigorated because it tells them you're behind them, **and because it makes them
 look good to their own management.** That's the part that matters. You are asking teams to spend
 their capacity on something that was not their priority. Making sure their leadership sees them
-doing it well is the closest thing to a currency you've, and it's renewable.
+doing it well is the closest thing to a currency you have, and it's renewable.
 
 ## Step 9: Measure it with a script, not with a survey
 
