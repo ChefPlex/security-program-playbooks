@@ -27,7 +27,7 @@ AI security coverage lives here, in the RAG folder and the AI tooling reference 
 
 | Playbook | What It Is |
 |----------|-----------|
-| [Enterprise RAG Security](enterprise-rag-security/) | The security workstream for a system that answers questions using company data on behalf of a specific person. Trust boundary, permission-aware retrieval, the control set, the four failure modes that actually happen, and a prompt injection threat model with a test corpus you can run in CI. The program these sit inside is in [tpm-templates](https://github.com/ChefPlex/tpm-templates/tree/main/enterprise-rag-program). |
+| [Enterprise RAG Security](enterprise-rag-security/) | The security workstream for a system that answers questions using company data on behalf of a specific person. Trust boundary on both the document and structured-data paths, permission-aware retrieval, the control set, deterministic enforcement and denial telemetry, the six failure modes that actually happen, and a prompt injection threat model covering authority between agents, with a test corpus you can run in CI. The program these sit inside is in [tpm-templates](https://github.com/ChefPlex/tpm-templates/tree/main/enterprise-rag-program). |
 
 ### Reference Material
 

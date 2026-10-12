@@ -27,7 +27,8 @@ IDs in brackets map each row to the [OWASP Top 10 for LLM Applications 2025](htt
 | Unauthorized retrieval (LLM02, LLM08) | Direct or indirect | Data breach | Permission filtering before the model, never in the prompt |
 | Data exfiltration (LLM02) | Indirect | Data the user was entitled to leaves via a rendered link, image, or tool call | Egress allowlist for anything the client will fetch or render, no unrestricted outbound calls, capability separation |
 | Tool misuse (LLM06, ASI02) | Indirect | System acts on the attacker's behalf | See Tools below: constraints outside the schema, per-call authorization, denied combinations, rule-triggered approval |
-| Confused deputy (ASI03) | Indirect | The system uses its own broader privilege for a request the user could not make | Every retrieval and tool call runs as the end user, never a service account, and is authorized per call |
+| Confused deputy (ASI03) | Indirect | The system uses its own broader privilege for a request the user could not make | Every retrieval and tool call runs as the end user, never a service account except a recorded, tested exception ([structured path](rag-security-playbook.md#trust-boundary)), and is authorized per call |
+| Privilege passed between agents (ASI03, ASI07) | Indirect | One agent's credential or authority flows to another, or a steered agent claims a user it isn't acting for, so an action runs with a scope nobody granted | Agents pass evidence and requests, never credentials. User identity travels as a signed, short-lived, down-scoped token, and each hop is authorized against the user's entitlements intersected with that agent's scope. See [Authority Between Agents](#authority-between-agents) |
 | Tool or MCP description poisoning, rug-pull (ASI04) | Supply chain | A tool description carries instructions, or an approved tool or server changes after review | Pin versions, review descriptions as code, re-review on any change, inventory with a named owner |
 | Corpus poisoning: injected instructions | Indirect | Persistent attack affecting many users | Source write-access controls, ingestion scanning, provenance |
 | Corpus poisoning: false statements | Indirect | Wrong answers delivered confidently, with a citation | Chunk provenance, source trust levels, and a check that each cited chunk supports the claim. Scanning cannot catch a plain false sentence, because it contains no instruction. |
@@ -126,17 +127,56 @@ No single one is sufficient. Injection is mitigated in depth or not at all.
 |---|---|
 | Ingestion | Scan documents for injection patterns before indexing. Control write access to indexed sources. Track provenance so a poisoned document can be traced. |
 | Retrieval | Filter by user permission before content reaches the model. One of the two load-bearing layers. |
-| Prompt | Structurally separate instructions from retrieved content. Mark retrieved text as data. Do not rely on this alone. |
+| Prompt | Structurally separate system instructions, application instructions, the user's request, and retrieved content, and mark retrieved text as data. This reduces ambiguity and raises the cost of an attack. It is defense in depth, not enforcement: natural-language data still influences the model however it is labelled. Do not rely on this alone. |
 | Model | A classifier or a separate screening model pass over retrieved content is an alarm. It feeds monitoring. It is never the gate, because it misses inputs unlike the ones it was built on, and OWASP states it is unclear whether fool-proof prevention exists ([LLM01](https://genai.owasp.org/llmrisk/llm01-prompt-injection/)). |
 | Output | Scan responses for disclosure. Allow the client to fetch or render only URLs and images on an allowlist. Block unexpected outbound calls. |
 | Tools | Allowlist. Parameter constraints enforced by code outside the tool schema, since the model writes the arguments. Per-call authorization bound to the session's user identity. Deny dangerous combinations, for example read-restricted-data followed by any outbound send in the same session. |
 | Memory | Memory writes pass the same provenance and scope checks as ingestion. A user can see and purge what the system remembers about them. |
-| Monitoring | Alert on injection signatures, classifier hits, unusual retrieval patterns, and repeated boundary probing. |
+| Monitoring | Alert on injection signatures, classifier hits, unusual retrieval patterns, repeated boundary probing, and denied actions. A blocked tool call is a prevention that worked and a detection signal at the same time. |
 | Audit | Log query, retrieved document IDs, tool calls with arguments, and identity so an incident can be reconstructed. |
 
 Two rows are load-bearing, and they bound different things. Retrieval filtering bounds **what** can leak: a successful injection reaches only what the user was entitled to. Egress control and capability separation bound **whether** it leaks. Neither one substitutes for the other.
 
 [EchoLeak](https://arxiv.org/abs/2509.10540) ([CVE-2025-32711](https://www.cve.org/CVERecord?id=CVE-2025-32711), Microsoft 365 Copilot, CVSS 9.3, published and fixed server-side in June 2025) is the worked case. An email carried the injection. When Copilot retrieved it, the instructions made it search the user's own accessible data and send it to attacker-controlled URLs, with no click from the user ([MITRE ATLAS case study AML.CS0059](https://atlas.mitre.org/)). Access control held the whole time. The attack also bypassed the vendor's injection defenses and link redaction, which is why the model row is an alarm and not a gate.
+
+### Authority Between Agents
+
+Agentic RAG often chains agents: a research agent reads data, then hands off to an agent that updates a CRM, files a ticket, or sends a message. Authority does not automatically flow down that chain, and the design has to make sure it can't.
+
+A research agent with read access to the data warehouse must not pass its credential, or its authority, to the CRM agent. If it does, an injection that steers the research agent now reaches everything both agents can touch.
+
+```text
+   User authority
+        |   signed user token
+        v
+   Agent A  (authenticates as Agent A)
+        |
+        |  passes: the request + the evidence
+        |          + a down-scoped token for this user and this request
+        |  never:  Agent A's own credential, or "the user is X" as plain text
+        v
+   Policy enforcement   user entitlements ∩ Agent B's scope ∩ the original request
+        |
+        v
+   Agent B  (authenticates as Agent B)
+        |
+        v
+   Tool authorization   per call, same intersection, checked again
+        |
+        v
+   Target system
+```
+
+> Agents may pass evidence and requests. They should not implicitly pass privileges.
+
+Two identities are in play at every hop, and both matter. The agent's own credential says **which agent** is calling. The user's token says **on whose behalf**. Access is the intersection: what the user may do, limited to what this agent is for, limited to what the original request asked. This is not the "service account" the rest of this workstream rules out: the agent's credential never grants data access on its own.
+
+- **Authorize the intersection, not the user alone.** Checking only the user's entitlements means a steered Agent B can do anything the user can. If the user is an administrator, so is the injection.
+- **Carry the user's identity as a token, never as text.** If identity travels as a field in the message, a steered Agent A can claim to be acting for anyone. Use a signed, short-lived, audience-restricted token, down-scoped at each hop. OAuth 2.0 Token Exchange ([RFC 8693](https://www.rfc-editor.org/rfc/rfc8693)) is the standard for this, and its `act` claim records the chain of agents that acted; on-behalf-of flows in common identity providers do the same job.
+- **Treat a request from another agent as untrusted input**, exactly like retrieved content. Agent A may have been steered by what it read.
+- **Log every agent-to-agent request**, and alert on ones the design doesn't expect (see [A Blocked Action Is a Signal](rag-security-playbook.md#a-blocked-action-is-a-signal)).
+
+The broader program for agents that act, with autonomy levels and approval paths, is [Agentic AI Program](https://github.com/ChefPlex/tpm-templates/tree/main/agentic-ai-program).
 
 ### Human Approval
 
