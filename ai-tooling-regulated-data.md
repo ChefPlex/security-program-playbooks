@@ -14,8 +14,9 @@ environments handling PHI (Protected Health Information), and it changes the ord
 
 **Confirm agreement availability before adoption, not after.**
 
-A BAA (Business Associate Agreement) or equivalent data processing agreement must be in place, and
-the tool configured under it, before any regulated data flows. This is not a phase. It is a gate
+A BAA (Business Associate Agreement) for PHI, or the agreement your regime requires for other
+regulated data, must be in place, and the tool configured under it, before any regulated data flows.
+A general data processing agreement is not a BAA. This is not a phase. It is a gate
 that sits in front of every phase.
 
 ⚠️ **A free tier isn't automatically a compliant tier.** Many vendors offer a BAA on enterprise

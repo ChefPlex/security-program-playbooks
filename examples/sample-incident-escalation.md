@@ -6,7 +6,7 @@ A worked example showing what a Sev1 escalation looks like using the incident re
 
 ## The Scenario
 
-3:47 AM. Your intrusion detection system fires. A system administrator pages the on-call engineer. The engineer is trying to figure out what to do next.
+3:41 AM. Your intrusion detection system fires. At 3:47 a system administrator pages the on-call engineer. The engineer is trying to figure out what to do next.
 
 ---
 

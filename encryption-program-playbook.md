@@ -434,7 +434,8 @@ Sometimes the answer is that this service can't be made to work, and the resolut
 pushing. **You move the work to a different service and solve it a different way.**
 
 ⚠️ **This is a normal outcome, not a defeat, and treating it as a defeat is how programs stall.**
-The loop from Step 2 - back to the architects, back to the engineering teams, find another path -
+The loop back to the architects and the engineering teams to find another path (lesson 2 of
+[Lessons from Leading Large-Scale Encryption Programs](https://github.com/ChefPlex/learning-notes/blob/main/lessons-from-large-scale-encryption-programs.md#2-build-the-program-assuming-you-will-be-blocked-because-you-will-be))
 exists precisely for this. What matters is recognizing early that a given path isn't tenable, so
 the re-solve happens in week two rather than month four.
 

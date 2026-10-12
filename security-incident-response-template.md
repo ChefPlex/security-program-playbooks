@@ -19,6 +19,8 @@ Written for TPMs and incident leads who need to organize a response fast, commun
 
 The pages that follow detail each phase. The visual overview is in Appendix A.
 
+The [Cyber Incident Management Playbook](https://github.com/ChefPlex/tpm-templates/blob/main/incident-management/cyber-incident-playbook.md) in tpm-templates also has six phases, but different ones (Detect & Classify through Sustain & Exercise). This template sequences the response team's tasks. That playbook is written for the incident commander and organizes the command work: scoping, decisions, communications, and the exercise program afterward.
+
 ### How this maps to NIST
 
 [NIST SP 800-61 Rev. 3](https://csrc.nist.gov/pubs/sp/800/61/r3/final) (April 2025) superseded Rev. 2 and recasts incident response as a Community Profile of the NIST Cybersecurity Framework (CSF) 2.0. This template covers the response itself. Preparation lives in Govern, Identify, and Protect, and belongs in your program, not in the middle of an incident.
@@ -156,9 +158,9 @@ Legal owns the determination. The TPM's job is to make sure the clocks are known
 | SEC Form 8-K Item 1.05 | US public companies | Generally 4 business days after determining an incident is material | [SEC 2023-139](https://www.sec.gov/newsroom/press-releases/2023-139) |
 | GDPR Art. 33 | Controllers of EU personal data | Supervisory authority within 72 hours of becoming aware, where feasible | [GDPR Art. 33](https://gdpr-info.eu/art-33-gdpr/) |
 | NIS2 | EU essential and important entities | Early warning 24 hours from becoming aware; notification 72 hours; final report one month later | [Commission NIS2 FAQ](https://digital-strategy.ec.europa.eu/en/faqs/directive-measures-high-common-level-cybersecurity-across-union-nis2-directive-faqs) |
-| DORA | EU financial entities | Initial notification 4 hours after classifying as major and no later than 24 hours after detection; intermediate 72 hours; final one month | [EBA](https://www.eba.europa.eu/activities/single-rulebook/regulatory-activities/operational-resilience/joint-technical-standards-major-incident-reporting) |
+| DORA | EU financial entities | Initial notification 4 hours after classifying as major and no later than 24 hours after becoming aware of the incident; intermediate 72 hours; final one month | [EBA](https://www.eba.europa.eu/activities/single-rulebook/regulatory-activities/operational-resilience/joint-technical-standards-major-incident-reporting) |
 | EU Cyber Resilience Act | Manufacturers of digital products sold in the EU, from September 11, 2026 | Actively exploited vulnerability or severe incident: early warning 24 hours; notification 72 hours; final report 14 days after a fix (vulnerability) or one month (incident) | [Commission CRA reporting](https://digital-strategy.ec.europa.eu/en/policies/cra-reporting) |
-| HIPAA Breach Notification | Covered entities and business associates | Individuals without unreasonable delay, no later than 60 days after discovery. HHS at the same time for 500 or more; annually for fewer than 500 | [45 CFR 164.404](https://www.law.cornell.edu/cfr/text/45/164.404), [164.408](https://www.law.cornell.edu/cfr/text/45/164.408) |
+| HIPAA Breach Notification | Covered entities and business associates | Individuals without unreasonable delay, no later than 60 days after discovery. HHS at the same time for 500 or more; annually for fewer than 500. Prominent media outlets on the same 60-day clock when more than 500 residents of one state or jurisdiction are affected | [45 CFR 164.404](https://www.law.cornell.edu/cfr/text/45/164.404), [164.406](https://www.law.cornell.edu/cfr/text/45/164.406), [164.408](https://www.law.cornell.edu/cfr/text/45/164.408) |
 | NYDFS 23 NYCRR 500.17 | NYDFS-regulated entities | 72 hours after determining a cybersecurity incident occurred; extortion payment notice within 24 hours, with a written explanation within 30 days | [23 NYCRR 500.17](https://www.law.cornell.edu/regulations/new-york/23-NYCRR-500.17) |
 | CIRCIA | US critical infrastructure | Not yet in effect: the final rule is still pending. The statute sets 72 hours for covered incidents and 24 hours for ransom payments once it is | [CISA CIRCIA](https://www.cisa.gov/topics/cyber-threats-and-advisories/information-sharing/cyber-incident-reporting-critical-infrastructure-act-2022-circia) |
 
@@ -231,7 +233,7 @@ Categorize into the highest applicable level:
 - Confidential
 - Personally identifiable information (PII)
 - Company individual information
-- Public
+- Public (recorded so the classification is on the ticket; exposure has no legal or regulatory consequence)
 
 **Category 2 - Threat to systems**
 - Active intrusion

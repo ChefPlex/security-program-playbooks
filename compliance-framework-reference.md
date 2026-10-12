@@ -42,7 +42,7 @@ The cost of a SOX finding at audit time is high. The cost of designing for SOX f
 
 ## PCI-DSS - Payment Card Industry Data Security Standard
 
-**What it is:** A private industry standard developed by the major card brands (Visa, Mastercard, Amex, Discover) and administered by the PCI Security Standards Council.
+**What it is:** A private industry standard developed by the five founding card brands (Visa, Mastercard, Amex, Discover, JCB) and administered by the PCI Security Standards Council.
 
 **Current version:** PCI DSS v4.0.1, the only active version supported by PCI SSC as of January 1, 2025. PCI DSS v4.0 was retired on December 31, 2024. The 51 future-dated requirements introduced in v4.0 became mandatory on March 31, 2025.
 
@@ -56,7 +56,7 @@ PCI-DSS has 12 requirements organized into six control objectives: build and mai
 
 **Key technical requirements for TPMs to know:**
 - "Strong cryptography" for cardholder data sent over open, public networks (Requirement 4). The standard does not name a TLS version. QSAs commonly read strong cryptography as TLS 1.2 or higher with strong cipher suites, so plan to that and confirm with your assessor.
-- Annual penetration testing for internet-facing systems in the CDE
+- Penetration testing at least every 12 months, both internal and external, plus testing of any segmentation controls used to reduce scope (Requirement 11.4)
 - Quarterly vulnerability scans
 - Log retention: 12 months, 3 months immediately available
 - Annual compliance validation: SAQ for smaller merchants, QSA audit for larger ones
@@ -108,7 +108,7 @@ Three impact levels: Low, Moderate (most government cloud workloads), and High (
 **The program is changing, so check the current rules before planning:**
 - The Joint Authorization Board and its JAB P-ATO are gone. Under OMB memo M-24-15, existing JAB P-ATOs were re-designated and a [FedRAMP Board](https://www.fedramp.gov/2026/authority/m-24-15/process/) sets requirements and guidelines; it does not approve individual packages. There is one "FedRAMP Authorized" outcome instead of two tiers.
 - **FedRAMP 20x** is the newer certification path, and it moves to new rules first.
-- The [Consolidated Rules for 2026 (CR26)](https://www.fedramp.gov/2026/providers/updating/deadlines/) took effect July 4, 2026 and apply to 20x immediately. They become mandatory for Rev 5 on January 1, 2027. FedRAMP stops accepting new Rev 5 applications after June 11, 2027. CR26 is valid through December 31, 2028.
+- The [Consolidated Rules for 2026 (CR26)](https://www.fedramp.gov/2026/providers/updating/deadlines/) took effect July 4, 2026 and apply immediately to new 20x applications. They become mandatory for new Rev 5 applications and for active 20x offerings on January 1, 2027. All grace periods end February 1, 2028. FedRAMP stops accepting new Rev 5 applications after June 11, 2027. CR26 is valid through December 31, 2028.
 
 **What it means for TPMs:**
 
@@ -118,7 +118,7 @@ FedRAMP authorization is a program in itself. It involves gap assessment, securi
 
 ## SOC 2 - System and Organization Controls 2
 
-**What it is:** An auditing framework developed by the American Institute of CPAs (AICPA) for service organizations. Covers five Trust Service Criteria: Security (always required), Availability, Processing Integrity, Confidentiality, and Privacy.
+**What it is:** An attestation report on an independent examination of a service organization's controls, measured against the Trust Services Criteria of the American Institute of CPAs (AICPA). Covers five Trust Service Criteria: Security (always required), Availability, Processing Integrity, Confidentiality, and Privacy.
 
 **Type I vs Type II:**
 - Type I: Point-in-time assessment. Controls are designed appropriately as of a specific date.
@@ -176,11 +176,11 @@ These come up often enough that a TPM should recognize them and know when to cal
 
 **NIS2 Directive (EU 2022/2555)** - EU cybersecurity law for essential and important entities across many sectors, with a national transposition deadline of October 17, 2024. Significant incidents need an early warning within 24 hours of becoming aware, an incident notification within 72 hours, and a final report within one month ([Commission NIS2 FAQ](https://digital-strategy.ec.europa.eu/en/faqs/directive-measures-high-common-level-cybersecurity-across-union-nis2-directive-faqs)). TPM trigger: any EU operation in a covered sector. National laws differ in detail, so check the member state.
 
-**DORA (EU Digital Operational Resilience Act)** - Applies to EU financial entities from January 17, 2025 ([ESMA](https://www.esma.europa.eu/esmas-activities/digital-finance-and-innovation/digital-operational-resilience-act-dora)). Covers ICT risk management, third-party ICT risk, and incident reporting, among other areas. Major ICT incidents need an initial notification within 4 hours of classification and no later than 24 hours after detection, an intermediate report within 72 hours, and a final report within one month ([EBA](https://www.eba.europa.eu/activities/single-rulebook/regulatory-activities/operational-resilience/joint-technical-standards-major-incident-reporting)). TPM trigger: any program at an EU financial entity, or selling ICT services to one. Ask GRC what flows down to you.
+**DORA (EU Digital Operational Resilience Act)** - Applies to EU financial entities from January 17, 2025 ([ESMA](https://www.esma.europa.eu/esmas-activities/digital-finance-and-innovation/digital-operational-resilience-act-dora)). Covers ICT risk management, third-party ICT risk, and incident reporting, among other areas. Major ICT incidents need an initial notification within 4 hours of classification and no later than 24 hours after becoming aware of the incident, an intermediate report within 72 hours, and a final report within one month ([EBA](https://www.eba.europa.eu/activities/single-rulebook/regulatory-activities/operational-resilience/joint-technical-standards-major-incident-reporting)). TPM trigger: any program at an EU financial entity, or selling ICT services to one. Ask GRC what flows down to you.
 
 **EU Cyber Resilience Act (CRA)** - Security requirements for products with digital elements sold in the EU. Reporting obligations apply from September 11, 2026: manufacturers report actively exploited vulnerabilities and severe incidents with an early warning within 24 hours, a notification within 72 hours, and a final report (14 days after a fix is available for a vulnerability; one month for a severe incident). The main obligations apply from December 11, 2027 ([Commission CRA](https://digital-strategy.ec.europa.eu/en/policies/cyber-resilience-act), [CRA reporting](https://digital-strategy.ec.europa.eu/en/policies/cra-reporting)). TPM trigger: any software or connected product sold in the EU. The vulnerability intake and disclosure process is now a regulated process.
 
-**EU AI Act** - Risk-tiered rules for AI systems, in force since August 1, 2024. Prohibitions and AI literacy apply from February 2, 2025, and general-purpose AI model obligations from August 2, 2025. The 2026 Digital Omnibus on AI, in force July 27, 2026, moved the high-risk dates: December 2, 2027 for stand-alone (Annex III) high-risk systems and August 2, 2028 for AI embedded in regulated products (Annex I). Article 50 transparency obligations apply from August 2, 2026 ([AI Act Service Desk timeline](https://ai-act-service-desk.ec.europa.eu/en/ai-act/timeline/timeline-implementation-eu-ai-act), [AI Omnibus](https://digital-strategy.ec.europa.eu/en/news/ai-omnibus-enters-force)). TPM trigger: any program that builds, buys, or embeds AI for EU users. Classify the use case at intake, because the tier decides the work.
+**EU AI Act** - Risk-tiered rules for AI systems, in force since August 1, 2024. Prohibitions and AI literacy apply from February 2, 2025, and general-purpose AI model obligations from August 2, 2025. The 2026 Digital Omnibus on AI, in force July 27, 2026, moved the high-risk dates: December 2, 2027 for stand-alone (Annex III) high-risk systems and August 2, 2028 for AI embedded in regulated products (Annex I). Article 50 transparency obligations apply from August 2, 2026. On December 2, 2026 the Omnibus's new prohibitions apply, and providers of synthetic-content systems already on the market before August 2, 2026 reach their transition deadline for Article 50(2) ([AI Act Service Desk timeline](https://ai-act-service-desk.ec.europa.eu/en/ai-act/timeline/timeline-implementation-eu-ai-act), [AI Omnibus](https://digital-strategy.ec.europa.eu/en/news/ai-omnibus-enters-force)). TPM trigger: any program that builds, buys, or embeds AI for EU users. Classify the use case at intake, because the tier decides the work.
 
 ---
 

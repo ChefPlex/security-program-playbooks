@@ -22,7 +22,7 @@ IDs in brackets map each row to the [OWASP Top 10 for LLM Applications 2025](htt
 
 | Threat | Vector | Impact | Primary mitigation |
 |---|---|---|---|
-| Instruction override (LLM01, ASI01) | Direct or indirect | System ignores its constraints or pursues the attacker's goal | Instruction and data separation, privileged prompt handling |
+| Instruction override (LLM01, ASI01) | Direct or indirect | System ignores its constraints or pursues the attacker's goal | Capability separation, per-action authorization outside the model, egress allowlist. Instruction and data separation in the prompt is depth, not enforcement (see [Layered Mitigations](#layered-mitigations)) |
 | System prompt disclosure (LLM07) | Direct | Reveals design, aids further attack | Treat the prompt as non-secret, never rely on its secrecy |
 | Unauthorized retrieval (LLM02, LLM08) | Direct or indirect | Data breach | Permission filtering before the model, never in the prompt |
 | Data exfiltration (LLM02) | Indirect | Data the user was entitled to leaves via a rendered link, image, or tool call | Egress allowlist for anything the client will fetch or render, no unrestricted outbound calls, capability separation |
@@ -137,7 +137,7 @@ No single one is sufficient. Injection is mitigated in depth or not at all.
 
 Two rows are load-bearing, and they bound different things. Retrieval filtering bounds **what** can leak: a successful injection reaches only what the user was entitled to. Egress control and capability separation bound **whether** it leaks. Neither one substitutes for the other.
 
-[EchoLeak](https://arxiv.org/abs/2509.10540) ([CVE-2025-32711](https://www.cve.org/CVERecord?id=CVE-2025-32711), Microsoft 365 Copilot, CVSS 9.3, published and fixed server-side in June 2025) is the worked case. An email carried the injection. When Copilot retrieved it, the instructions made it search the user's own accessible data and send it to attacker-controlled URLs, with no click from the user ([MITRE ATLAS case study AML.CS0059](https://atlas.mitre.org/)). Access control held the whole time. The attack also bypassed the vendor's injection defenses and link redaction, which is why the model row is an alarm and not a gate.
+[EchoLeak](https://arxiv.org/abs/2509.10540) ([CVE-2025-32711](https://www.cve.org/CVERecord?id=CVE-2025-32711), Microsoft 365 Copilot, CVSS 9.3, published and fixed server-side in June 2025) is the worked case. An email carried the injection. When Copilot retrieved it, the instructions made it search the user's own accessible data and send it to attacker-controlled URLs, with no click from the user (MITRE ATLAS case study AML.CS0059, searchable by ID on the [ATLAS site](https://atlas.mitre.org/)). Access control held the whole time. The attack also bypassed the vendor's injection defenses and link redaction, which is why the model row is an alarm and not a gate.
 
 ### Authority Between Agents
 

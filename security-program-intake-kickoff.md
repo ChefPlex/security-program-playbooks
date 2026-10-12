@@ -90,7 +90,7 @@ Security programs often span multiple engineering teams, multiple compliance dom
 
 The TPM doesn't own the security domain knowledge - that belongs to the security architects, engineers, and GRC team. What the TPM owns is the program itself: the structure, the delivery, the dependencies, the escalations, and the communications.
 
-That means being technical enough to understand what the engineering team is building and why, fluent enough in compliance to know when a regulatory constraint changes the plan, and organized enough to track all of it across teams that don't naturally talk to each other.
+What that requires of the TPM is covered in [The Security TPM Role](security-tpm-role-guide.md#what-a-security-tpm-owns).
 
 ---
 
