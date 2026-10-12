@@ -22,7 +22,7 @@ Each framework summary answers four questions:
 
 **What it is:** US federal law enacted in 2002 following the Enron and WorldCom accounting scandals. Requires public companies to maintain accurate financial records and demonstrate adequate internal controls over financial reporting.
 
-**Who it applies to:** US public companies (listed on US exchanges), their subsidiaries, and their significant service providers. Also applies to non-US companies listed on US exchanges.
+**Who it applies to:** US public companies (listed on US exchanges) and their subsidiaries. Also applies to non-US companies listed on US exchanges. SOX does not bind service providers directly. A provider that supports an issuer's financial reporting is pulled in through the issuer's internal controls, usually by being asked for a SOC 1 report.
 
 **What it requires at a high level:**
 - Section 302: Senior executives must personally certify the accuracy of financial reports
@@ -116,7 +116,7 @@ FedRAMP authorization is a program in itself. It involves gap assessment, securi
 
 ---
 
-## SOC 2 - Service Organization Control 2
+## SOC 2 - System and Organization Controls 2
 
 **What it is:** An auditing framework developed by the American Institute of CPAs (AICPA) for service organizations. Covers five Trust Service Criteria: Security (always required), Availability, Processing Integrity, Confidentiality, and Privacy.
 

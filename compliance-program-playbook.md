@@ -19,7 +19,7 @@ A new framework requirement usually has a trigger - a new customer contract, a m
 Most organizations are not starting from zero. Existing controls from other frameworks often satisfy part of a new one. A gap assessment against the specific framework's control list - not a general security review - is the right starting point.
 
 **Are AI systems or AI vendors in scope?**
-An AI feature that touches regulated data, or an AI vendor that processes it, brings the same control questions as any other system plus new ones (see the EU AI Act, NIST AI RMF, and ISO/IEC 42001 in the [Compliance Framework Reference](compliance-framework-reference.md)). Ask at assessment, not after launch.
+An AI feature that touches regulated data, or an AI vendor that processes it, brings the same control questions as any other system plus new ones (see the EU AI Act in the [Compliance Framework Reference](compliance-framework-reference.md), the [NIST AI RMF](https://www.nist.gov/itl/ai-risk-management-framework), and [ISO/IEC 42001](https://www.iso.org/standard/42001)). Ask at assessment, not after launch.
 
 **Who is the framework owner on the GRC side?**
 Every framework needs a named GRC owner who understands its specific control language and audit expectations. The TPM runs the program. GRC owns the framework interpretation. Conflating these roles is a common failure mode.

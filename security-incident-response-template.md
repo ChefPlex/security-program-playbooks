@@ -57,10 +57,10 @@ Know what data is at risk before you decide how to respond and who to notify.
 Information that is already a matter of public record or knowledge. Exposure has no legal or regulatory consequence.
 
 **Personally Identifiable Information (PII)**
-Name combined with any of: Social Security Number, government ID number, financial account number, health or medical information. Exposure triggers legal notification obligations in most jurisdictions. Legal review required immediately.
+Name combined with any of: Social Security Number, government ID number, financial account number, health or medical information. Also a username or email address combined with a password or security question and answer that would permit access to an online account. Under California's breach law (Cal. Civ. Code 1798.82(h)(2)) that alone is notifiable personal information. Check other states with Legal. Exposure triggers legal notification obligations in most jurisdictions. Legal review required immediately.
 
 **Company Individual Information**
-Information whose exposure - regardless of law or regulation - would damage the organization's reputation or operations. Log-in credentials, email addresses, internal contact information, employee records.
+Information whose exposure - regardless of law or regulation - would damage the organization's reputation or operations. Email addresses on their own, internal contact information, employee records.
 
 **Confidential**
 Information not to be released outside the company: financial data, proprietary data, trade secrets, intellectual property, strategic plans.
