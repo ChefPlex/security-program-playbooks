@@ -158,7 +158,7 @@ A specific type of security program worth calling out separately. Vulnerability 
 
 - The scope is often not fully known at the start
 - New findings can come in while existing ones are being remediated
-- The "done" criteria is defined by the auditor or security team, not the engineering team
+- The "done" criteria are defined by the auditor or security team, not the engineering team
 - Multiple engineering teams may be affected simultaneously with no prior coordination
 
 ### How to run them

@@ -307,7 +307,7 @@ Step 2 guarantees you are still discovering owners.
 **Add at least ten to twenty percent on top**, because you're going to hit blocks you can't
 currently see. This is not padding and it should not be hidden. **You know with certainty that
 unknown blockers exist** - you just spent Step 1 establishing that nobody knows what is encrypted
-and nobody knows who owns half of it. A schedule with no allowance for that is not optimistic, it
+and nobody knows who owns half of it. A schedule with no allowance for that
 is unfinished.
 
 ⚠️ **Buffer that's concealed gets spent by someone else.** Stated buffer is a negotiating position

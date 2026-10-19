@@ -55,11 +55,11 @@ The security TPM needs to understand what each applicable framework requires, in
 
 ### Risk has a different character
 
-Program risks in security work are not just delivery risks. They're security risks - vulnerabilities that remain open, attack surfaces that are exposed, controls that are missing. The RAID log in a security program needs to capture both kinds.
+Program risks in security work include security risks as well as delivery risks: vulnerabilities that remain open, attack surfaces that are exposed, controls that are missing. The RAID log in a security program needs to capture both kinds.
 
 A delivery risk is "the authentication service team is behind on their MFA implementation, which may push our compliance deadline." A security risk is "until that MFA implementation is complete, administrative accounts in that service have no second factor." Both need to be tracked. Both need owners. Both need to be reported - to different audiences.
 
-### The "done" criteria is often externally defined
+### The "done" criteria are often externally defined
 
 In most programs, the team defines what done looks like. In security programs, done is often defined by a regulatory framework, an audit standard, or a security team requirement. The TPM doesn't negotiate the Definition of Done in the same way - instead, the job is to make sure the team understands the external requirement clearly and builds toward it specifically.
 
@@ -69,7 +69,7 @@ Security programs frequently involve vendors - HSM providers, certificate author
 
 ### The blast radius is larger
 
-When a security program slips or delivers the wrong thing, the consequences aren't just schedule or budget. They're unmitigated risk, compliance exposure, audit findings, and occasionally customer impact. That raises the stakes on everything - the quality of the planning, the honesty of the status reporting, and the speed of the escalations.
+When a security program slips or delivers the wrong thing, the consequences reach past schedule and budget to unmitigated risk, compliance exposure, audit findings, and occasionally customer impact. That raises the stakes on everything - the quality of the planning, the honesty of the status reporting, and the speed of the escalations.
 
 ---
 

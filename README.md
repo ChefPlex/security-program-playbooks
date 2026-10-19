@@ -2,7 +2,7 @@
 
 Frameworks, guides, and reference material for Technical Program Managers running security programs. Built from experience driving encryption, PKI, vulnerability remediation, and compliance programs at enterprise scale.
 
-Security programs aren't just technical programs with a security label on them. The compliance requirements are real, the blast radius when something goes wrong is larger, and the organizational surface area is usually bigger than anyone expects. These playbooks are designed to help TPMs navigate that complexity without having to figure it all out from scratch.
+Security programs carry real compliance requirements, a larger blast radius when something goes wrong, and an organizational surface area that is usually bigger than anyone expects. These playbooks help TPMs work through that without having to figure it all out from scratch.
 
 This is for the part of security programs where the technical risk, compliance date, and org chart all become the same problem.
 
