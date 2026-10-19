@@ -29,6 +29,19 @@ Every framework needs a named GRC owner who understands its specific control lan
 **What is the audit type and cadence?**
 Some assessments are point-in-time (a SOC 2 Type I report, which tests control design as of one date). Others cover a period or never stop (SOC 2 Type II, annual PCI validation, FedRAMP, which requires continuous monitoring after authorization). This changes how the program is structured - a point-in-time push looks different from a program that has to sustain evidence collection indefinitely. Most programs that start as a point-in-time push turn into the second kind.
 
+### How the scope came down
+
+On one audit, 49 services started out needing evidence collection, and that came down to 5. No single change did it. It came from looking at everything that could shrink the scope:
+
+- **Limit the scope to real exposure.** Start from where regulated data actually lives and who can reach it, not from every service that sits nearby.
+- **Use the environment you are in.** Sometimes the platform or framework a service runs inside already provides the protection, and the evidence belongs at that level.
+- **Reframe the question.** Where the data is, and what counts as in or out of the environment, decides what is in scope. Getting that framing right removes services cleanly.
+- **Reduce the data.** Some services were keeping data they did not need. Stop keeping it and they drop out of scope.
+- **Add a control** where removing the data is not possible.
+- **Look again at what was assumed.** Often someone decided a service was in scope without looking closely. A careful second look moves it out.
+
+Each service removed from scope is one less body of evidence to collect, every audit cycle.
+
 ### Assessment checklist
 
 | Item | Owner | Done? |
