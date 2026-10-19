@@ -2,7 +2,7 @@
 
 Compliance programs - SOX, PCI-DSS, HIPAA, FedRAMP, SOC 2, and similar - have a structure that looks unfamiliar to TPMs coming from feature delivery work. The deliverable is a body of evidence that satisfies an external auditor that a set of controls operate as designed. This playbook covers how to run that kind of program from initial assessment through audit close.
 
-Written from running SOC 2 from scoping to a signed Type I report and a delivered Type II attestation, recovering a stalled HIPAA effort, and cutting the set of services in audit scope by about 90 percent.
+Written from running SOC 2 from scoping to a signed Type I report and a delivered Type II attestation, recovering a stalled HIPAA effort, and, on a cryptography program, cutting the services that needed audit evidence from 49 to 5.
 
 For plain-English summaries of what each framework actually requires, see the [Compliance Framework Reference](compliance-framework-reference.md). This document covers how to run the program itself, not what any single framework says.
 
