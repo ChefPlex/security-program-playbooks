@@ -6,6 +6,8 @@ Security programs carry real compliance requirements, a larger blast radius when
 
 This is for the part of security programs where the technical risk, compliance date, and org chart all become the same problem.
 
+Companion to [infrastructure-program-playbooks](https://github.com/ChefPlex/infrastructure-program-playbooks), for data center, migration, directory and network programs.
+
 ---
 
 ## What Is Here
