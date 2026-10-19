@@ -123,7 +123,7 @@ A single denial has several possible causes, and the response differs for each: 
 |:---|:---|
 | Prevent | Retrieval filtering, run-as-user queries, deterministic authorization of actions, egress allowlist |
 | Detect | Denials, scope violations, injection signatures, and boundary probing logged with identity, retrieved document IDs, and the proposed action, and alerted on patterns. These logs hold sensitive arguments and possibly the exfiltration payload itself, so they get their own access control and retention period |
-| Respond | A runbook that distinguishes attack from bug, traces a denial back to the document that triggered it, pulls the poisoned document from the index, purges affected caches and memory, and revokes tokens issued to the session ([Security Incident Response Template](../security-incident-response-template.md)) |
+| Respond | A runbook that distinguishes attack from bug, traces a denial back to the document that triggered it, pulls the poisoned document from the index, purges affected caches and memory, and revokes tokens issued to the session ([Cyber Incident Management Playbook](../cyber-incident-playbook.md)) |
 
 ## Required Controls
 

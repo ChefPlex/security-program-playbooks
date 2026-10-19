@@ -82,7 +82,7 @@ You do not need to be a security engineer. You need to understand what encryptio
 SOX, PCI-DSS, HIPAA, FedRAMP, SOC 2 - know what each framework requires at a high level, which industries they apply to, and what evidence they typically require. You do not need to be a GRC specialist. You need to know when to call one.
 
 **Regulatory disclosure literacy**
-Know which incident reporting clocks apply to your company (SEC Form 8-K Item 1.05, NIS2, DORA, the EU Cyber Resilience Act, HIPAA, NYDFS) and what starts each one. Legal makes the call; the TPM makes sure the clock is known on day one. See the [Incident Response Template](security-incident-response-template.md).
+Know which incident reporting clocks apply to your company (SEC Form 8-K Item 1.05, NIS2, DORA, the EU Cyber Resilience Act, HIPAA, NYDFS) and what starts each one. Legal makes the call; the TPM makes sure the clock is known on day one. See the clocks in the [Cyber Incident Management Playbook](cyber-incident-playbook.md#regulatory-reporting-clocks).
 
 **AI governance**
 AI systems and AI vendors are now in scope for security programs. Know the EU AI Act risk tiers, the NIST AI Risk Management Framework, and ISO/IEC 42001 well enough to route a new AI use case to the right review, and know the security failure modes specific to AI: prompt injection, data leaking through an assistant, and agents acting beyond their intended permissions.

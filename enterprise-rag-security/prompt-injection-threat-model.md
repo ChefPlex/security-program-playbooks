@@ -208,4 +208,4 @@ Retrieval quality is a negotiation. Unauthorized retrieval is not.
 
 - [Enterprise RAG Security Playbook](rag-security-playbook.md) - controls, trust boundary, sign-off
 - [Enterprise RAG Program Playbook](https://github.com/ChefPlex/ai-automations/tree/main/ai-programs/enterprise-rag-program) - the program this sits inside
-- [Security Incident Response Template](../security-incident-response-template.md) - for when one lands
+- [Cyber Incident Management Playbook](../cyber-incident-playbook.md) - for when one lands

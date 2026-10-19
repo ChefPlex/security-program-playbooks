@@ -4,8 +4,8 @@ This kit is for running a tabletop exercise that finds the gaps in an incident r
 gets them fixed, with evidence an auditor will accept. Many tabletops end with an attendance list and
 a slide, and the plan is the same version it was before.
 
-It sits beside the [Security Incident Response Template](security-incident-response-template.md).
-The template says what the response team does. The exercise tests whether they can do it, with the
+It sits beside the [Cyber Incident Management Playbook](cyber-incident-playbook.md).
+The playbook says what the incident commander and the response team do. The exercise tests whether they can do it, with the
 people actually on staff, inside the time the plan assumes.
 
 Written from planning and running a combined incident response and disaster recovery tabletop at a

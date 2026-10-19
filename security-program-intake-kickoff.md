@@ -1,61 +1,31 @@
 # Security Program Intake and Kickoff Guide
 
-Security programs fail for the same reasons any program fails - unclear scope, missing owners, dependencies nobody mapped, and compliance requirements that showed up too late to build into the design. The only thing different about security programs is that the blast radius when something goes wrong tends to be larger and more visible.
+**Everything a program needs is in the general templates. Start there:** the [Program Charter](https://github.com/ChefPlex/tpm-templates/blob/main/program-charter-template.md), the [Program Kickoff Checklist](https://github.com/ChefPlex/tpm-templates/blob/main/program-kickoff-checklist.md), the [Program Phases Playbook](https://github.com/ChefPlex/tpm-templates/blob/main/program-phases-playbook.md), the [RAID Log Guide](https://github.com/ChefPlex/tpm-templates/blob/main/raid-log-guide.md) and the [Program Status Reporting Framework](https://github.com/ChefPlex/program-reporting-frameworks/blob/main/program-status-reporting-framework.md). The [I need to…](https://github.com/ChefPlex/tpm-templates/blob/main/PORTFOLIO-GUIDE.md) guide has the reading path.
 
-This guide covers how to stand up a security program correctly from the first conversation to the first steering committee update. Most of the work happens before anyone writes a line of code.
-
----
-
-## Step 1: Intake
-
-Before a security program gets a TPM assigned and a charter written, someone has to define what it actually is. That sounds obvious. It is frequently skipped.
-
-### Questions to answer at intake
-
-**What is the problem?**
-Not the solution - the problem. "We need to implement MFA" is a solution. "40% of our high-privilege accounts have no second factor and three of our peer companies have been breached through credential theft in the last six months" is a problem. Start with the problem.
-
-**What is the regulatory or compliance driver, if any?**
-Security programs often have external forcing functions - a compliance deadline, an audit finding, a regulatory change, a contractual obligation. Identify these at intake. They will drive timeline constraints that are non-negotiable, and they need to be built into the plan from day one, not retrofitted later.
-
-**Which reportable-incident regimes are in scope?**
-If the program touches systems covered by an incident reporting clock (SEC Form 8-K Item 1.05, NIS2, DORA, the EU Cyber Resilience Act, HIPAA breach notification, NYDFS Part 500), name them at intake. They change what logging, detection, and escalation the program has to deliver. The [Incident Response Template](security-incident-response-template.md) lists the clocks.
-
-**What is the risk if we do not do this?**
-Be specific. "Increased risk" is not useful. "A successful credential stuffing attack against our administrative accounts could result in unauthorized access to customer data across all tenants" is useful. Quantifying the risk - even roughly - helps with prioritization and resource justification.
-
-**Who owns the problem?**
-There's a difference between the executive sponsor, the product owner, and the engineering owner. All three need to be identified before a program starts. A security program with no clear business owner will drift.
-
-**What does done look like?**
-Before work starts, define what success means. Coverage percentages, audit pass/fail, vulnerability closure rates, certification achievement - whatever the measure is, agree on it upfront.
-
-### Intake checklist
-
-| Item | Owner | Done? |
-|------|-------|-------|
-| Problem statement documented | Requesting team | |
-| Regulatory / compliance driver identified | TPM + GRC | |
-| Reportable-incident regimes in scope identified | GRC + Legal | |
-| Risk of inaction quantified | Requesting team | |
-| Executive sponsor named | Leadership | |
-| Product / program owner named | Leadership | |
-| Initial scope boundaries defined | PO + TPM | |
-| Program added to tracking system | TPM | |
-| TPM assigned | TPM Lead | |
+**This page is only what to consider on top of them when the program is a security program.** Security programs fail for the same reasons any program fails - unclear scope, missing owners, dependencies nobody mapped, and compliance requirements that showed up too late to build into the design. The difference is that the blast radius when something goes wrong tends to be larger and more visible.
 
 ---
 
-## Step 2: Compliance and Security Review Triage
+## Things to Consider for a Security Program
 
-This is the step most programs get wrong. Compliance and security reviews take time - sometimes weeks, sometimes months. Starting them late is one of the most common reasons security programs miss their deadlines.
+### 1. Start with the problem, not the solution
 
-At program intake, triage which reviews apply. You do not need to complete them yet. You need to know they're coming so you can sequence them into the plan.
+"We need to implement MFA" is a solution. "40% of our high-privilege accounts have no second factor and three of our peer companies have been breached through credential theft in the last six months" is a problem. Start the charter with the problem.
 
-### Common review types for security programs
+Be specific about the risk of not doing it. "Increased risk" is not useful. "A successful credential stuffing attack against our administrative accounts could result in unauthorized access to customer data across all tenants" is useful. Quantifying the risk - even roughly - helps with prioritization and resource justification. A worked example is in the [sample security intake](examples/sample-security-intake.md).
+
+### 2. Name the compliance driver and the reporting clocks at intake
+
+Security programs often have external forcing functions - a compliance deadline, an audit finding, a regulatory change, a contractual obligation. Identify them at intake. They drive timeline constraints that are non-negotiable, and they need to be built into the plan from day one, not retrofitted later.
+
+If the program touches systems covered by an incident reporting clock (SEC Form 8-K Item 1.05, NIS2, DORA, the EU Cyber Resilience Act, HIPAA breach notification, NYDFS Part 500), name them at intake too. They change what logging, detection, and escalation the program has to deliver. The [Cyber Incident Management Playbook](cyber-incident-playbook.md#regulatory-reporting-clocks) lists the clocks.
+
+### 3. Triage the reviews at intake, and start them early
+
+This is the step most programs get wrong. Compliance and security reviews take time - sometimes weeks, sometimes months. Starting them late is one of the most common reasons security programs miss their deadlines. At intake, triage which reviews apply. You do not need to complete them yet. You need to know they're coming so you can sequence them into the plan.
 
 | Review Type | When to Initiate | What It Covers |
-|-------------|-----------------|----------------|
+|:---|:---|:---|
 | Compliance Assessment | At intake | Determines which regulatory frameworks apply (SOX, PCI, HIPAA, FedRAMP, SOC 2, etc.) and what controls are required |
 | Security / Architecture Review | During Definition & Planning | Threat model the proposed solution; identify security requirements before build begins |
 | Privacy / Legal Review | During Definition & Planning | Required for any program touching customer data, AI/ML systems, or new data collection |
@@ -64,72 +34,33 @@ At program intake, triage which reviews apply. You do not need to complete them 
 | Vendor / Third-Party Review | Before vendor work begins | Security and procurement review for any buy decision |
 | Change Advisory Board (CAB) | Before production changes | Required for infrastructure changes in regulated environments |
 
-### The rule
+**The rule:** if a review could block your go-live date, initiate it at least two phases before you need the result. Waiting until you need it is not a plan.
 
-If a review could block your go-live date, initiate it at least two phases before you need the result. Waiting until you need it is not a plan.
+### 4. Name three owners, and add the security roles
 
----
+There's a difference between the executive sponsor, the product owner, and the engineering owner. All three need to be identified before a program starts. A security program with no clear business owner will drift.
 
-## Step 3: Program Structure for Security Work
-
-Security programs often span multiple engineering teams, multiple compliance domains, and multiple stakeholder organizations simultaneously. The structure you set up at the beginning determines whether you can manage that complexity or just react to it.
-
-### Core roles on a security program
+Security programs add roles the general RACI does not always have:
 
 | Role | Responsibilities |
-|------|----------------|
-| Executive Sponsor | Investment decisions, escalation authority, executive alignment |
-| Product / Program Owner | Business requirements, Definition of Done, prioritization |
-| Technical Program Manager | Program structure, delivery tracking, risk management, stakeholder communications |
-| Engineering Lead(s) | Technical design, implementation, engineering team coordination |
+|:---|:---|
 | Security Architect | Threat modeling, architectural review, security requirements |
 | GRC / Compliance | Regulatory requirements, audit coordination, control evidence |
 | Legal / Privacy | Privacy review, contractual obligations, policy updates |
 
-### The TPM's specific role in security programs
+The TPM doesn't own the security domain knowledge - that belongs to the security architects, engineers, and GRC team. What the TPM owns is the program itself. What that requires is covered in [The Security TPM Role](security-tpm-role-guide.md#what-a-security-tpm-owns).
 
-The TPM doesn't own the security domain knowledge - that belongs to the security architects, engineers, and GRC team. What the TPM owns is the program itself: the structure, the delivery, the dependencies, the escalations, and the communications.
+### 5. Map the security dependencies
 
-What that requires of the TPM is covered in [The Security TPM Role](security-tpm-role-guide.md#what-a-security-tpm-owns).
+Security programs touch more teams than most. A TLS modernization program affects every service that makes network calls. An encryption-at-rest program affects every service that writes to storage. Map dependencies before you start, not after you hit one. Beyond the usual engineering and vendor dependencies, look for:
 
----
+- **Platform services** the program relies on: certificate management, key management, identity, network configuration. Who owns them?
+- **Compliance evidence:** what has to be collected, by whom, and on what audit timeline?
+- **External deadlines:** regulatory enforcement dates and contractual milestones that hold regardless of internal capacity.
 
-## Step 4: Dependency Mapping for Security Programs
+### 6. Report to two audiences, and say what drives the color
 
-Security programs touch more teams than most. A TLS modernization program affects every service that makes network calls. An encryption-at-rest program affects every service that writes to storage. A vulnerability remediation program may involve dozens of engineering teams across the organization.
-
-Map dependencies before you start, not after you hit one.
-
-### Dependency categories for security programs
-
-**Engineering dependencies**
-Which teams have to make changes to support this program? Do they have capacity? Is this work in their roadmap, or does it need to be negotiated?
-
-**Platform / infrastructure dependencies**
-What does this program depend on from the platform layer - certificate management, key management, identity, network configuration? Who owns those services?
-
-**Compliance dependencies**
-What evidence needs to be collected, and who is responsible for collecting it? What is the audit timeline?
-
-**Vendor / third-party dependencies**
-If the program involves a vendor, what are they responsible for delivering and by when? What is the escalation path if they slip?
-
-**Regulatory / external dependencies**
-Are there external deadlines - regulatory enforcement dates, contractual milestones, product launch dates - that constrain the schedule regardless of internal capacity?
-
----
-
-## Step 5: Security Program Status Reporting
-
-Security programs often have two reporting audiences with different needs: the engineering teams doing the work and the executives accountable for the risk.
-
-### For engineering teams
-
-Frequent, specific, operational. What is blocked, what is at risk, what decisions are needed this week. The RAID log is the primary tool here - review it every week, not just when something goes wrong.
-
-### For executive stakeholders
-
-Infrequent, high-signal, outcome-focused. Executives need to know whether the program is on track, what the current risk exposure is, and what - if anything - they need to do. They do not need sprint velocity numbers.
+Security programs often have two reporting audiences: the engineering teams doing the work, who need what is blocked and what is decided this week, and the executives accountable for the risk. Use the [status reporting framework](https://github.com/ChefPlex/program-reporting-frameworks/blob/main/program-status-reporting-framework.md) for both.
 
 **A security executive update should answer three questions:**
 1. Are we on track to achieve the security objective by the committed date?
@@ -138,35 +69,23 @@ Infrequent, high-signal, outcome-focused. Executives need to know whether the pr
 
 If the answer to question 3 is no, keep the update short. If the answer is yes, come with a recommendation, not just the problem.
 
-### Status color for security programs
-
 Use the colors as defined in the [Program Status Reporting Framework](https://github.com/ChefPlex/program-reporting-frameworks/blob/main/program-status-reporting-framework.md#status-color-definitions), the same as any program. What a security program adds is saying what drives the color: a **delivery risk** (a team is behind on its part) or a **security risk** (an exposure stays open until that part lands). The executive needs to know which, because the second one is risk the company is carrying today.
 
----
+### 7. Vulnerability remediation runs differently
 
-## Step 6: Vulnerability Remediation Programs
-
-A specific type of security program worth calling out separately. Vulnerability remediation programs - fixing CVEs, closing audit findings, addressing penetration test results - have a different operational rhythm than build programs.
-
-### What makes them different
-
-- The scope is often not fully known at the start
-- New findings can come in while existing ones are being remediated
-- The "done" criteria are defined by the auditor or security team, not the engineering team
-- Multiple engineering teams may be affected simultaneously with no prior coordination
-
-### How to run them
-
-**Triage first.** Not everything is equally urgent. A vulnerability on CISA's Known Exploited Vulnerabilities (KEV) list on an internet-facing asset is not the same as a finding on an internal system with no known exploit path. Prioritize on exposure, exploitation, exploit automation, and technical impact, define the tiers upfront, and apply them consistently. The [Vulnerability Remediation Runbook](vulnerability-remediation-runbook.md) has a working framework.
-
-**Assign owners at the service level.** Remediation programs fail when ownership is unclear. Every affected service should have a named engineering owner responsible for the fix, not just a team.
-
-**Set SLAs by tier and track attainment.** Define a remediation SLA per tier and report the share of findings closed within it as the primary metric. This is what the security team and auditors will ask about. Mean Time to Remediate (MTTR) is a useful secondary trend, but an average hides the individual findings that blew through their SLA.
-
-**Track coverage, not just completion.** A vulnerability remediation program that closes 80% of findings isn't 80% done - it depends on which 80%. Make sure your reporting shows coverage across services and severity levels, not just raw counts.
-
-**Don't let perfect be the enemy of done.** A temporary workaround that reduces risk exposure while a permanent fix is engineered is a legitimate program output. Track it as such.
+The scope is often not known at the start, new findings arrive while old ones are being fixed, and "done" is defined by the auditor or the security team. Use the [Vulnerability Remediation Runbook](vulnerability-remediation-runbook.md) rather than the general phases.
 
 ---
 
-*Version 1.1. Last reviewed September 2026. Propose changes via pull request.*
+## Add These Rows to the Kickoff Checklist
+
+| What happens | Artifact / outcome | Owner | Level |
+|:---|:---|:---|:---|
+| Identify the regulatory or compliance driver | Driver named in the charter | TPM + GRC | Must |
+| Identify the reportable-incident regimes in scope | Regimes and their clocks listed | GRC + Legal | Must |
+| Triage which security, privacy, AI and compliance reviews apply | Review list with start dates | TPM | Must |
+| Name the security architect, GRC and legal / privacy contacts | Names in the RACI | TPM | Should |
+
+---
+
+*Version 1.2. Last reviewed October 2026. Propose changes via pull request.*

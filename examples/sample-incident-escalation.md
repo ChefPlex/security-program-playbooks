@@ -113,4 +113,4 @@ You will have more information at 05:00 AM. Send the update then too.
 
 ---
 
-*Part of the [security-program-playbooks](https://github.com/ChefPlex/security-program-playbooks) repo. See the [Security Incident Response Template](../security-incident-response-template.md) for the full framework.*
+*Part of the [security-program-playbooks](https://github.com/ChefPlex/security-program-playbooks) repo. See the [Cyber Incident Management Playbook](../cyber-incident-playbook.md) for the full framework.*

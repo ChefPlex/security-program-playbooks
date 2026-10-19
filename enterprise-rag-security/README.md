@@ -49,5 +49,5 @@ The full program these sit inside, with phases, workstreams, milestones, and tem
 - [Security Program Intake and Kickoff](../security-program-intake-kickoff.md)
 - [Compliance Framework Reference](../compliance-framework-reference.md)
 - [Security TPM Role Guide](../security-tpm-role-guide.md)
-- [Security Incident Response Template](../security-incident-response-template.md)
+- [Cyber Incident Management Playbook](../cyber-incident-playbook.md)
 - [Vulnerability Remediation Runbook](../vulnerability-remediation-runbook.md)
