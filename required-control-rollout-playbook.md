@@ -99,9 +99,6 @@ control, every wave behind it is chasing a pool that keeps refilling.
 **Each step produces something the next step needs.** Laid out that way, the plan shows what is
 blocking what.
 
-This is the Project Management Institute (PMI) process model applied to one program: every output
-is the input to the next process, and the schedule comes from those links.
-
 | # | Work | Output | Needed before |
 |:---|:---|:---|:---|
 | 1 | Threat statement and control specification | One-page control definition, including what "blocked" means | 2, 3 |
@@ -125,10 +122,6 @@ real critical path, and it is where a small engineering team becomes the constra
 **Every wave gets the same notice window, and every window ends in an enforcement date.** Customers
 in each wave get the same amount of time, the program can stagger waves so support load is spread
 out, and slippage in one wave is visible against the others.
-
-The structure is borrowed from a site-by-site infrastructure rollout: each site had the same
-fixed block of pre-work ending in a zero-length cutover milestone, and the sites started a week
-apart. The same shape works here, with customer segments in place of sites.
 
 ### Illustrative Fernhollow timeline
 
