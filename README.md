@@ -20,6 +20,8 @@ This is for the part of security programs where the technical risk, compliance d
 | [Vulnerability Remediation Runbook](vulnerability-remediation-runbook.md) | How to run a vulnerability remediation program end to end: risk-based prioritization on exposure, known exploitation, exploit automation and impact (benchmarked to CISA BOD 26-04), SLA attainment by tier, ownership at the service level, tracking coverage instead of raw completion percentage, handling new findings mid-program, and reporting to security teams and auditors. |
 | [Encryption Program Playbook](encryption-program-playbook.md) | How to run encryption modernization across a large distributed estate, in ten steps. Sizing the problem before remediating anything, why finding owners stalls programs more than finding services, coverage work versus currency work, the concentration trap that makes a schedule serial when the plan looks parallel, the standing escalation deal, certificate chain desync, and how to close honestly at diminishing returns rather than at 100 percent. Companion piece: [Lessons from Leading Large-Scale Encryption Programs](https://github.com/ChefPlex/learning-notes/blob/main/lessons-from-large-scale-encryption-programs.md) in learning-notes. |
 | [Compliance Program Playbook](compliance-program-playbook.md) | How to run a compliance program - SOX, PCI, HIPAA, FedRAMP, SOC 2 - from initial assessment through audit close. Control mapping, evidence collection, working with GRC, pre-audit readiness, and handling audit findings. |
+| [Required Control Rollout Playbook](required-control-rollout-playbook.md) | How to land a security control that every existing customer must adopt or be blocked. Sequencing by risk (highest-risk and free accounts first, largest accounts last), customer communication waves on a fixed lead time, warning mode before enforcement, exceptions with an expiry date, holding published enforcement dates, support load, and measuring adoption from system state. |
+| [Incident Tabletop Exercise Kit](incident-tabletop-exercise-kit.md) | A tabletop exercise to run beside the Incident Response Template: scope and testable objectives, roles, a ransomware scenario with timed injects, a facilitator script, the evidence package an auditor will ask for, and an after-action report format. |
 
 ### AI and Retrieval Systems
 
@@ -33,7 +35,7 @@ AI security coverage lives here, in the RAG folder and the AI tooling reference 
 
 | Document | What It Is |
 |----------|-----------|
-| [Compliance Framework Reference](compliance-framework-reference.md) | Plain-English summaries of SOX, PCI-DSS v4.0.1, HIPAA, FedRAMP, SOC 2, GDPR, and NIST CSF, plus short entries for ISO/IEC 27001, SEC Form 8-K Item 1.05, NIS2, DORA, the EU Cyber Resilience Act, and the EU AI Act - what each requires, who it applies to, and what it means for a TPM running a program in that environment. Carries a last-reviewed date, with sources linked for the dates and figures checked at that review. Frameworks move faster than any reference; confirm with GRC before relying on it. |
+| [Compliance Framework Reference](compliance-framework-reference.md) | Plain-English summaries of SOX, PCI-DSS v4.0.1, HIPAA, FedRAMP, SOC 2, GDPR, and NIST CSF, plus short entries for ISO/IEC 27001, SEC Form 8-K Item 1.05, NIS2, DORA, and the EU Cyber Resilience Act, AI Act and Digital Services Act - what each requires, who it applies to, and what it means for a TPM running a program in that environment. Carries a last-reviewed date, with sources linked for the dates and figures checked at that review. Frameworks move faster than any reference; confirm with GRC before relying on it. |
 | [AI Tooling in Regulated Environments](ai-tooling-regulated-data.md) | Gating AI and DevOps tool adoption behind BAAs and a data classification line, and what changes from the standard adoption sequence when PHI is in scope. Covers why compliance automation moves from last to first, the connector review that workflow automation needs, and the tier ceiling on any activity whose input might contain regulated data. Overlay on the [AI Tool Decision Matrix](https://github.com/ChefPlex/ai-automations/blob/main/frameworks/ai-tool-decision-matrix.md) in ai-automations. |
 
 ### Examples
@@ -62,6 +64,10 @@ because a list said they were coming.
 **New to security TPM work:** Read the Role Guide first. It explains what the job requires and where security programs differ from general TPM work. Then read the Intake Guide to understand how to structure programs in this domain.
 
 **Running an incident:** The Incident Response Template gives you the sequence and the key questions for each phase. The sample escalation shows what good communication looks like under pressure. Read both before you need them, not during.
+
+**Testing the incident plan:** Run the Tabletop Exercise Kit against the Incident Response Template at least once a year, and decide what goes in the evidence package before the session.
+
+**Turning on a control every customer must adopt:** Start with the Required Control Rollout Playbook. Write the blocked-account message and the exception policy before the first announcement goes out.
 
 **Running a vulnerability remediation effort:** Start with the Vulnerability Remediation Runbook - severity framework, ownership, and tracking are covered end to end. The Intake Guide's Step 6 is a shorter summary if you just need the fundamentals.
 

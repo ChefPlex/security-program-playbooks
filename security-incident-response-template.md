@@ -436,6 +436,8 @@ Work through these questions before closing the incident:
 
 After documentation is complete, review the response process end-to-end. Find what worked, find what did not, and update the plan before the next incident. The value of this exercise degrades the longer you wait.
 
+Between incidents, test the plan with a tabletop exercise. The [Incident Tabletop Exercise Kit](incident-tabletop-exercise-kit.md) has a scenario, a facilitator script and the evidence package to keep.
+
 ### Periodic Security Testing
 
 After an incident, engage an outside security firm to test the system for intrusion or other vulnerabilities. Do this on an unannounced basis. Testing both the technical security and the operation of this response plan at the same time is more efficient than treating them as separate exercises.
