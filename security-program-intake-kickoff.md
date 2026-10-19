@@ -140,13 +140,7 @@ If the answer to question 3 is no, keep the update short. If the answer is yes, 
 
 ### Status color for security programs
 
-Use the same Red / Yellow / Green framework as any program, but be specific about what is driving the color:
-
-- **Green** - Program is on track. Security objective will be achieved by committed date. No escalations needed.
-- **Yellow** - Specific risk identified. Named mitigation in progress. May need executive support on [specific item].
-- **Red** - Program is off track. Security objective is at risk by [specific date]. Recommend [specific action]. Need decision by [date].
-
-Never go from Green to Red without a Yellow in between. If something went from fine to crisis without a Yellow, the reporting was wrong, not the program.
+Use the colors as defined in the [Program Status Reporting Framework](https://github.com/ChefPlex/program-reporting-frameworks/blob/main/program-status-reporting-framework.md#status-color-definitions), the same as any program. What a security program adds is saying what drives the color: a **delivery risk** (a team is behind on its part) or a **security risk** (an exposure stays open until that part lands). The executive needs to know which, because the second one is risk the company is carrying today.
 
 ---
 
