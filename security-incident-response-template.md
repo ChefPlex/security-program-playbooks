@@ -19,7 +19,7 @@ Written for TPMs and incident leads who need to organize a response fast, commun
 
 The pages that follow detail each phase. The visual overview is in Appendix A.
 
-The [Cyber Incident Management Playbook](https://github.com/ChefPlex/tpm-templates/blob/main/incident-management/cyber-incident-playbook.md) in tpm-templates also has six phases, but different ones (Detect & Classify through Sustain & Exercise). This template sequences the response team's tasks. That playbook is written for the incident commander and organizes the command work: scoping, decisions, communications, and the exercise program afterward.
+The [Cyber Incident Management Playbook](cyber-incident-playbook.md) in this repo also has six phases, but different ones (Detect & Classify through Sustain & Exercise). This template sequences the response team's tasks. That playbook is written for the incident commander and organizes the command work: scoping, decisions, communications, and the exercise program afterward.
 
 ### How this maps to NIST
 

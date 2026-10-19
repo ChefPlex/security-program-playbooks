@@ -48,7 +48,7 @@ Retrieved text and tool output are data, never instructions. The model will stil
 
 The permission-aware retrieval step is the one that gets designed last and should be designed first. Retrofitting it means reindexing, and sometimes means changing the vector store. Apply the filter inside the retrieval query, before ranking. Filtering a top-K result afterward leaves the user with whatever authorized scraps survived, which produces the over-filtering failure tested below.
 
-**Structured data takes a second path, and the rule holds on it too.** Many answers combine documents with records queried live from a CRM, ERP, or data warehouse through SQL or an API ([how the two paths fit together](https://github.com/ChefPlex/tpm-templates/blob/main/enterprise-rag-program/rag-architecture-primer.md#structured-and-unstructured-information)). That query must run with the requesting user's authority (row-level security, a user-scoped or delegated token), not the integration's service account. A service account that can read every row turns the structured path into the leak the document filter was built to stop, and the document-side test matrix won't catch it.
+**Structured data takes a second path, and the rule holds on it too.** Many answers combine documents with records queried live from a CRM, ERP, or data warehouse through SQL or an API ([how the two paths fit together](https://github.com/ChefPlex/ai-automations/blob/main/ai-programs/enterprise-rag-program/rag-architecture-primer.md#structured-and-unstructured-information)). That query must run with the requesting user's authority (row-level security, a user-scoped or delegated token), not the integration's service account. A service account that can read every row turns the structured path into the leak the document filter was built to stop, and the document-side test matrix won't catch it.
 
 Running as the user is necessary and not sufficient. The structured path has its own ways around it:
 
@@ -146,7 +146,7 @@ A single denial has several possible causes, and the response differs for each: 
 | Model-provider data controls | What the provider retains, whether it trains on submissions, where it processes. Legal signs this. |
 | Egress allowlist | The client fetches or renders only URLs and images on an allowlist. Tool calls that send data out go to named destinations only. |
 | Structured queries run as the user | SQL and API calls made for the user use row-level security or a user-scoped token, not the integration's service account; unavoidable service accounts are recorded exceptions with application-layer enforcement. Caches are keyed by identity. Included in the permission test matrix. |
-| Chunk metadata and provenance | Every chunk carries its source, author, ingestion date, classification, access-control attributes, and effective date. The access attributes are what the permission filter reads; classification drives handling and retention; the effective date keeps a superseded policy from answering. A check confirms each cited chunk supports the claim it is cited for. The full set of fields: the [primer's knowledge card](https://github.com/ChefPlex/tpm-templates/blob/main/enterprise-rag-program/rag-architecture-primer.md#a-chunk-is-a-knowledge-card). |
+| Chunk metadata and provenance | Every chunk carries its source, author, ingestion date, classification, access-control attributes, and effective date. The access attributes are what the permission filter reads; classification drives handling and retention; the effective date keeps a superseded policy from answering. A check confirms each cited chunk supports the claim it is cited for. The full set of fields: the [primer's knowledge card](https://github.com/ChefPlex/ai-automations/blob/main/ai-programs/enterprise-rag-program/rag-architecture-primer.md#a-chunk-is-a-knowledge-card). |
 | Security telemetry on denials | Every observable denial (policy engine, tool gateway, token scope, egress, explicit out-of-permission requests) is logged with identity and context, and alerted on patterns. See [A Blocked Action Is a Signal](#a-blocked-action-is-a-signal). |
 | Agent and tool inventory | Every tool, connector, and MCP server the system can call, its permissions, its pinned version, and a named human owner. |
 
@@ -210,7 +210,7 @@ Security cannot approve general availability until:
 
 ## Related
 
-- [Enterprise RAG Program Playbook](https://github.com/ChefPlex/tpm-templates/tree/main/enterprise-rag-program) - the full program this workstream sits inside
+- [Enterprise RAG Program Playbook](https://github.com/ChefPlex/ai-automations/tree/main/ai-programs/enterprise-rag-program) - the full program this workstream sits inside
 - [Security Program Intake and Kickoff](../security-program-intake-kickoff.md)
 - [Compliance Framework Reference](../compliance-framework-reference.md)
 - [Security TPM Role Guide](../security-tpm-role-guide.md)

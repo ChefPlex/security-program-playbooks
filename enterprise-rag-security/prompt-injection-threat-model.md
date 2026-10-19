@@ -176,7 +176,7 @@ Two identities are in play at every hop, and both matter. The agent's own creden
 - **Treat a request from another agent as untrusted input**, exactly like retrieved content. Agent A may have been steered by what it read.
 - **Log every agent-to-agent request**, and alert on ones the design doesn't expect (see [A Blocked Action Is a Signal](rag-security-playbook.md#a-blocked-action-is-a-signal)).
 
-The broader program for agents that act, with autonomy levels and approval paths, is [Agentic AI Program](https://github.com/ChefPlex/tpm-templates/tree/main/agentic-ai-program).
+The broader program for agents that act, with autonomy levels and approval paths, is [Agentic AI Program](https://github.com/ChefPlex/ai-automations/tree/main/ai-programs/agentic-ai-program).
 
 ### Human Approval
 
@@ -207,5 +207,5 @@ Retrieval quality is a negotiation. Unauthorized retrieval is not.
 ## Related
 
 - [Enterprise RAG Security Playbook](rag-security-playbook.md) - controls, trust boundary, sign-off
-- [Enterprise RAG Program Playbook](https://github.com/ChefPlex/tpm-templates/tree/main/enterprise-rag-program) - the program this sits inside
+- [Enterprise RAG Program Playbook](https://github.com/ChefPlex/ai-automations/tree/main/ai-programs/enterprise-rag-program) - the program this sits inside
 - [Security Incident Response Template](../security-incident-response-template.md) - for when one lands

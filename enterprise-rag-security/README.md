@@ -9,7 +9,7 @@ A RAG system answers questions using company data, on behalf of a specific perso
 | [RAG Security Playbook](rag-security-playbook.md) | Trust boundary on both the document and structured-data paths, authorization leakage versus indirect injection, deterministic enforcement points, denials as security telemetry, the required control set, the six common failure modes, and the sign-off checklist for general availability. |
 | [Prompt Injection Threat Model](prompt-injection-threat-model.md) | Direct and indirect injection, memory and tool poisoning, authority between agents, a test corpus you can run in CI, layered mitigations, and red team scope. |
 
-New to how retrieval works? The [RAG Architecture Primer](https://github.com/ChefPlex/tpm-templates/blob/main/enterprise-rag-program/rag-architecture-primer.md) in the program repo explains the pipeline these controls sit on.
+New to how retrieval works? The [RAG Architecture Primer](https://github.com/ChefPlex/ai-automations/blob/main/ai-programs/enterprise-rag-program/rag-architecture-primer.md) in the program repo explains the pipeline these controls sit on.
 
 ## The Rule
 
@@ -42,7 +42,7 @@ The threat model cites these by ID where each threat appears.
 
 The full program these sit inside, with phases, workstreams, milestones, and templates:
 
-**[Enterprise RAG Program](https://github.com/ChefPlex/tpm-templates/tree/main/enterprise-rag-program)**
+**[Enterprise RAG Program](https://github.com/ChefPlex/ai-automations/tree/main/ai-programs/enterprise-rag-program)**
 
 ## Related In This Repo
 

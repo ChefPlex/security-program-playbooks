@@ -23,6 +23,7 @@ Companion to [infrastructure-program-playbooks](https://github.com/ChefPlex/infr
 | [Encryption Program Playbook](encryption-program-playbook.md) | How to run encryption modernization across a large distributed estate, in ten steps. Sizing the problem before remediating anything, why finding owners stalls programs more than finding services, coverage work versus currency work, the concentration trap that makes a schedule serial when the plan looks parallel, the standing escalation deal, certificate chain desync, and how to close honestly at diminishing returns rather than at 100 percent. Companion piece: [Lessons from Leading Large-Scale Encryption Programs](https://github.com/ChefPlex/learning-notes/blob/main/lessons-from-large-scale-encryption-programs.md) in learning-notes. |
 | [Compliance Program Playbook](compliance-program-playbook.md) | How to run a compliance program - SOX, PCI, HIPAA, FedRAMP, SOC 2 - from initial assessment through audit close. Control mapping, evidence collection, working with GRC, pre-audit readiness, and handling audit findings. |
 | [Required Control Rollout Playbook](required-control-rollout-playbook.md) | How to land a security control that every existing customer must adopt or be blocked. Sequencing by risk (highest-risk and free accounts first, largest accounts last), customer communication waves on a fixed lead time, warning mode before enforcement, exceptions with an expiry date, holding published enforcement dates, support load, and measuring adoption from system state. |
+| [Cyber Incident Management Playbook](cyber-incident-playbook.md) | The incident commander's view: first-hour actions from detection to the first executive brief, then the full six-phase lifecycle from Detect & Classify through Sustain & Exercise, with the standing decision rules. Use it beside the Incident Response Template, which sequences the response team's tasks. |
 | [Incident Tabletop Exercise Kit](incident-tabletop-exercise-kit.md) | A tabletop exercise to run beside the Incident Response Template: scope and testable objectives, roles, a ransomware scenario with timed injects, a facilitator script, the evidence package an auditor will ask for, and an after-action report format. |
 
 ### AI and Retrieval Systems
@@ -31,7 +32,7 @@ AI security coverage lives here, in the RAG folder and the AI tooling reference 
 
 | Playbook | What It Is |
 |----------|-----------|
-| [Enterprise RAG Security](enterprise-rag-security/) | The security workstream for a system that answers questions using company data on behalf of a specific person. Trust boundary on both the document and structured-data paths, permission-aware retrieval, the control set, deterministic enforcement and denial telemetry, the six failure modes that actually happen, and a prompt injection threat model covering authority between agents, with a test corpus you can run in CI. The program these sit inside is in [tpm-templates](https://github.com/ChefPlex/tpm-templates/tree/main/enterprise-rag-program). |
+| [Enterprise RAG Security](enterprise-rag-security/) | The security workstream for a system that answers questions using company data on behalf of a specific person. Trust boundary on both the document and structured-data paths, permission-aware retrieval, the control set, deterministic enforcement and denial telemetry, the six failure modes that actually happen, and a prompt injection threat model covering authority between agents, with a test corpus you can run in CI. The program these sit inside is in [ai-automations](https://github.com/ChefPlex/ai-automations/tree/main/ai-programs/enterprise-rag-program). |
 
 ### Reference Material
 
@@ -65,7 +66,7 @@ because a list said they were coming.
 
 **New to security TPM work:** Read the Role Guide first. It explains what the job requires and where security programs differ from general TPM work. Then read the Intake Guide to understand how to structure programs in this domain.
 
-**Running an incident:** The Incident Response Template gives you the sequence and the key questions for each phase. The sample escalation shows what good communication looks like under pressure. Read both before you need them, not during.
+**Running an incident:** The Cyber Incident Management Playbook is for whoever commands the incident. The Incident Response Template gives the response team the sequence and the key questions for each phase. The sample escalation shows what good communication looks like under pressure. Read both before you need them, not during.
 
 **Testing the incident plan:** Run the Tabletop Exercise Kit against the Incident Response Template at least once a year, and decide what goes in the evidence package before the session.
 
