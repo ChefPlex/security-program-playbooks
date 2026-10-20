@@ -137,7 +137,7 @@ Each phase gives the IC's command work, then the response team's tasks inside it
   - What type of incident is this - intrusion, malware, abuse, physical theft, denial of service, other?
   - If equipment was lost or stolen, can the data be wiped remotely?
   - Has a report been made - or should one be made - to law enforcement, insurance carriers, or card associations?
-- Set the response priority at the highest that applies: **Priority 1, threat to sensitive data** (Confidential, PII, Company Individual) or **Priority 2, threat to systems** (active intrusion, malware or worm, denial of service, unauthorized system use, physical theft or loss).
+- Set the response priority at the highest that applies: **Priority 1, threat to sensitive data** (Confidential, PII, Internal Personal) or **Priority 2, threat to systems** (active intrusion, malware or worm, denial of service, unauthorized system use, physical theft or loss).
 - **Open the incident ticket.** The ticket is the record of record from this point forward. Minimum fields are in [Reference](#incident-ticket).
 - **Ask Legal about privilege.** Legal decides whether outside forensic firms are engaged through counsel, and how findings are documented, so that privilege is preserved where it can be. Settle this before the forensic work starts, not after the report exists.
 - Designate a point person to review contracts, insurance policies, and service agreements that may be affected, and one to coordinate with regulators, law enforcement, and card associations if applicable. Decide whether and when to notify insurance carriers and law enforcement.
@@ -281,7 +281,7 @@ Know what data is at risk before you decide how to respond and who to notify. Th
 
 - **Public** - Information that is already a matter of public record or knowledge. Exposure has no legal or regulatory consequence.
 - **Personally Identifiable Information (PII)** - Name combined with any of: Social Security Number, government ID number, financial account number, health or medical information. Also a username or email address combined with a password or security question and answer that would permit access to an online account. Under California's breach law (Cal. Civ. Code 1798.82(h)(2)) that alone is notifiable personal information; check other states with Legal. Exposure triggers legal notification obligations in most jurisdictions. Legal review required immediately.
-- **Company Individual Information** - Information whose exposure, regardless of law or regulation, would damage the organization's reputation or operations: email addresses on their own, internal contact information, employee records.
+- **Internal Personal Information** - Information whose exposure, regardless of law or regulation, would damage the organization's reputation or operations: email addresses on their own, internal contact information, employee records.
 - **Confidential** - Information not to be released outside the company: financial data, proprietary data, trade secrets, intellectual property, strategic plans.
 
 ### Who Gets Notified
