@@ -150,25 +150,25 @@ Run an internal readiness review at least one full cycle before the real audit, 
 
 ## Step 7: Audit Findings and Close-Out
 
-Findings from the audit itself are handled differently depending on severity and whether they threaten certification.
+Findings from the audit itself are handled differently depending on severity and whether they threaten the outcome: a clean SOC 2 opinion (an attestation, not a certification), an ISO certificate, or an authorization.
 
 ### Finding response
 
 | Finding Type | Response |
 |-------------|----------|
-| Minor - does not threaten certification | Remediation plan with date, tracked to close |
-| Major - threatens certification | Immediate escalation to executive sponsor, expedited remediation |
+| Minor - does not threaten the outcome | Remediation plan with date, tracked to close |
+| Major - threatens the outcome (a qualified opinion, a nonconformity that blocks certification) | Immediate escalation to executive sponsor, expedited remediation |
 | Observation - not a formal finding but noted | Document response, no formal remediation required unless recurring |
 
 ### Close-out
 
-Certification or audit sign-off isn't the end of the program if the framework requires ongoing compliance (as most do). At close-out:
+The report, certificate or audit sign-off isn't the end of the program if the framework requires ongoing compliance (as most do). At close-out:
 
 - Document what evidence collection needs to become steady-state operations rather than a program activity
 - Transfer control ownership from the program to whoever will maintain it long-term
 - Set the calendar for the next audit cycle now, not when it's six weeks away
 
-A compliance program that ends at certification and has no owner for the next cycle will be starting from scratch again next year.
+A compliance program that ends at the report and has no owner for the next cycle will be starting from scratch again next year.
 
 ---
 

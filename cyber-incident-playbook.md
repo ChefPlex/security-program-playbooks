@@ -31,7 +31,7 @@ The instinct to fully understand an incident before notifying is understandable 
 
 **Work product: IC Appointment Note** - one line: who is IC, who is deputy, what channel is single source of truth.
 
-Notify the response team as soon as the incident is identified and initially scoped. Do not wait for confirmation of all facts. If it turns out to be a false positive, a quick all-clear is a better outcome than a delayed response to a real one. **For Critical (Sev1), open a bridge within one hour of notification, at any hour. For High (Sev2+), convene within 24 hours.** Who gets notified is in [Reference](#who-gets-notified).
+Notify the response team as soon as the incident is identified and initially scoped. Do not wait for confirmation of all facts. If it turns out to be a false positive, a quick all-clear is a better outcome than a delayed response to a real one. **For Critical (Sev1), open a bridge within one hour of notification, at any hour. For High (Sev2+), convene the same day, within hours, and sooner if a reporting clock in scope is shorter.** Who gets notified is in [Reference](#who-gets-notified).
 
 **Use an out-of-band channel.** If email, chat, or the identity provider may be compromised, the attacker may be reading the response. Agree the backup channel (a separate chat workspace, a phone bridge, personal devices) before an incident, and move to it whenever a core collaboration or identity system is in scope.
 
@@ -113,7 +113,7 @@ Each phase gives the IC's command work, then the response team's tasks inside it
 **Response team tasks**
 - Identify what happened and which [category](#incident-categories) it falls into, and [who noticed it](#who-noticed-it).
 - Assign the initial [severity](#severity-levels). It is the best guess under incomplete information, not a commitment; review and adjust as facts emerge.
-- Compile everything known before notifying, and send the initial notification.
+- Send the initial notification with what is known now, and correct it as facts emerge.
 - If this is a theft or physical loss, notify Facilities as well.
 
 ### Phase 2 - Orient & Scope
@@ -121,7 +121,7 @@ Each phase gives the IC's command work, then the response team's tasks inside it
 |:---|:---|
 | **Objective** | Establish what's known vs assumed; bound the problem |
 | **IC actions** | Build KFAU, define in/out of scope, identify attack surfaces and linked systems, preserve evidence before containment changes it, bring in legal early so privilege decisions are made up front |
-| **Deliverables** | KFAU table, Scope Statement, Systems/Users Impacted tracker (CIMTK grid), incident ticket |
+| **Deliverables** | KFAU table, Scope Statement, Systems/Users Impacted tracker (system, owner, status, last seen; the CIMTK grid if you use it), incident ticket |
 | **Exit criteria** | Scope statement exists and is defensible to execs and legal |
 
 **Response team tasks**
@@ -137,12 +137,12 @@ Each phase gives the IC's command work, then the response team's tasks inside it
   - What type of incident is this - intrusion, malware, abuse, physical theft, denial of service, other?
   - If equipment was lost or stolen, can the data be wiped remotely?
   - Has a report been made - or should one be made - to law enforcement, insurance carriers, or card associations?
-- Categorize into the highest applicable level: **Category 1, threat to sensitive data** (Confidential, PII, Company Individual, Public) or **Category 2, threat to systems** (active intrusion, malware or worm, denial of service, unauthorized system use, physical theft or loss).
+- Set the response priority at the highest that applies: **Priority 1, threat to sensitive data** (Confidential, PII, Company Individual) or **Priority 2, threat to systems** (active intrusion, malware or worm, denial of service, unauthorized system use, physical theft or loss).
 - **Open the incident ticket.** The ticket is the record of record from this point forward. Minimum fields are in [Reference](#incident-ticket).
 - **Ask Legal about privilege.** Legal decides whether outside forensic firms are engaged through counsel, and how findings are documented, so that privilege is preserved where it can be. Settle this before the forensic work starts, not after the report exists.
 - Designate a point person to review contracts, insurance policies, and service agreements that may be affected, and one to coordinate with regulators, law enforcement, and card associations if applicable. Decide whether and when to notify insurance carriers and law enforcement.
 - **Determine the scope:** confirm the point of entry · determine intent (targeted or opportunistic) · identify every compromised system · identify the files accessed and their classification · check whether the attack differs from the initial assessment · report findings to the response team periodically throughout.
-- **Contain the damage, evidence first.** Preserve all logs, reports, and data associated with the affected systems, and image affected portions before any modification. The state of the system at the time of the incident is evidence - protect it before doing anything else. Then isolate the affected portion: disconnect from external sources, take affected services offline, block specific access paths, prevent lateral spread. Determine the points of access used and whether data was extracted from or uploaded to the system, and block further access through those points. Do not skip containment to get to remediation faster; remediating an uncontained incident is a losing exercise. See [where the two sources differ](#where-the-two-sources-differ) on when containment happens.
+- **Contain the damage without destroying the evidence.** The state of the system at the time of the incident is evidence. If exfiltration or spread is active, isolate at the network straight away - disconnect from external sources, block specific access paths, prevent lateral spread - while capturing volatile evidence (memory, active connections, running processes, logs) at the same time. Isolating at the network does not change the system; powering it off, wiping or rebuilding it does. Preserve all logs, reports, and data associated with the affected systems, and take full images before anything is rebuilt or modified. Determine the points of access used and whether data was extracted from or uploaded to the system, and block further access through those points. Do not skip containment to get to remediation faster; remediating an uncontained incident is a losing exercise. See [where the two sources differ](#where-the-two-sources-differ) on when containment happens.
 - **For lost or stolen equipment:** determine what data was on it, remotely wipe if possible, document or recreate what was on it, and notify law enforcement.
 - Obtain copies of all reports and investigative documents from any involved vendors or service providers, and of the insurance contracts covering them.
 
@@ -233,10 +233,10 @@ The SANS-based command structure and the enterprise response template agree on a
 | Topic | SANS / Incident Commander view | Enterprise response template view | What to do |
 |:---|:---|:---|:---|
 | **Severity scale** | Low / Medium / High / Critical, driven by evidence and data impact: attacker contact plus possible exfiltration defaults to High, confirmed customer or regulated data or lateral movement makes it Critical | Sev3 / Sev2 / Sev2+ / Sev1, driven by blast radius: a sub-component, one system, one system that could spread, all systems | They map roughly Low = Sev3, Medium = Sev2, High = Sev2+, Critical = Sev1, but they measure different things. Pick one scale for your organization. When the two would give different answers, use the higher |
-| **When containment happens** | Evidence is preserved in Orient & Scope; containment and eradication are directed together in Counter-Compromise & Remediate | Containment sits inside the data-exposure investigation, before remediation starts: "do not skip containment to get to remediation faster" | Both agree on evidence first. Isolate as soon as evidence is preserved, during scoping, if waiting would let the damage spread; leave eviction and eradication for Phase 5. Weigh whether containing will alert the attacker |
+| **When containment happens** | Evidence is preserved in Orient & Scope; containment and eradication are directed together in Counter-Compromise & Remediate | Containment sits inside the data-exposure investigation, before remediation starts: "do not skip containment to get to remediation faster" | Both agree evidence must survive containment. When damage is spreading, isolate at the network during scoping, capturing volatile evidence at the same time, and image before anything is rebuilt; leave eviction and eradication for Phase 5. Weigh whether containing will alert the attacker |
 | **Who leads** | An Incident Commander commands: priorities, decisions, communications | The response team (the CSIRT, Computer Security Incident Response Team) "takes lead" on the investigation | Name both. The IC owns the command decisions and the exec line; the response team lead owns the technical investigation |
 | **The record** | The incident record or channel is the single source of truth | The incident ticket is the record of record from the moment the team takes lead | Use the ticket as the record and the channel as the live working space, and say so in the IC Appointment Note |
-| **Phase names** | Detect & Classify · Orient & Scope · Plan & Direct · Communicate · Counter-Compromise & Remediate · Sustain & Exercise | Identification & initial level setting · Team notification · Team takes lead · Data exposure investigated · Fix and communicate · Follow-up | This playbook uses the SANS names. The template's steps are folded into them: identification and notification into Phase 1, taking the lead and the investigation into Phase 2, fix into Phase 5, communicate into Phase 4, follow-up into Phase 6 |
+| **Phase names** | Detect & Classify · Orient & Scope · Plan & Direct · Communicate · Counter-Compromise & Remediate · Sustain & Exercise | Identification & initial level setting · Team notification · Team takes lead · Data exposure investigated · Fix and communicate · Follow-up | This playbook uses the IC-side phase names, drawn from the SANS course. The template's steps are folded into them: identification and notification into Phase 1, taking the lead and the investigation into Phase 2, fix into Phase 5, communicate into Phase 4, follow-up into Phase 6 |
 
 ---
 
@@ -249,7 +249,7 @@ Set severity at identification. Review and adjust as facts emerge - the initial 
 | Level | Scope | Example | Convene |
 |:---|:---|:---|:---|
 | **Critical / Sev1** | All systems or applications affected, or potential for broad impact | Active intrusion across multiple systems, confirmed PII breach at scale | Bridge within 1 hour, any hour |
-| **High / Sev2+** | Contained to one system or application but with potential to spread | Confirmed unauthorized access to one service with adjacent risk | Within 24 hours |
+| **High / Sev2+** | Contained to one system or application but with potential to spread | Confirmed unauthorized access to one service with adjacent risk | Same day, within hours |
 | **Medium / Sev2** | Contained to one system or application | Isolated unauthorized access, single system compromise | |
 | **Low / Sev3** | Contained to a portion or sub-component of one system | Minor anomaly, no confirmed data access, no spread risk | |
 
@@ -306,7 +306,7 @@ Legal owns the determination. The IC's job is to make sure the clocks are known 
 | SEC Form 8-K Item 1.05 | US public companies | Generally 4 business days after determining an incident is material. Name who makes the materiality call | [SEC 2023-139](https://www.sec.gov/newsroom/press-releases/2023-139) |
 | GDPR Art. 33 | Controllers of EU personal data | Supervisory authority within 72 hours of becoming aware, where feasible | [GDPR Art. 33](https://gdpr-info.eu/art-33-gdpr/) |
 | NIS2 | EU essential and important entities | Early warning 24 hours from becoming aware; notification 72 hours; final report one month later | [Commission NIS2 FAQ](https://digital-strategy.ec.europa.eu/en/faqs/directive-measures-high-common-level-cybersecurity-across-union-nis2-directive-faqs) |
-| DORA | EU financial entities | Initial notification 4 hours after classifying as major and no later than 24 hours after becoming aware of the incident; intermediate 72 hours; final one month | [EBA](https://www.eba.europa.eu/activities/single-rulebook/regulatory-activities/operational-resilience/joint-technical-standards-major-incident-reporting) |
+| DORA | EU financial entities | Initial notification 4 hours after classifying as major and no later than 24 hours after becoming aware of the incident; intermediate report 72 hours after the initial notification; final one month | [EBA](https://www.eba.europa.eu/activities/single-rulebook/regulatory-activities/operational-resilience/joint-technical-standards-major-incident-reporting) |
 | EU Cyber Resilience Act | Manufacturers of digital products sold in the EU, from September 11, 2026 | Actively exploited vulnerability or severe incident: early warning 24 hours; notification 72 hours; final report 14 days after a fix (vulnerability) or one month (incident) | [Commission CRA reporting](https://digital-strategy.ec.europa.eu/en/policies/cra-reporting) |
 | HIPAA Breach Notification | Covered entities and business associates | Individuals without unreasonable delay, no later than 60 days after discovery. HHS at the same time for 500 or more; annually for fewer than 500. Prominent media outlets on the same 60-day clock when more than 500 residents of one state or jurisdiction are affected | [45 CFR 164.404](https://www.law.cornell.edu/cfr/text/45/164.404), [164.406](https://www.law.cornell.edu/cfr/text/45/164.406), [164.408](https://www.law.cornell.edu/cfr/text/45/164.408) |
 | NYDFS 23 NYCRR 500.17 | NYDFS-regulated entities | 72 hours after determining a cybersecurity incident occurred; extortion payment notice within 24 hours, with a written explanation within 30 days | [23 NYCRR 500.17](https://www.law.cornell.edu/regulations/new-york/23-NYCRR-500.17) |
@@ -361,7 +361,7 @@ Every incident has a ticket from Phase 2 onward. It extends the Incident Classif
 ### Standing Decision Rules
 - **Notify early, in both directions.** Notify the response team with what you know. Notify external parties - customers, regulators - on the timeline required by law, not when you feel ready.
 - **Treat a suspected incident as real until you can confirm otherwise.** A false positive that was treated seriously is a training exercise. A real incident treated as a false positive is a crisis.
-- **Image first. Fix second. Always.** The single most common mistake in incident response is modifying systems before preserving evidence.
+- **Preserve before you change.** The single most common mistake in incident response is modifying systems before preserving evidence. Network isolation is not a modification; a reboot, a wipe or a rebuild is. Image before you rebuild.
 - **Legal is in the room from the start if PII is in scope.** The GDPR clock starts at awareness, not when every detail is confirmed and not at resolution.
 - Don't rush to pay ransom/extortion demands - payment doesn't guarantee an outcome or deletion. Check sanctions exposure and involve legal and law enforcement before any payment discussion (US: [OFAC ransomware advisory, September 2021](https://ofac.treasury.gov/media/912981/download))
 - Default to consequence-based decisions: frame every technical fact in terms of data loss, downtime, or reputational exposure before it reaches execs

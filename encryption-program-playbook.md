@@ -47,9 +47,7 @@ is very hard to unwind once it has been reported upward.
 
 ### Expect several programs, not one
 
-At scale this is not a single effort. Encryption in transit and encryption at rest are related but
-separately scoped, with different owners, different failure modes and different definitions of
-done. **Running them as one program produces a status report nobody can act on.**
+At scale this is not a single effort; Step 3 explains why the work splits into separate programs.
 
 ## Step 2: Finding the services is easy. Finding who owns them is the work.
 
@@ -409,8 +407,9 @@ program should count services on automated renewal the same way it counts covera
 
 One related change: the [Chrome Root Program](https://googlechrome.github.io/chromerootprogram/crp/policy)
 requires public TLS hierarchies to be dedicated to server authentication and is phasing out the
-client authentication purpose starting June 15, 2026. **Issue mTLS client certificates from a
-private CA**, not a public one.
+client authentication purpose: subordinate CAs disclosed from June 15, 2026 must be server-only,
+and public subscriber certificates issued from March 15, 2027 may assert server authentication
+only. **Issue mTLS client certificates from a private CA**, not a public one.
 
 
 ## Step 8: Rollout, and what actually breaks
