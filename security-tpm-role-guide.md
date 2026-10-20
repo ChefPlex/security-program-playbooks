@@ -18,7 +18,7 @@ That sounds like a clean division. In practice it requires the TPM to be technic
 Charter, milestones, Definition of Done, work breakdown, schedule. The TPM builds the plan and holds the team to it - adjusting when reality diverges from the plan, escalating when it diverges too far.
 
 **Risk and dependency management**
-Security programs touch more teams and carry more compliance weight than most. The RAID log is not optional here. Dependencies need to be mapped before work starts. Risks need owners and mitigation plans before they become issues.
+Security programs touch more teams and carry more compliance weight than most. Start the RAID log on day one here. Dependencies need to be mapped before work starts. Risks need owners and mitigation plans before they become issues.
 
 **Stakeholder communications**
 Two audiences, different needs. Engineering teams need operational detail - blockers, decisions, dependencies. Executive stakeholders need signal - are we achieving the security objective, what is the risk exposure, what do we need from them. The TPM manages both.
