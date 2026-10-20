@@ -5,7 +5,7 @@ actually block you, and how to end it honestly.**
 
 Written from running encryption modernization at scale - coverage from roughly 10 percent to 80
 percent plus across 300+ distributed services, 100+ engineering teams and 10+ cloud environments,
-plus a TLS upgrade program that ran twice and key lifecycle work on hardware security modules.
+plus a TLS upgrade program that ran twice, first from TLS 1.0 to 1.1/1.2, then from 1.1 to 1.2/1.3, and key lifecycle work on hardware security modules.
 
 Companion piece: [Lessons from Leading Large-Scale Encryption Programs](https://github.com/ChefPlex/learning-notes/blob/main/lessons-from-large-scale-encryption-programs.md)
 in learning-notes. **This is how to run one. That is what nobody tells you.**
@@ -515,3 +515,7 @@ with a name on it.**
 **Keeping a program manager on a tail that doesn't need one is its own kind of failure.** When the
 remaining work no longer justifies coordination, the coordination should stop. Reading that moment
 correctly, and saying so rather than defending headcount, is part of running the program well.
+
+---
+
+*Part of the [ChefPlex TPM portfolio](https://github.com/ChefPlex/tpm-templates/blob/main/PORTFOLIO-GUIDE.md). Maintained by [Eric White](https://www.linkedin.com/in/edwhite). Licensed under [CC BY 4.0](LICENSE).*

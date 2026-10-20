@@ -2,9 +2,9 @@
 
 A security program that starts with a vague scope is a security program that will fight about scope for its entire life.
 
-This example shows what a weak intake looks like, what a better one looks like, and why the difference matters.
+This example shows what an unknown intake looks like, what an actionable one looks like, and why the difference matters.
 
-## Weak Intake
+## Unknown Intake
 
 **We need to complete encryption work for compliance.**
 
@@ -16,7 +16,7 @@ The engineering team has no idea what to build. The GRC team has no idea what ev
 
 This is not a program intake. It is a note that someone is anxious about compliance.
 
-## Better Intake
+## Actionable Intake
 
 | Field | Entry |
 |---|---|

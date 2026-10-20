@@ -256,3 +256,5 @@ treat a tabletop that finds nothing as a sign the injects were too easy.
 ---
 
 *Version 1.0. Last reviewed October 2026. Propose changes via pull request.*
+
+*Part of the [ChefPlex TPM portfolio](https://github.com/ChefPlex/tpm-templates/blob/main/PORTFOLIO-GUIDE.md). Maintained by [Eric White](https://www.linkedin.com/in/edwhite). Licensed under [CC BY 4.0](LICENSE).*

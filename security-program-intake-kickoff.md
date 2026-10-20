@@ -89,3 +89,5 @@ The scope is often not known at the start, new findings arrive while old ones ar
 ---
 
 *Version 1.2. Last reviewed October 2026. Propose changes via pull request.*
+
+*Part of the [ChefPlex TPM portfolio](https://github.com/ChefPlex/tpm-templates/blob/main/PORTFOLIO-GUIDE.md). Maintained by [Eric White](https://www.linkedin.com/in/edwhite). Licensed under [CC BY 4.0](LICENSE).*

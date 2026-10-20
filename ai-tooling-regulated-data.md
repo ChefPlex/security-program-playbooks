@@ -135,3 +135,7 @@ and your compliance function.
 The value here is in **not arriving at that conversation late.** A tool already carrying regulated
 data under no agreement is a remediation project. The same tool, gated before adoption, is a
 five-minute approval.
+
+---
+
+*Part of the [ChefPlex TPM portfolio](https://github.com/ChefPlex/tpm-templates/blob/main/PORTFOLIO-GUIDE.md). Maintained by [Eric White](https://www.linkedin.com/in/edwhite). Licensed under [CC BY 4.0](LICENSE).*

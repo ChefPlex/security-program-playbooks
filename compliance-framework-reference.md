@@ -4,8 +4,6 @@ A quick reference for the compliance frameworks that come up most often in enter
 
 This isn't legal advice and it's not a substitute for your GRC team. When compliance requirements affect your program, engage GRC early. This reference helps you know what questions to ask and understand the answers you get.
 
-*Last reviewed: September 2026; the Digital Services Act entry was added and checked against the Regulation text in October 2026. Dates and figures added or changed in that review were checked against the linked sources. Verify current requirements with your GRC team before acting on any specific compliance claim.*
-
 ---
 
 ## How to Use This Reference
@@ -205,4 +203,6 @@ These come up often enough that a TPM should recognize them and know when to cal
 
 ---
 
-*Version 1.3. Last reviewed October 2026. Frameworks evolve - verify current requirements with your GRC team before relying on any specific compliance claim.*
+*Version 1.3. Last reviewed October 2026. The Digital Services Act entry was added and checked against the Regulation text in October 2026. Dates and figures added or changed in that review were checked against the linked sources. Frameworks evolve - verify current requirements with your GRC team before relying on any specific compliance claim.*
+
+*Part of the [ChefPlex TPM portfolio](https://github.com/ChefPlex/tpm-templates/blob/main/PORTFOLIO-GUIDE.md). Maintained by [Eric White](https://www.linkedin.com/in/edwhite). Licensed under [CC BY 4.0](LICENSE).*

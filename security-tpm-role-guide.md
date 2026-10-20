@@ -120,3 +120,5 @@ A few things that work specifically with security engineers:
 ---
 
 *Version 1.1. Last reviewed September 2026. Propose changes via pull request.*
+
+*Part of the [ChefPlex TPM portfolio](https://github.com/ChefPlex/tpm-templates/blob/main/PORTFOLIO-GUIDE.md). Maintained by [Eric White](https://www.linkedin.com/in/edwhite). Licensed under [CC BY 4.0](LICENSE).*

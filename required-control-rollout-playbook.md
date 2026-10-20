@@ -324,3 +324,5 @@ schedule to be set by wave 3 from the first day.
 ---
 
 *Version 1.0. Last reviewed October 2026. Propose changes via pull request.*
+
+*Part of the [ChefPlex TPM portfolio](https://github.com/ChefPlex/tpm-templates/blob/main/PORTFOLIO-GUIDE.md). Maintained by [Eric White](https://www.linkedin.com/in/edwhite). Licensed under [CC BY 4.0](LICENSE).*
