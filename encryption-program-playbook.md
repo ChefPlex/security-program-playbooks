@@ -488,7 +488,7 @@ every large program hits it.
 ### What actually happens
 
 The program runs up through roughly 80 percent and gets almost everything done. What remains is a
-handful of legacy services where **there's no realistic path to completion**, and the honest move
+long tail of 60-plus legacy services where **there's no realistic path to completion**, and the honest move
 is to **deliberately scope them out** rather than carry them indefinitely.
 
 Then the program ends in the way programs actually end: **the program manager comes off.** Most of
