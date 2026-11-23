@@ -232,11 +232,11 @@ The SANS-based command structure and the enterprise response template agree on a
 
 | Topic | SANS / Incident Commander view | Enterprise response template view | What to do |
 |:---|:---|:---|:---|
-| **Severity scale** | Low / Medium / High / Critical, driven by evidence and data impact: attacker contact plus possible exfiltration defaults to High, confirmed customer or regulated data or lateral movement makes it Critical | Sev3 / Sev2 / Sev2+ / Sev1, driven by blast radius: a sub-component, one system, one system that could spread, all systems | They map roughly Low = Sev3, Medium = Sev2, High = Sev2+, Critical = Sev1, but they measure different things. Pick one scale for your organization. When the two would give different answers, use the higher |
+| **Severity scale** | Low / Medium / High / Critical, driven by evidence and data impact: attacker contact plus possible exfiltration defaults to High, confirmed customer or regulated data or lateral movement makes it Critical | Sev4 / Sev3 / Sev2 / Sev1, driven by blast radius: a sub-component, one system, one system that could spread, all systems | They map roughly Low = Sev4, Medium = Sev3, High = Sev2, Critical = Sev1, but they measure different things. Pick one scale for your organization. When the two would give different answers, use the higher |
 | **When containment happens** | Evidence is preserved in Orient & Scope; containment and eradication are directed together in Counter-Compromise & Remediate | Containment sits inside the data-exposure investigation, before remediation starts: "do not skip containment to get to remediation faster" | Both agree evidence must survive containment. When damage is spreading, isolate at the network during scoping, capturing volatile evidence at the same time, and image before anything is rebuilt; leave eviction and eradication for Phase 5. Weigh whether containing will alert the attacker |
-| **Who leads** | An Incident Commander commands: priorities, decisions, communications | The response team (the CSIRT, Computer Security Incident Response Team) "takes lead" on the investigation | Name both. The IC owns the command decisions and the exec line; the response team lead owns the technical investigation |
-| **The record** | The incident record or channel is the single source of truth | The incident ticket is the record of record from the moment the team takes lead | Use the ticket as the record and the channel as the live working space, and say so in the IC Appointment Note |
-| **Phase names** | Detect & Classify · Orient & Scope · Plan & Direct · Communicate · Counter-Compromise & Remediate · Sustain & Exercise | Identification & initial level setting · Team notification · Team takes lead · Data exposure investigated · Fix and communicate · Follow-up | This playbook uses the IC-side phase names, drawn from the SANS course. The template's steps are folded into them: identification and notification into Phase 1, taking the lead and the investigation into Phase 2, fix into Phase 5, communicate into Phase 4, follow-up into Phase 6 |
+| **Who leads** | An Incident Commander commands: priorities, decisions, communications | The response team (the CSIRT, Computer Security Incident Response Team) owns the investigation | Name both. The IC owns the command decisions and the exec line; the response team lead owns the technical investigation |
+| **The record** | The incident record or channel is the single source of truth | The incident ticket is the record of record from the moment the team takes ownership | Use the ticket as the record and the channel as the live working space, and say so in the IC Appointment Note |
+| **Phase names** | Detect & Classify · Orient & Scope · Plan & Direct · Communicate · Counter-Compromise & Remediate · Sustain & Exercise | Identify and set severity · Notify the response team · Hand ownership to the response team · Investigate data exposure · Remediate and communicate · Follow up | This playbook uses the IC-side phase names, drawn from the SANS course. The template's steps are folded into them: identification and notification into Phase 1, the handover and the investigation into Phase 2, fix into Phase 5, communicate into Phase 4, follow-up into Phase 6 |
 
 ---
 
@@ -249,9 +249,9 @@ Set severity at identification. Review and adjust as facts emerge - the initial 
 | Level | Scope | Example | Convene |
 |:---|:---|:---|:---|
 | **Critical / Sev1** | All systems or applications affected, or potential for broad impact | Active intrusion across multiple systems, confirmed PII breach at scale | Bridge within 1 hour, any hour |
-| **High / Sev2+** | Contained to one system or application but with potential to spread | Confirmed unauthorized access to one service with adjacent risk | Same day, within hours |
-| **Medium / Sev2** | Contained to one system or application | Isolated unauthorized access, single system compromise | |
-| **Low / Sev3** | Contained to a portion or sub-component of one system | Minor anomaly, no confirmed data access, no spread risk | |
+| **High / Sev2** | Contained to one system or application but with potential to spread | Confirmed unauthorized access to one service with adjacent risk | Same day, within hours |
+| **Medium / Sev3** | Contained to one system or application | Isolated unauthorized access, single system compromise | |
+| **Low / Sev4** | Contained to a portion or sub-component of one system | Minor anomaly, no confirmed data access, no spread risk | |
 
 ### Incident Categories
 
@@ -294,7 +294,7 @@ Adapt this list to your organization. At minimum:
 | Legal | Determines notification obligations, reviews all external communications |
 | HR | Involved when employees are affected or implicated |
 | Communications / PR | Owns external messaging when required |
-| Executive sponsor | Informed for Critical and High (Sev1 and Sev2+) events |
+| Executive sponsor | Informed for Critical and High (Sev1 and Sev2) events |
 | Risk Management | Reviews insurance and contract implications |
 
 ### Regulatory Reporting Clocks
