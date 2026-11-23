@@ -31,7 +31,7 @@ The instinct to fully understand an incident before notifying is understandable 
 
 **Work product: IC Appointment Note** - one line: who is IC, who is deputy, what channel is single source of truth.
 
-Notify the response team as soon as the incident is identified and initially scoped. Do not wait for confirmation of all facts. If it turns out to be a false positive, a quick all-clear is a better outcome than a delayed response to a real one. **For Critical (Sev1), open a bridge within one hour of notification, at any hour. For High (Sev2+), convene the same day, within hours, and sooner if a reporting clock in scope is shorter.** Who gets notified is in [Reference](#who-gets-notified).
+Notify the response team as soon as the incident is identified and initially scoped. Do not wait for confirmation of all facts. If it turns out to be a false positive, a quick all-clear is a better outcome than a delayed response to a real one. **For Critical (Sev1), open a bridge within one hour of notification, at any hour. For High (Sev2), convene the same day, within hours, and sooner if a reporting clock in scope is shorter.** Who gets notified is in [Reference](#who-gets-notified).
 
 **Use an out-of-band channel.** If email, chat, or the identity provider may be compromised, the attacker may be reading the response. Agree the backup channel (a separate chat workspace, a phone bridge, personal devices) before an incident, and move to it whenever a core collaboration or identity system is in scope.
 
