@@ -88,7 +88,7 @@ Know which incident reporting clocks apply to your company (SEC Form 8-K Item 1.
 AI systems and AI vendors are now in scope for security programs. Know the EU AI Act risk tiers, the NIST AI Risk Management Framework, and ISO/IEC 42001 well enough to route a new AI use case to the right review, and know the security failure modes specific to AI: prompt injection, data leaking through an assistant, and agents acting beyond their intended permissions.
 
 **Post-quantum and crypto-agility**
-NIST published its first post-quantum cryptography standards in 2024, and the migration off today's public-key algorithms will be a multi-year currency program. Know what an algorithm inventory is, why crypto-agility matters, and how to scope the work. See the [Encryption Program Playbook](encryption-program-playbook.md).
+NIST published its first post-quantum cryptography standards in 2024, and the migration off today's public-key algorithms will be a multi-year currency program. Know what an algorithm inventory is, why crypto-agility matters ([NIST CSWP 39](https://csrc.nist.gov/pubs/cswp/39/upd1/considerations-for-achieving-crypto-agility/final)), and how to scope the work. See the [Encryption Program Playbook](encryption-program-playbook.md).
 
 **Executive communication**
 Security executives are busy and risk-sensitive. They need the bottom line first - are we achieving the objective, what is the risk, what do they need to do. The ability to distill a complex security program into a clear, honest, three-paragraph executive update is more valuable in this role than almost any other skill.
