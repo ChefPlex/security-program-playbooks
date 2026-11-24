@@ -125,7 +125,7 @@ Consequences worth planning around:
   security modules that support the new ones, and a design that can swap algorithms without
   touching every service again (crypto-agility). The inventory from the last currency program is
   the head start. NIST's [Considerations for Achieving Crypto Agility](https://csrc.nist.gov/pubs/cswp/39/upd1/considerations-for-achieving-crypto-agility/final)
-  (CSWP [Cybersecurity White Paper] 39, final 2026) treats it as governance, not only engineering.
+  (CSWP [Cybersecurity White Paper] 39, final December 2025, updated June 2026) treats it as governance, not only engineering.
 - **The drivers are different.** Coverage is driven by risk and baseline. Currency is driven by
   external deprecation timelines and regulation, which means **the deadline is set outside your
   organization and isn't negotiable** - unlike almost everything in Step 5.
@@ -472,7 +472,8 @@ This is the highest-return small investment in the program:
   happens monthly. A script can run continuously, so a regression surfaces in days instead of at the
   next reporting cycle.
 - **It's what makes the dashboard honest.** A dashboard built on self-reporting renders what people
-  believe. A dashboard built on a count renders what is true.
+  believe. A dashboard built on a count renders what the count can see, which is why the
+  denominator needs guarding too.
 - **It feeds the executive view from Step 5.** The bird's-eye picture that lets leadership celebrate
   and unblock is only as good as the data under it, and hand-collected data isn't good enough to
   act on.
@@ -510,6 +511,12 @@ and it meets the bar for what actually needed to get done to get the program out
 legitimate scope reduction and quietly redefining success is entirely whether the decision is made
 explicitly, recorded, and agreed by the people who set the original target. **Make it a decision
 with a name on it.**
+
+⚠️ **Report three numbers, never one.** Coverage against the original scope, coverage against the
+revised scope, and what happens to what was scoped out: who accepted the remaining risk, what
+covers it in the meantime, and who follows up. The revised percentage sits beside the original one.
+It never replaces it. Ending the program is a delivery decision. The leftover exposure still needs
+an owner.
 
 ### The signal that a program is over is organizational, not numerical
 

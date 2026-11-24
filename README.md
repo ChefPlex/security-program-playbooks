@@ -75,7 +75,7 @@ because a list said they were coming.
 
 **Running a compliance program:** Start with the Compliance Program Playbook for how to run the program itself - assessment, control mapping, evidence, audit. Use the Compliance Framework Reference alongside it for what the specific framework actually requires.
 
-**Securing a RAG or AI retrieval system:** Start with the RAG Security Playbook for the trust boundary and control set, then the Prompt Injection Threat Model. Read the injection document before the architecture is settled, because the one control that does the real work is filtering at retrieval, and that's expensive to retrofit.
+**Securing a RAG or AI retrieval system:** Start with the RAG Security Playbook for the trust boundary and control set, then the Prompt Injection Threat Model. Read the injection document before the architecture is settled, because filtering at retrieval is the control that is most expensive to retrofit. It bounds what can leak; egress control and capability separation are what stop authorized data being sent out.
 
 ---
 
