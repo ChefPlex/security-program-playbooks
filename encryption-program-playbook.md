@@ -125,7 +125,7 @@ Consequences worth planning around:
   security modules that support the new ones, and a design that can swap algorithms without
   touching every service again (crypto-agility). The inventory from the last currency program is
   the head start. NIST's [Considerations for Achieving Crypto Agility](https://csrc.nist.gov/pubs/cswp/39/upd1/considerations-for-achieving-crypto-agility/final)
-  (CSWP [Cybersecurity White Paper] 39, final December 2025, updated June 2026) treats it as governance, not only engineering.
+  (CSWP [Cybersecurity White Paper] 39, final December 19, 2025, updated as CSWP 39upd1 on June 29, 2026) treats it as governance, not only engineering.
 - **The drivers are different.** Coverage is driven by risk and baseline. Currency is driven by
   external deprecation timelines and regulation, which means **the deadline is set outside your
   organization and isn't negotiable** - unlike almost everything in Step 5.
